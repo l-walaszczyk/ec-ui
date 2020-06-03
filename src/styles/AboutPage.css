@@ -1,0 +1,60 @@
+section.about-full {
+ padding-top: calc(var(--header-height) + 1rem);
+ padding-bottom: 4rem;
+ background-color: var(--bg-color);
+}
+
+section.about-full hr {
+ width: 20vw;
+ margin-left: 1.5rem;
+ text-align: left;
+ border: 1px solid var(--hr-color);
+}
+
+section.about-full .text-container {
+ margin: 1.5rem;
+}
+
+section.about-full .text-container h3 {
+ margin-bottom: 1rem;
+}
+
+section.about-full .text-container p {
+ line-height: 2rem;
+ margin-bottom: 2rem;
+}
+
+section.about-full div.img-container {
+ margin: 0 3rem;
+}
+
+section.about-full div.img-container img {
+ width: 100%;
+ border: 1px solid var(--dark-color);
+}
+
+section.about-full div.img-container p {
+ font-size: 1.3rem;
+ margin-top: 1rem;
+ text-align: center;
+}
+
+section.see-also {
+ margin: 2rem;
+}
+
+section.see-also h3 {
+ text-align: center;
+ margin: 3rem 0rem;
+}
+
+section.see-also .button-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+section.see-also a.button-typ {
+ margin-bottom: 2rem;
+ width: 30rem;
+}

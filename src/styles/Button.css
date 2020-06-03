@@ -1,0 +1,26 @@
+a.button-typ {
+ display: block;
+ width: fit-content;
+ border: 0.5px solid var(--dark-color);
+ border-radius: 1.1rem 0;
+ font-family: 'Montserrat', sans-serif;
+ font-style: italic;
+ font-weight: normal;
+ font-size: 1.2rem;
+ text-decoration: none;
+ text-align: center;
+ color: inherit;
+ padding: 0.5rem 0;
+ background-color: rgba(255, 255, 255, 0.6);
+}
+
+a.button-typ i {
+ margin-left: 1rem;
+ margin-right: -0.4rem;
+}
+
+a.button-typ span {
+ margin-left: 1rem;
+ margin-right: 1rem;
+ line-height: 1rem;
+}

@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Quicksand:wght@300;400;500&display=swap");
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+:root {
+ --header-height: 65px;
+ --dark-color: #424746;
+ --bg-color: #d5e1df;
+ --hr-color: #a3b8b4;
+ font-size: 10px;
+}
+
+body {
+ font-family: "Montserrat", sans-serif;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ color: var(--dark-color);
+}
+
+h1 {
+ font-family: "Quicksand", sans-serif;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 2rem;
+ font-weight: 400;
+}
+
+h2 {
+ font-family: "Quicksand", sans-serif;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 1.5rem;
+ font-weight: 400;
+}
+
+h3 {
+ font-family: "Quicksand", sans-serif;
+ font-size: 1.7rem;
+ font-weight: 400;
+}
+
+h4 {
+ font-family: "Quicksand", sans-serif;
+ text-transform: uppercase;
+ font-size: 1.4rem;
+ font-weight: 500;
+}
+
+h5 {
+ font-family: "Quicksand", sans-serif;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 1.35rem;
+ line-height: 2rem;
+ font-weight: 400;
+}
+
+p {
+ /* padding: 0 1.2rem; */
+ font-size: 1.4rem;
+}
+
+ul {
+ font-size: 1.4rem;
+}
+
+table {
+ font-size: 1.4rem;
+}
