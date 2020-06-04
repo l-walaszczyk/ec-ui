@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import { Link } from "react-router-dom";
 import smoothscroll from "smoothscroll-polyfill";
 import "../styles/HomePage.css";
 import texts from "../content/texts";
@@ -172,46 +171,6 @@ const HomePage = () => {
               </tr>
             </tbody>
           </table>
-          {/* <address className="row">
-            <i className="fas fa-home"></i>
-            {texts.home.contact.address}
-            </address>
-            <div className="row">
-            <i className="fas fa-id-card"></i>
-            {texts.home.contact.nip}
-            </div>
-            <a
-            className="row"
-            rel="noopener noreferrer"
-            href={`mailto:${texts.home.contact.email}`}
-            >
-            <i className="fas fa-envelope"></i>
-            <p>{texts.home.contact.email}</p>
-            </a>
-            <a
-            className="row"
-            rel="noopener noreferrer"
-            href={`tel:${texts.home.contact.phone}`}
-          >
-            <i className="fas fa-phone-alt"></i>
-            <p>{texts.home.contact.phone}</p>
-          </a>
-          <div className="row">
-            <i className="fas fa-money-bill-wave"></i>
-            {texts.home.contact.account}
-            </div>
-          <a
-          className="row"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com"
-          >
-            <i className="fab fa-facebook-square"></i>
-            <p>
-            Zapraszam także do odwiedzenia{" "}
-            <span>mojego profilu na Facebooku</span>
-            </p>
-           </a> */}
         </div>
         <div className="map-container">
           <iframe
@@ -219,8 +178,8 @@ const HomePage = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2447.138565636422!2d15.837638115794359!3d52.16817407974912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47067a179f4f5ed7%3A0x637fcc5f42fc5581!2sTadeusza%20Ko%C5%9Bciuszki%202%2C%2066-110%20Babimost!5e0!3m2!1spl!2spl!4v1591185959749!5m2!1spl!2spl"
             width="100%"
             height="100%"
-            frameborder="0"
-            allowfullscreen
+            frameBorder="0"
+            allowFullScreen
           ></iframe>
         </div>
       </section>
