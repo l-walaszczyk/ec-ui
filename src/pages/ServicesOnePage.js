@@ -8,7 +8,7 @@ import services1 from "../images/services1.png";
 
 smoothscroll.polyfill();
 
-const Services = () => {
+const ServicesOnePage = () => {
   const pricesRef = React.createRef();
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesOnePage;

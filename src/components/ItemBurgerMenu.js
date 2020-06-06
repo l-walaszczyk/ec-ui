@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/Button.css";
+import "../styles/ItemBurgerMenu.css";
 
-const Button = ({
+const ItemBurgerMenu = ({
   to,
   exact = false,
   handleClick = () => undefined,
@@ -10,7 +10,7 @@ const Button = ({
 }) => {
   return (
     <NavLink
-      className="button-typ"
+      className="menu-item"
       type="button"
       to={to}
       exact={exact}
@@ -21,4 +21,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default ItemBurgerMenu;

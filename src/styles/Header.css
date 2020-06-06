@@ -21,13 +21,3 @@ a.logo {
 a.logo img.logo {
  height: 99%;
 }
-
-#burger {
- display: block;
- width: 15%;
- /* margin-right: 20px; */
- border: none;
- font-size: 30px;
- color: var(--dark-color);
- background-color: transparent;
-}

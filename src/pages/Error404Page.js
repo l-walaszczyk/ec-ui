@@ -1,6 +1,6 @@
 import React from "react";
 
-const SchedulerPage = () => {
+const Error404Page = () => {
   return (
     <main
       style={{
@@ -15,10 +15,10 @@ const SchedulerPage = () => {
           width: "100%",
         }}
       >
-        System rezerwacji w budowie
+        Strona o podanym adresie nie istnieje
       </h1>
     </main>
   );
 };
 
-export default SchedulerPage;
+export default Error404Page;

@@ -4,7 +4,7 @@ import texts from "../content/texts";
 import Button from "../components/Button";
 import certificate from "../images/certificate_small.png";
 
-const About = () => {
+const AboutPage = () => {
   return (
     <main>
       <section className="about-full">
@@ -30,4 +30,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

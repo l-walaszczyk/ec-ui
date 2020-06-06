@@ -8,7 +8,7 @@ import services2 from "../images/services2.png";
 
 smoothscroll.polyfill();
 
-const Services = () => {
+const ServicesTwoPage = () => {
   const pricesRef = React.createRef();
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesTwoPage;

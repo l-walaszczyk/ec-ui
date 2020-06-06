@@ -9,7 +9,7 @@ import equipment from "../images/equipment.jpg";
 
 smoothscroll.polyfill();
 
-const Services = () => {
+const ServicesThreePage = () => {
   const pricesRef = React.createRef();
 
   useEffect(() => {
@@ -66,4 +66,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesThreePage;

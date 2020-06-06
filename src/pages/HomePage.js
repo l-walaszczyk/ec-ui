@@ -19,7 +19,7 @@ const HomePage = () => {
     window.location.href.includes("#contact") &&
       setTimeout(
         () => contactRef.current.scrollIntoView({ behavior: "smooth" }),
-        200
+        250
       );
 
     window.location.href.includes("#home") &&
