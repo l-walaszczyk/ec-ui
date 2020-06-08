@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/logo.svg";
-import "../styles/Header.css";
+import "../styles/Header.scss";
 import "../styles/hamburgers.css";
 import BurgerMenu from "../components/BurgerMenu";
 
@@ -21,8 +21,7 @@ const Header = () => {
           className="logo"
           to="/#home"
           exact
-          onClick={() => toggleBurgerMenu()}
-          // onClick={() => closeDrawerAndMenu()}
+          onClick={() => toggleBurgerMenu(false)}
         >
           <img className="logo" src={logo} alt="Emilia Cwojdzińska - logo" />
         </NavLink>

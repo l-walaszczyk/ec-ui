@@ -1,6 +1,6 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
-import "../styles/BurgerMenu.css";
+import "../styles/BurgerMenu.scss";
 import Button from "../components/Button";
 import ItemBurgerMenu from "../components/ItemBurgerMenu";
 import texts from "../content/texts";

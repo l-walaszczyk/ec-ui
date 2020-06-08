@@ -1,5 +1,5 @@
 import React from "react";
-// import "../styles/PriceList.css";
+// import "../styles/PriceList.scss";
 
 const PriceList = ({ prices }) => {
   const priceListRows = prices.map((item, index) => (

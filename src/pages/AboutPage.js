@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/AboutPage.css";
+import "../styles/AboutPage.scss";
 import texts from "../content/texts";
 import Button from "../components/Button";
 import certificate from "../images/certificate_small.png";

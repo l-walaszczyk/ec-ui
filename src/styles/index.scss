@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Quicksand:wght@300;400;500&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Quicksand:wght@300;400;500&display=swap);
 
 * {
  margin: 0;
@@ -6,17 +6,17 @@
 }
 
 :root {
- --header-height: 65px;
- --dark-color: #424746;
+ --header-height: 55px;
+ --dark-color: #2d3130;
  --bg-color: #d5e1df;
  --hr-color: #a3b8b4;
- font-size: 10px;
+ font-size: 9px;
 }
 
-@media screen and (max-width: 320px) {
+@media (min-width: 360px) {
  :root {
-  --header-height: 50px;
-  font-size: 9px;
+  --header-height: 65px;
+  font-size: 10px;
  }
 }
 
@@ -25,7 +25,6 @@ body {
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
  color: var(--dark-color);
- /* overflow-x: hidden; */
 }
 
 h1 {
@@ -67,7 +66,6 @@ h5 {
 }
 
 p {
- /* padding: 0 1.2rem; */
  font-size: 1.4rem;
 }
 

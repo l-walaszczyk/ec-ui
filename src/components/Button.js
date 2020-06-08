@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/Button.css";
+import "../styles/Button.scss";
 
 const Button = ({
   to,

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import smoothscroll from "smoothscroll-polyfill";
-import "../styles/HomePage.css";
+import "../styles/HomePage.scss";
 import texts from "../content/texts";
 import Button from "../components/Button";
 import portrait from "../images/portrait.png";

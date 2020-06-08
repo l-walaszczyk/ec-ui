@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import smoothscroll from "smoothscroll-polyfill";
-import "../styles/ServicesPage.css";
+import "../styles/ServicesPage.scss";
 import texts from "../content/texts";
 import Button from "../components/Button";
 import PriceList from "../components/PriceList";

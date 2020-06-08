@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/ItemBurgerMenu.css";
+import "../styles/ItemBurgerMenu.scss";
 
 const ItemBurgerMenu = ({
   to,
