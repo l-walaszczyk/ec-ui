@@ -149,6 +149,7 @@ section.see-also {
 
 
   div.description-wrap {
+   width: 100%;
    flex-direction: row;
    align-items: flex-start;
 
@@ -161,7 +162,7 @@ section.see-also {
 
    div.text-container {
     width: 40%;
-    flex-shrink: 1;
+    flex-shrink: 0;
     flex-grow: 0;
     margin: 0;
    }
@@ -179,7 +180,6 @@ section.see-also {
    width: 100%;
    display: flex;
    flex-direction: row-reverse;
-   // justify-content: center;
    align-items: center;
 
    div.img-container {
