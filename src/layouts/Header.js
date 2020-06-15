@@ -1,51 +1,21 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../images/logo.svg";
-import "../styles/Header.scss";
-import "../styles/hamburgers.css";
-import BurgerMenu from "../components/BurgerMenu";
+import React, { useState, useEffect } from "react";
+import HeaderMobile from "../components/HeaderMobile";
+import HeaderDesktop from "../components/HeaderDesktop";
 
 const Header = () => {
-  const [burgerMenuOpen, toggleBurgerMenu] = useState(false);
-  const [drawerOpen, toggleDrawer] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
-  // const closeDrawerAndMenu = () => {
-  //   toggleBurgerMenu(false);
-  //   toggleDrawer(false);
-  // };
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-  return (
-    <>
-      <header>
-        <NavLink
-          className="logo"
-          to="/#home"
-          exact
-          onClick={() => toggleBurgerMenu(false)}
-        >
-          <img className="logo" src={logo} alt="Emilia Cwojdzińska - logo" />
-        </NavLink>
-        <button
-          className={`hamburger hamburger--squeeze ${
-            burgerMenuOpen && "is-active"
-          }`}
-          type="button"
-          onClick={() => toggleBurgerMenu(!burgerMenuOpen)}
-        >
-          <span className="hamburger-box">
-            <span className="hamburger-inner"></span>
-          </span>
-        </button>
-      </header>
-      <BurgerMenu
-        burgerMenuOpen={burgerMenuOpen}
-        toggleBurgerMenu={toggleBurgerMenu}
-        drawerOpen={drawerOpen}
-        toggleDrawer={toggleDrawer}
-        // closeDrawerAndMenu={closeDrawerAndMenu}
-      />
-    </>
-  );
+  return width < 1024 ? <HeaderMobile /> : <HeaderDesktop />;
 };
 
 export default Header;

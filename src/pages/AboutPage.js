@@ -8,14 +8,16 @@ const AboutPage = () => {
   return (
     <main>
       <section className="about-full">
-        <div className="text-container">
-          <h3>Mgr Emilia Cwojdzińska</h3>
-        </div>
+        {/* <div className="text-container"> */}
+        <h3>Mgr Emilia Cwojdzińska</h3>
+        {/* </div> */}
         <hr />
-        <div className="text-container">{texts.about.about}</div>
-        <div className="img-container">
-          <img src={certificate} alt="" />
-          {texts.about.caption}
+        <div className="about-wrap">
+          <div className="text-container">{texts.about.about}</div>
+          <div className="img-container">
+            <img src={certificate} alt="" />
+            {texts.about.caption}
+          </div>
         </div>
       </section>
       <section className="see-also">

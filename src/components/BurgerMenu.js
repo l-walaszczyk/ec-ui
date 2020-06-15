@@ -2,7 +2,7 @@ import React from "react";
 import { CSSTransition } from "react-transition-group";
 import "../styles/BurgerMenu.scss";
 import Button from "../components/Button";
-import ItemBurgerMenu from "../components/ItemBurgerMenu";
+import MenuItem from "../components/MenuItem";
 import texts from "../content/texts";
 
 const BurgerMenu = ({
@@ -16,21 +16,21 @@ const BurgerMenu = ({
     <CSSTransition
       in={burgerMenuOpen}
       classNames="burger-menu-transition"
-      timeout={200}
+      timeout={250}
       mountOnEnter
       unmountOnExit
     >
-      <nav>
+      <nav className="burger-menu">
         <ul>
           <li>
-            <ItemBurgerMenu to="/#home" exact handleClick={toggleBurgerMenu}>
+            <MenuItem to="/#home" exact handleClick={toggleBurgerMenu}>
               Home
-            </ItemBurgerMenu>
+            </MenuItem>
           </li>
           <li>
-            <ItemBurgerMenu to="/about" handleClick={toggleBurgerMenu}>
+            <MenuItem to="/about" handleClick={toggleBurgerMenu}>
               O mnie
-            </ItemBurgerMenu>
+            </MenuItem>
           </li>
           <li>
             <button
@@ -43,43 +43,39 @@ const BurgerMenu = ({
             </button>
             <CSSTransition
               in={drawerOpen}
-              classNames="menu-drawer-transition"
+              classNames="burger-submenu-transition"
               timeout={250}
               mountOnEnter
               unmountOnExit
             >
               <ul>
                 <li>
-                  <ItemBurgerMenu
-                    to="/services1"
-                    handleClick={toggleBurgerMenu}
-                  >
+                  <MenuItem to="/services1" handleClick={toggleBurgerMenu}>
                     {texts.services.titles.one}
-                  </ItemBurgerMenu>
+                  </MenuItem>
                 </li>
                 <li>
-                  <ItemBurgerMenu
-                    to="/services2"
-                    handleClick={toggleBurgerMenu}
-                  >
+                  <MenuItem to="/services2" handleClick={toggleBurgerMenu}>
                     {texts.services.titles.two}
-                  </ItemBurgerMenu>
+                  </MenuItem>
                 </li>
                 <li>
-                  <ItemBurgerMenu
-                    to="/services3"
-                    handleClick={toggleBurgerMenu}
-                  >
+                  <MenuItem to="/services3" handleClick={toggleBurgerMenu}>
                     {texts.services.titles.three}
-                  </ItemBurgerMenu>
+                  </MenuItem>
                 </li>
               </ul>
             </CSSTransition>
           </li>
           <li>
-            <ItemBurgerMenu to="/#contact" handleClick={toggleBurgerMenu}>
+            <MenuItem to="/downloads" handleClick={toggleBurgerMenu}>
+              Materiały do pobrania
+            </MenuItem>
+          </li>
+          <li>
+            <MenuItem to="/#contact" handleClick={toggleBurgerMenu}>
               Kontakt
-            </ItemBurgerMenu>
+            </MenuItem>
           </li>
           <li>
             <Button to="/scheduler" handleClick={toggleBurgerMenu}>

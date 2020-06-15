@@ -29,10 +29,14 @@ const ServicesTwoPage = () => {
             <span>Umów spotkanie</span>
           </Button>
         </div>
-        <div className="img-container">
-          <img src={services2} alt="" />
+        <div className="description-wrap">
+          <div className="img-container">
+            <img src={services2} alt="" />
+          </div>
+          <div className="text-container">
+            {texts.services.descriptions.two.extended}
+          </div>
         </div>
-        <div className="description">{texts.services.descriptions.two}</div>
         <hr />
         <div className="prices" ref={pricesRef}>
           <h2>Cennik</h2>

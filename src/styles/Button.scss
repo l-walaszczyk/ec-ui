@@ -6,7 +6,7 @@ a.button-typ {
  font-family: 'Montserrat', sans-serif;
  font-style: italic;
  font-weight: normal;
- font-size: 1.2rem;
+ font-size: 1.25rem;
  text-decoration: none;
  text-align: center;
  color: inherit;
@@ -24,6 +24,11 @@ a.button-typ {
  i {
   margin-left: 1rem;
   margin-right: -0.4rem;
+
+  &+span {
+   font-family: 'Quicksand', sans-serif;
+   font-weight: 500;
+  }
  }
 
  span {

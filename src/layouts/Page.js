@@ -5,6 +5,7 @@ import About from "../pages/AboutPage";
 import ServicesOne from "../pages/ServicesOnePage";
 import ServicesTwo from "../pages/ServicesTwoPage";
 import ServicesThree from "../pages/ServicesThreePage";
+import Downloads from "../pages/DownloadsPage";
 import Scheduler from "../pages/SchedulerPage";
 import Error404Page from "../pages/Error404Page";
 
@@ -16,6 +17,7 @@ const Page = () => {
       <Route path="/services1" exact component={ServicesOne} />
       <Route path="/services2" exact component={ServicesTwo} />
       <Route path="/services3" exact component={ServicesThree} />
+      <Route path="/downloads" exact component={Downloads} />
       <Route path="/scheduler" exact component={Scheduler} />
       <Route component={Error404Page} />
     </Switch>

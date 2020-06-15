@@ -6,11 +6,8 @@ import Footer from "./Footer";
 import ScrollToTop from "../components/ScrollToTop";
 
 function App() {
-  // console.log(process.env.PUBLIC_URL);
-
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      {/* <Router> */}
       <ScrollToTop />
       <Header />
       <Page />

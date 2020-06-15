@@ -1,0 +1,126 @@
+header.desktop {
+ position: fixed;
+ z-index: 10;
+ top: 0;
+ left: 0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width: 100%;
+ height: var(--header-height);
+ background-color: rgba(255, 255, 255, 0.9);
+
+ a.logo {
+  display: flex;
+  align-items: center;
+  height: calc(0.7 * var(--header-height));
+  margin-left: 2.5vw;
+
+  img.logo {
+   height: 99%;
+  }
+ }
+
+ nav.desktop-menu {
+  width: 65%;
+  margin-right: 2.5vw;
+  height: 100%;
+
+  ul {
+   display: flex;
+   align-items: center;
+   height: 100%;
+
+   li {
+    flex-grow: 1;
+    flex-basis: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+    &:last-child {
+     flex-basis: 20%;
+     flex-shrink: 0;
+    }
+
+    .menu-item {
+     display: inline-block;
+     font-family: "Quicksand", sans-serif;
+     font-size: 1.6rem;
+     font-weight: 400;
+     color: inherit;
+     border: none;
+     text-align: center;
+     text-decoration: none;
+    }
+
+    a.button-typ {
+     flex-basis: content;
+     font-size: 1.5rem;
+     margin: auto;
+    }
+
+    &.submenu {
+     position: relative;
+
+     ul {
+      position: absolute;
+      z-index: 9;
+      top: var(--header-height);
+      left: -950%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2000%;
+      height: var(--header-height);
+      background-color: rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+
+      li {
+       height: var(--header-height);
+       flex-basis: 28vw;
+       flex-grow: 0;
+
+       .menu-item {
+        font-size: 1.3rem;
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+/* DESKTOP SUBMENU TRANSITION */
+/* \/ */
+.desktop-submenu-transition-enter {
+ // transform: translateY(-200%);
+ max-height: 0;
+}
+
+.desktop-submenu-transition-enter-active {
+ max-height: var(--header-height);
+ // transform: translateY(0);
+}
+
+.desktop-submenu-transition-exit {
+ max-height: var(--header-height);
+ // transform: translateY(0);
+}
+
+.desktop-submenu-transition-exit-active {
+ max-height: 0;
+ // transform: translateY(-200%);
+}
+
+.desktop-submenu-transition-enter-active,
+.desktop-submenu-transition-exit-active {
+ transition: max-height 200ms ease-out;
+ // transition: transform 2500ms ease-out;
+}
+
+/* /\ */
+/* DESKTOP SUBMENU TRANSITION */

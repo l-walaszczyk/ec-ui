@@ -29,10 +29,14 @@ const ServicesOnePage = () => {
             <span>Umów spotkanie</span>
           </Button>
         </div>
-        <div className="img-container">
-          <img src={services1} alt="" />
+        <div className="description-wrap">
+          <div className="img-container">
+            <img src={services1} alt="" />
+          </div>
+          <div className="text-container">
+            {texts.services.descriptions.one.extended}
+          </div>
         </div>
-        <div className="description">{texts.services.descriptions.one}</div>
         <hr />
         <div className="prices" ref={pricesRef}>
           <h2>Cennik</h2>

@@ -30,28 +30,32 @@ const ServicesThreePage = () => {
             <span>Umów spotkanie</span>
           </Button>
         </div>
-        <div className="img-container">
-          <img src={services3} alt="" />
-        </div>
-        <div className="description">
-          {texts.services.descriptions.three.part1}
+        <div className="description-wrap">
+          <div className="img-container">
+            <img src={services3} alt="" />
+          </div>
+          <div className="text-container">
+            {texts.services.descriptions.three.extended.part1}
+            <hr />
+            {texts.services.descriptions.three.extended.part2}
+          </div>
         </div>
         <hr />
-        <div className="description">
-          {texts.services.descriptions.three.part2}
-        </div>
-        <hr />
-
-        <div className="img-container wide">
-          <img src={equipment} alt="" />
-        </div>
-        <div className="prices" ref={pricesRef}>
-          <h2>Cennik</h2>
-          <PriceList prices={texts.services.prices.three} />
-          <Button to="/scheduler">
-            <i className="far fa-calendar-check"></i>
-            <span>Umów spotkanie</span>
-          </Button>
+        <div className="prices-wrap">
+          <div className="img-container wide">
+            <img src={equipment} alt="" />
+          </div>
+          <div className="prices" ref={pricesRef}>
+            <h2>Cennik</h2>
+            <PriceList prices={texts.services.prices.three} />
+            <div className="discounts">
+              {texts.services.descriptions.three.extended.part3}
+            </div>
+            <Button to="/scheduler">
+              <i className="far fa-calendar-check"></i>
+              <span>Umów spotkanie</span>
+            </Button>
+          </div>
         </div>
         <hr />
       </section>

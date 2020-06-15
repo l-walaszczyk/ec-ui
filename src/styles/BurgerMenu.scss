@@ -1,7 +1,7 @@
 $sub-menu-li-height: 5rem;
 $sub-menu-total-height: 3*$sub-menu-li-height;
 
-nav {
+nav.burger-menu {
  position: fixed;
  z-index: 1;
  height: 100vh;
@@ -9,10 +9,10 @@ nav {
  background-color: #EEF0F2;
 
  >ul {
-  margin-top: calc(8vh + var(--header-height));
+  margin-top: calc(7vh + var(--header-height));
 
   >li {
-   margin: 7vh 0;
+   margin: 6vh 0;
    text-align: center;
    overflow: hidden;
   }
@@ -23,7 +23,8 @@ nav {
    list-style-type: none;
 
    .menu-item {
-    font-family: "Montserrat", sans-serif;
+    // font-family: "Montserrat", sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 1.8rem;
     text-decoration: none;
     color: inherit;
@@ -31,7 +32,7 @@ nav {
    }
 
    a.button-typ {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: auto;
    }
 
@@ -41,7 +42,6 @@ nav {
      align-items: center;
      justify-content: center;
      margin: 0;
-     /* --submenu-item-height: 7rem; */
      height: $sub-menu-li-height;
 
      .menu-item {
@@ -79,28 +79,28 @@ nav {
 /* /\ */
 /* BURGER MENU TRANSITION */
 
-/* MENU DRAWER TRANSITION */
+/* BURGER SUBMENU TRANSITION */
 /* \/ */
-.menu-drawer-transition-enter {
+.burger-submenu-transition-enter {
  max-height: 0;
 }
 
-.menu-drawer-transition-enter-active {
+.burger-submenu-transition-enter-active {
  max-height: $sub-menu-total-height;
 }
 
-.menu-drawer-transition-exit {
+.burger-submenu-transition-exit {
  max-height: $sub-menu-total-height;
 }
 
-.menu-drawer-transition-exit-active {
+.burger-submenu-transition-exit-active {
  max-height: 0;
 }
 
-.menu-drawer-transition-enter-active,
-.menu-drawer-transition-exit-active {
- transition: max-height 200ms ease-out;
+.burger-submenu-transition-enter-active,
+.burger-submenu-transition-exit-active {
+ transition: max-height 250ms ease-out;
 }
 
 /* /\ */
-/* MENU DRAWER TRANSITION */
+/* BURGER SUBMENU TRANSITION */

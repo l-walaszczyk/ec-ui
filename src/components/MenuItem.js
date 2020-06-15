@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/ItemBurgerMenu.scss";
+import "../styles/MenuItem.scss";
 
-const ItemBurgerMenu = ({
+const MenuItem = ({
   to,
   exact = false,
   handleClick = () => undefined,
@@ -21,4 +21,4 @@ const ItemBurgerMenu = ({
   );
 };
 
-export default ItemBurgerMenu;
+export default MenuItem;
