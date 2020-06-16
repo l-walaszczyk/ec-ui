@@ -47,7 +47,7 @@ const HomePage = () => {
           </div>
           <div className="text-container">
             {texts.home.home}
-            {width < 1024 ? (
+            {width < 533 ? (
               <Button to="/scheduler">
                 <i className="far fa-calendar-check"></i>
                 <span>Umów spotkanie</span>
@@ -106,42 +106,32 @@ const HomePage = () => {
       <section className="contact" ref={contactRef}>
         <h1>Kontakt</h1>
         <div className="contact-wrap">
-          <div className="img-wrap">
-            <div className="img-container">
-              <img src={room} alt="" />
-            </div>
-            <div className="title-row">
-              <p>
-                Gabinet Psychologiczny <br />- mgr Emilia Cwojdzińska
-              </p>
-              <Button to="/scheduler">
-                <i className="far fa-calendar-check"></i>
-                <span>Umów spotkanie</span>
-              </Button>
-            </div>
+          {/* <div className="img-wrap"> */}
+          <div className="img-container">
+            <img src={room} alt="" />
           </div>
+          {/* </div> */}
           <div className="details-wrap">
             <div className="text-container">
               <table>
                 <tbody>
                   <tr>
                     <td>
-                      <i className="fas fa-home"></i>
+                      <i className="fas fa-id-card"></i>
                     </td>
                     <td>
-                      <p>
-                        {texts.home.contact.addressLine1}
-                        <br />
-                        {texts.home.contact.addressLine2}
-                      </p>
+                      <p>{texts.home.contact.companyLine1}</p>
+                      <p>{texts.home.contact.companyLine2}</p>
+                      <p>{texts.home.contact.companyLine3}</p>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <i className="fas fa-id-card"></i>
+                      <i className="fas fa-home"></i>
                     </td>
                     <td>
-                      <p>{texts.home.contact.nip}</p>
+                      <p>{texts.home.contact.addressLine1}</p>
+                      <p>{texts.home.contact.addressLine2}</p>
                     </td>
                   </tr>
                   <tr>
@@ -177,11 +167,8 @@ const HomePage = () => {
                       <i className="fas fa-money-bill-wave"></i>
                     </td>
                     <td>
-                      <p>
-                        {texts.home.contact.accountTitle}
-                        <br />
-                        {texts.home.contact.accountNumber}
-                      </p>
+                      <p>{texts.home.contact.accountNumberLine1}</p>
+                      <p>{texts.home.contact.accountNumberLine2}</p>
                     </td>
                   </tr>
                   <tr>
@@ -189,9 +176,8 @@ const HomePage = () => {
                       <i className="fab fa-facebook-square"></i>
                     </td>
                     <td>
+                      <p>Zapraszam także do odwiedzenia</p>
                       <p>
-                        Zapraszam także do odwiedzenia
-                        <br />
                         <a
                           className="row"
                           target="_blank"
@@ -206,6 +192,12 @@ const HomePage = () => {
                 </tbody>
               </table>
             </div>
+            {/* <div className="button-container"> */}
+            <Button to="/scheduler">
+              <i className="far fa-calendar-check"></i>
+              <span>Umów spotkanie</span>
+            </Button>
+            {/* </div> */}
             <div className="map-container">
               <iframe
                 title="google-maps"

@@ -1,4 +1,5 @@
 div.img-container img {
+ display: block;
  width: 100%;
 }
 
@@ -51,6 +52,45 @@ section.about {
  }
 }
 
+@media (min-width: 533px) {
+ section.home {
+  display: flex;
+  flex-direction: row;
+
+  div.portrait-container {
+   position: relative;
+   width: 50%;
+   height: 50vh;
+
+   img {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    height: 90%;
+    width: auto;
+    margin: 0;
+   }
+  }
+
+  div.text-container {
+   position: relative;
+   width: 50%;
+   flex-shrink: 0;
+   margin: 0;
+   padding: 0;
+
+   p {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    margin: 0;
+    line-height: 2.2rem;
+    letter-spacing: 0.05em;
+   }
+  }
+ }
+}
+
 @media (min-width: 1024px) {
  div.first-view-wrap {
   display: flex;
@@ -66,6 +106,7 @@ section.about {
    div.portrait-container {
     position: relative;
     width: 50%;
+    height: auto;
     flex-shrink: 0;
 
     img {
@@ -231,56 +272,69 @@ section.contact {
   letter-spacing: 0.2rem;
  }
 
- div.img-container {
-  width: 100%;
-  overflow: hidden;
- }
-
- div.title-row {
+ div.contact-wrap {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0.5rem 1rem;
- }
+  flex-direction: column;
+  // align-items: center;
+  // align-content: center;
 
- div.text-container {
-  align-self: center;
-  margin: 3rem 2rem;
- }
+  div.img-container {
+   width: 100%;
+   overflow: hidden;
+  }
 
- table {
-  border-collapse: collapse;
+  div.text-container {
+   align-self: center;
+   margin: 2rem;
 
-  tr {
-   height: 4rem;
+   table {
+    border-collapse: collapse;
 
-   td {
-    // padding: 0 0.5rem;
+    tr {
+     // height: 4rem;
 
-    &:first-child {
-     text-align: center;
-    }
+     td {
+      margin: 1rem 0;
 
-    i {
-     font-size: 2.2rem;
-     padding-right: 1.5rem;
-    }
+      &:first-child {
+       text-align: center;
+      }
 
-    p {
-     padding: 0.5rem 0;
-    }
+      &:last-child {
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       align-items: center;
+       align-content: center;
 
-    a {
-     color: inherit;
+       p {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 0.5rem;
+       }
+      }
+
+      i {
+       font-size: 2.2rem;
+       padding-right: 1.5rem;
+      }
+
+      a {
+       color: inherit;
+      }
+     }
     }
    }
   }
- }
 
- div.map-container {
-  width: 100%;
-  height: 90vw;
+  .button-typ {
+   margin: 2rem auto;
+  }
+
+  div.map-container {
+   width: 100%;
+   height: 90vw;
+  }
  }
 }
 
@@ -292,21 +346,11 @@ section.contact {
    justify-content: space-between;
    margin: 0 var(--margin-side) calc(var(--header-height) + 0.5rem);
 
-   div.img-wrap {
+   div.img-container {
     width: 49%;
-    display: flex;
-    flex-direction: column-reverse;
-
-    div.img-container {
-     // order: 2;
-     flex-shrink: 0;
-     flex-grow: 0;
-    }
-
-    div.title-row {
-     // order: 1;
-     margin: 0 6rem 1rem;
-    }
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-top: 1rem;
    }
 
    div.details-wrap {
@@ -314,18 +358,18 @@ section.contact {
     display: flex;
     flex-direction: column;
 
-    // align-co: flex-end;
     div.text-container {
-     margin: 0 0 2rem 0;
+     margin: 0;
      flex-grow: 0;
      flex-shrink: 0;
      align-self: flex-start;
-     // order: 2;
-     // flex-grow: 1;
+    }
+
+    .button-typ {
+     margin: 0.5rem auto 1rem;
     }
 
     div.map-container {
-     // order: 4;
      height: auto;
      flex-grow: 1;
      flex-shrink: 1;
