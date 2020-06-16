@@ -21,6 +21,11 @@ const HeaderDesktop = () => {
     timeoutNum = setTimeout(() => toggleDrawer(false), 500);
   };
 
+  const handleClick = () => {
+    clearTimeout(timeoutNum);
+    toggleDrawer(!drawerOpen);
+  };
+
   return (
     <header className="desktop">
       <NavLink className="logo" to="/#home" exact>
@@ -38,6 +43,7 @@ const HeaderDesktop = () => {
           </li>
           <li
             className="submenu"
+            onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >

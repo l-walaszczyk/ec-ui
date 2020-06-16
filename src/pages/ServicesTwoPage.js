@@ -40,7 +40,7 @@ const ServicesTwoPage = () => {
         <hr />
         <div className="prices" ref={pricesRef}>
           <h2>Cennik</h2>
-          <PriceList prices={texts.services.prices.two} />
+          <PriceList types={texts.services.types.two} />
           <Button to="/scheduler">
             <i className="far fa-calendar-check"></i>
             <span>Umów spotkanie</span>

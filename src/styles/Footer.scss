@@ -1,5 +1,10 @@
 footer {
- padding: 1rem 0;
+ height: var(--header-height);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ // padding: 1rem 0;
+ // box-sizing: border-box;
  color: #ffffff;
  background-color: #424746;
  text-align: center;

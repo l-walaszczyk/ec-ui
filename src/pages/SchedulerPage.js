@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/SchedulerPage.scss";
+import SchedulerNavButtons from "../components/SchedulerNavButtons";
+import SchedulerOptions from "../components/SchedulerOptions";
+// import SchedulerStep0 from "../components/SchedulerStep0";
+// import SchedulerStep1 from "../components/SchedulerStep1";
 
 const SchedulerPage = () => {
+  const [step, setStep] = useState(0);
+  const [field, setField] = useState(null);
+
   return (
-    <main
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "stretch",
-        alignItems: "center",
-      }}
-    >
-      <h1
-        style={{
-          width: "100%",
-        }}
-      >
-        System rezerwacji w budowie
-      </h1>
+    <main>
+      <section className="scheduler">
+        <SchedulerOptions
+          field={field}
+          setField={setField}
+          step={step}
+          // setStep={setStep}
+        />
+        <SchedulerNavButtons step={step} setStep={setStep} field={field} />
+      </section>
     </main>
   );
 };

@@ -39,54 +39,57 @@ body {
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
  color: var(--dark-color);
-}
+ min-height: 100vh;
+ overflow-y: scroll;
+ // position: relative;
 
-h1 {
- font-family: "Quicksand", sans-serif;
- text-align: center;
- text-transform: uppercase;
- font-size: 2rem;
- font-weight: 400;
-}
+ h1 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 400;
+ }
 
-h2 {
- font-family: "Quicksand", sans-serif;
- text-align: center;
- text-transform: uppercase;
- font-size: 1.5rem;
- font-weight: 400;
-}
+ h2 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 400;
+ }
 
-h3 {
- font-family: "Quicksand", sans-serif;
- font-size: 1.7rem;
- font-weight: 400;
-}
+ h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+ }
 
-h4 {
- font-family: "Quicksand", sans-serif;
- text-transform: uppercase;
- font-size: 1.4rem;
- font-weight: 500;
-}
+ h4 {
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 500;
+ }
 
-h5 {
- font-family: "Quicksand", sans-serif;
- text-align: center;
- text-transform: uppercase;
- font-size: 1.35rem;
- line-height: 2rem;
- font-weight: 400;
-}
+ h5 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  line-height: 2rem;
+  font-weight: 400;
+ }
 
-p {
- font-size: 1.4rem;
-}
+ p {
+  font-size: 1.4rem;
+ }
 
-ul {
- font-size: 1.4rem;
-}
+ ul {
+  font-size: 1.4rem;
+ }
 
-table {
- font-size: 1.4rem;
+ table {
+  font-size: 1.4rem;
+ }
 }

@@ -1,8 +1,8 @@
 import React from "react";
 // import "../styles/PriceList.scss";
 
-const PriceList = ({ prices }) => {
-  const priceListRows = prices.map((item, index) => (
+const PriceList = ({ types }) => {
+  const priceListRows = types.map((item, index) => (
     <tr key={index}>
       <td>{item.name}</td>
       <td>{`${item.price} zł`}</td>

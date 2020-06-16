@@ -47,7 +47,7 @@ const ServicesThreePage = () => {
           </div>
           <div className="prices" ref={pricesRef}>
             <h2>Cennik</h2>
-            <PriceList prices={texts.services.prices.three} />
+            <PriceList types={texts.services.types.three} />
             <div className="discounts">
               {texts.services.descriptions.three.extended.part3}
             </div>
