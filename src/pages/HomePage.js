@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import smoothscroll from "smoothscroll-polyfill";
 import "../styles/HomePage.scss";
 import texts from "../content/texts";
@@ -27,16 +28,24 @@ const HomePage = () => {
   const contactRef = React.createRef();
   const homeRef = React.createRef();
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    window.location.href.includes("#contact") &&
-      setTimeout(
+    let timer = null;
+    if (window.location.href.includes("#contact")) {
+      timer = setTimeout(
         () => contactRef.current.scrollIntoView({ behavior: "smooth" }),
         250
       );
+    }
 
     window.location.href.includes("#home") &&
       homeRef.current.scrollIntoView({ behavior: "smooth" });
-  });
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [pathname, contactRef, homeRef]);
 
   return (
     <main>

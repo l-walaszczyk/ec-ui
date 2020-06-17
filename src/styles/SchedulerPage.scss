@@ -12,7 +12,7 @@ section.scheduler {
   border-radius: 1.1rem 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
-  // font-size: 1.25rem;
+  font-size: inherit;
   text-decoration: none;
   text-align: center;
   color: inherit;
@@ -20,12 +20,6 @@ section.scheduler {
   // margin: auto;
   background-color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-
-  &:focus,
-  &:active {
-   outline-width: 0.5px;
-   outline-color: var(--dark-color);
-  }
  }
 
  div.options-container {
@@ -46,10 +40,10 @@ section.scheduler {
 
    li {
     position: relative;
-    width: 30vw;
+    width: 90vw;
     min-height: 11rem;
 
-    button.option {
+    button {
      position: absolute;
      top: 50%;
      left: 50%;
@@ -64,13 +58,11 @@ section.scheduler {
      &:hover,
      &.selected {
       border-color: var(--dark-color);
-      color: #000000;
+      color: var(--dark-color);
+     }
 
-      &:focus,
-      &:active {
-       outline: none;
-       cursor: default;
-      }
+     &.selected {
+      cursor: default;
      }
 
      div.details {
@@ -83,5 +75,31 @@ section.scheduler {
   }
 
   // div.week-container {}
+ }
+}
+
+@media (min-width: 533px) {
+ section.scheduler {
+  div.options-container {
+   ul {
+    li {
+     position: relative;
+     width: 50vw;
+    }
+   }
+  }
+ }
+}
+
+@media (min-width: 1024px) {
+ section.scheduler {
+  div.options-container {
+   ul {
+    li {
+     position: relative;
+     width: 25vw;
+    }
+   }
+  }
  }
 }

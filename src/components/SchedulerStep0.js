@@ -2,7 +2,12 @@ import React from "react";
 // import "../styles/SchedulerStep.scss";
 import texts from "../content/texts";
 
-const SchedulerOptions = ({ setSelected, field, setField, setMeetingType }) => {
+const SchedulerStep0 = ({
+  setSelected,
+  field,
+  setField,
+  setSelectedMeetingType,
+}) => {
   const fields = [
     texts.services.titles.one,
     texts.services.titles.two,
@@ -17,7 +22,7 @@ const SchedulerOptions = ({ setSelected, field, setField, setMeetingType }) => {
         onClick={() => {
           setField(index);
           setSelected(1);
-          setMeetingType(null);
+          setSelectedMeetingType(null);
         }}
       >
         {item}
@@ -36,4 +41,4 @@ const SchedulerOptions = ({ setSelected, field, setField, setMeetingType }) => {
     </div>
   );
 };
-export default SchedulerOptions;
+export default SchedulerStep0;

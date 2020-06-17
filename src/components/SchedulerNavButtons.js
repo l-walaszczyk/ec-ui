@@ -5,12 +5,13 @@ const SchedulerNavButtons = ({ selected, step, setStep }) => {
   return (
     <div className="button-container">
       {step === 0 ? null : (
-        <button className="nav" onClick={() => setStep(step - 1)}>
+        <button type="button" className="nav" onClick={() => setStep(step - 1)}>
           Wstecz
         </button>
       )}
 
       <button
+        type="button"
         className={`nav${selected < step + 1 ? " inactive" : ""}`}
         onClick={
           selected < step + 1

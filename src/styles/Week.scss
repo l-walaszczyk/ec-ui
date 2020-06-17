@@ -1,6 +1,7 @@
 div.week-container {
  table {
   text-align: center;
+  margin: auto;
 
   tr {
    &:nth-child(3) {
@@ -19,45 +20,27 @@ div.week-container {
    td {
     width: 4rem;
     height: 3rem;
+    font-size: 1.6rem;
+
+    span {
+     color: #bbb;
+    }
 
     button {
      height: 100%;
      width: 100%;
      border-color: transparent;
-     font-size: 1.6rem;
-    }
 
-    &.unavailable {
-     button {
-      color: #bbb;
+     &:hover,
+     &.selected {
+      border-color: var(--dark-color);
+      color: var(--dark-color);
+     }
+
+     &.selected {
       cursor: default;
-
-      &:focus {
-       // outline-color: #eee;
-       outline: none;
-      }
      }
     }
-
-    &.available {
-     button {
-      color: #000;
-      // &.unselected {
-
-      // }
-      &.selected {
-       border-color: var(--dark-color);
-
-       &:focus,
-       &:active {
-        outline: none;
-        cursor: default;
-       }
-      }
-     }
-    }
-
-
    }
   }
  }

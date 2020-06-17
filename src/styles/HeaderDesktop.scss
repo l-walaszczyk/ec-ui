@@ -46,7 +46,11 @@ header.desktop {
     }
 
     .menu-item {
-     display: inline-block;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 70%;
+     width: 100%;
      font-family: "Quicksand", sans-serif;
      font-size: 1.6rem;
      font-weight: 400;
@@ -54,6 +58,7 @@ header.desktop {
      border: none;
      text-align: center;
      text-decoration: none;
+     vertical-align: middle;
     }
 
     a.button-typ {

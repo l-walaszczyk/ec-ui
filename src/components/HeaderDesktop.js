@@ -28,7 +28,7 @@ const HeaderDesktop = () => {
 
   return (
     <header className="desktop">
-      <NavLink className="logo" to="/#home" exact>
+      <NavLink className="logo" to="/#home" exact type="button">
         <img className="logo" src={logo} alt="Emilia Cwojdzińska - logo" />
       </NavLink>
       <nav className="desktop-menu">
@@ -77,7 +77,11 @@ const HeaderDesktop = () => {
             </CSSTransition>
           </li>
           <li>
-            <MenuItem to="/downloads">Materiały do pobrania</MenuItem>
+            <MenuItem to="/downloads">
+              Materiały
+              <br />
+              do pobrania
+            </MenuItem>
           </li>
           <li>
             <MenuItem to="/#contact">Kontakt</MenuItem>

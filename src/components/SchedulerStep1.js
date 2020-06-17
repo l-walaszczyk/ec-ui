@@ -1,29 +1,20 @@
 import React from "react";
 // import React, { useState } from "react";
 // import "../styles/SchedulerStep.scss";
-import texts from "../content/texts";
 
-const SchedulerOptions = ({
+const SchedulerStep1 = ({
   setSelected,
-  field,
-  meetingType,
-  setMeetingType,
+  meetingTypes,
+  selectedMeetingType,
+  setSelectedMeetingType,
 }) => {
-  const types = [
-    texts.services.types.one,
-    texts.services.types.two,
-    texts.services.types.three,
-  ];
-
-  const meetingTypes = types[field] || [];
-
   const options = meetingTypes.map((item, index) => (
     <li key={index}>
       <button
         type="button"
-        className={`option${meetingType === index ? " selected" : ""}`}
+        className={`option${selectedMeetingType === index ? " selected" : ""}`}
         onClick={() => {
-          setMeetingType(index);
+          setSelectedMeetingType(index);
           setSelected(2);
         }}
       >
@@ -43,4 +34,4 @@ const SchedulerOptions = ({
     </div>
   );
 };
-export default SchedulerOptions;
+export default SchedulerStep1;
