@@ -7,7 +7,33 @@ section.scheduler {
  padding-top: var(--header-height);
  padding-bottom: 4rem;
 
+ button {
+  border: 0.5px solid var(--dark-color);
+  border-radius: 1.1rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  // font-size: 1.25rem;
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+  // padding: 0.5rem;
+  // margin: auto;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+   outline-width: 0.5px;
+   outline-color: var(--dark-color);
+  }
+ }
+
  div.options-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   h2 {
    margin: 3rem 0;
   }
@@ -17,11 +43,10 @@ section.scheduler {
    flex-direction: column;
    align-items: center;
    list-style-type: none;
-   margin: 1rem 0;
 
    li {
     position: relative;
-    width: 35rem;
+    width: 30vw;
     min-height: 11rem;
 
     button.option {
@@ -29,25 +54,16 @@ section.scheduler {
      top: 50%;
      left: 50%;
      display: block;
-     width: fit-content;
+     width: 100%;
      transform: translate(-50%, -50%);
-     border: 0.5px solid transparent;
-     border-radius: 1.1rem 0;
-     font-family: 'Montserrat', sans-serif;
-     font-weight: normal;
+     border-color: transparent;
      font-size: 1.25rem;
-     text-decoration: none;
-     text-align: center;
-     color: inherit;
      padding: 0.5rem;
      margin: auto;
-     background-color: rgba(255, 255, 255, 0.6);
-     cursor: pointer;
 
      &:hover,
      &.selected {
       border-color: var(--dark-color);
-
       color: #000000;
 
       &:focus,
@@ -65,5 +81,7 @@ section.scheduler {
     }
    }
   }
+
+  // div.week-container {}
  }
 }

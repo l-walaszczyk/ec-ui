@@ -1,0 +1,64 @@
+div.week-container {
+ table {
+  text-align: center;
+
+  tr {
+   &:nth-child(3) {
+    th {
+     padding: 0.5rem;
+     font-size: 1.3rem;
+    }
+   }
+
+   th {
+    padding: 0.25rem;
+    font-weight: normal;
+    font-size: 1.5rem;
+   }
+
+   td {
+    width: 4rem;
+    height: 3rem;
+
+    button {
+     height: 100%;
+     width: 100%;
+     border-color: transparent;
+     font-size: 1.6rem;
+    }
+
+    &.unavailable {
+     button {
+      color: #bbb;
+      cursor: default;
+
+      &:focus {
+       // outline-color: #eee;
+       outline: none;
+      }
+     }
+    }
+
+    &.available {
+     button {
+      color: #000;
+      // &.unselected {
+
+      // }
+      &.selected {
+       border-color: var(--dark-color);
+
+       &:focus,
+       &:active {
+        outline: none;
+        cursor: default;
+       }
+      }
+     }
+    }
+
+
+   }
+  }
+ }
+}

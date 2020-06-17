@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/SchedulerNavButtons.scss";
 
-const SchedulerNavButtons = ({ field, step, setStep }) => {
+const SchedulerNavButtons = ({ selected, step, setStep }) => {
   return (
     <div className="button-container">
       {step === 0 ? null : (
@@ -11,8 +11,14 @@ const SchedulerNavButtons = ({ field, step, setStep }) => {
       )}
 
       <button
-        className={`nav${field === null ? " inactive" : ""}`}
-        onClick={field === null ? null : () => setStep(step + 1)}
+        className={`nav${selected < step + 1 ? " inactive" : ""}`}
+        onClick={
+          selected < step + 1
+            ? null
+            : () => {
+                setStep(step + 1);
+              }
+        }
       >
         Dalej
       </button>

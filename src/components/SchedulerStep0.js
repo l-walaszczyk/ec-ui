@@ -2,18 +2,25 @@ import React from "react";
 // import "../styles/SchedulerStep.scss";
 import texts from "../content/texts";
 
-const { one, two, three } = texts.services.titles;
+const SchedulerOptions = ({ setSelected, field, setField, setMeetingType }) => {
+  const fields = [
+    texts.services.titles.one,
+    texts.services.titles.two,
+    texts.services.titles.three,
+  ];
 
-const titles = [one, two, three];
-
-const SchedulerStep0 = ({ field, setField }) => {
-  const options = titles.map((title, index) => (
+  const options = fields.map((item, index) => (
     <li key={index}>
       <button
-        className={`option${field === index + 1 ? " selected" : ""}`}
-        onClick={() => setField(index + 1)}
+        type="button"
+        className={`option${field === index ? " selected" : ""}`}
+        onClick={() => {
+          setField(index);
+          setSelected(1);
+          setMeetingType(null);
+        }}
       >
-        {title}
+        {item}
       </button>
     </li>
   ));
@@ -29,4 +36,4 @@ const SchedulerStep0 = ({ field, setField }) => {
     </div>
   );
 };
-export default SchedulerStep0;
+export default SchedulerOptions;

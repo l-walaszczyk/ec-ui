@@ -43,11 +43,10 @@ const HeaderDesktop = () => {
           </li>
           <li
             className="submenu"
-            onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="menu-item" type="button">
+            <button className="menu-item" type="button" onClick={handleClick}>
               <span>Oferta</span>
               <i className={`fas fa-angle-${drawerOpen ? "up" : "down"}`}></i>
             </button>

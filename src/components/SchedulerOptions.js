@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import "../styles/SchedulerStep.scss";
 import texts from "../content/texts";
 
-const SchedulerOptions = ({ step, field, setField }) => {
+const SchedulerOptions = ({ step, setSelected, field, setField }) => {
   const [meetingType, setMeetingType] = useState(null);
 
   const fields = [
@@ -38,7 +38,10 @@ const SchedulerOptions = ({ step, field, setField }) => {
       <li key={index}>
         <button
           className={`option${field === index ? " selected" : ""}`}
-          onClick={() => setField(index)}
+          onClick={() => {
+            setField(index);
+            setSelected(true);
+          }}
         >
           {item}
         </button>
@@ -48,7 +51,10 @@ const SchedulerOptions = ({ step, field, setField }) => {
       <li key={index}>
         <button
           className={`option${meetingType === index ? " selected" : ""}`}
-          onClick={() => setMeetingType(index)}
+          onClick={() => {
+            setMeetingType(index);
+            setSelected(true);
+          }}
         >
           <p>{item.name}</p>
           <div className="details">
