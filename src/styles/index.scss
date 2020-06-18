@@ -9,7 +9,7 @@
  --header-height: 55px;
  --dark-color: #2d3130;
  --bg-color: #d5e1df;
- --shadow-color: #d4dddc;
+ --shadow-color: #e2eeec;
  --shadow-light-color: #effffc;
  --hr-color: #a3b8b4;
  font-size: 9px;
@@ -95,25 +95,24 @@ body {
   font-size: 1.4rem;
  }
 
- [type="button"] {
-
-  &:focus {
-   outline: none;
-   box-shadow: -0.25px 0.25px 1px var(--shadow-color),
-    0.25px -0.25px 1px var(--shadow-color),
-    0.25px -0.25px 1px var(--shadow-color) inset,
-    -0.25px 0.25px 1px var(--shadow-color) inset;
-  }
- }
-
+ [type="button"],
  a {
+  transition: ease-in-out 150ms;
 
-  &:focus {
+  &:focus,
+  &:hover {
    outline: none;
-   box-shadow: -0.25px 0.25px 1px var(--shadow-light-color),
-    0.25px -0.25px 1px var(--shadow-light-color),
-    0.25px -0.25px 1px var(--shadow-light-color) inset,
-    -0.25px 0.25px 1px var(--shadow-light-color) inset;
+   color: #000;
+   text-shadow: 0 0 0.25px #000;
+
+   &.inactive {
+    text-shadow: none;
+   }
+
+   // box-shadow: -0.25px 0.25px 1px var(--shadow-color),
+   //  0.25px -0.25px 1px var(--shadow-color),
+   //  0.25px -0.25px 1px var(--shadow-color) inset,
+   //  -0.25px 0.25px 1px var(--shadow-color) inset;
   }
  }
 }

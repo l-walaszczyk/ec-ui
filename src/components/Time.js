@@ -4,13 +4,13 @@ import "../styles/Time.scss";
 const Time = ({ slots, selectedTime, setSelectedTime }) => {
   console.log(slots);
 
-  const hours = [];
+  // const hours = [];
 
-  for (let slot of slots) {
-    console.log(slot);
-    const intervalStart = slot[0];
-    const intervalEnd = slot[1];
-  }
+  // for (let slot of slots) {
+  //   console.log(slot);
+  //   const intervalStart = slot[0];
+  //   const intervalEnd = slot[1];
+  // }
 
   return (
     <div className="time-container">

@@ -1,86 +1,73 @@
 import React from "react";
 import "../styles/Week.scss";
 
-const Week = ({ freeSlots, meetingDuration, selectedDay, setSelectedDay }) => {
+const Week = () => {
   // const [selectedDay, setSelectedDay] = useState(null);
 
-  const monthNames = [
-    "Styczeń",
-    "Luty",
-    "Marzec",
-    "Kwiecień",
-    "Maj",
-    "Czerwiec",
-    "Lipiec",
-    "Sierpień",
-    "Wrzesień",
-    "Październik",
-    "Listopad",
-    "Grudzień",
-  ];
+  // const monthNames = [
+  //   "Styczeń",
+  //   "Luty",
+  //   "Marzec",
+  //   "Kwiecień",
+  //   "Maj",
+  //   "Czerwiec",
+  //   "Lipiec",
+  //   "Sierpień",
+  //   "Wrzesień",
+  //   "Październik",
+  //   "Listopad",
+  //   "Grudzień",
+  // ];
 
-  const availableDays = freeSlots.map((item) => {
-    const { slots } = item;
-    if (slots.length === 0) {
-      return false;
-    } else {
-      for (let slot of slots) {
-        const slotDuration = (slot[1] - slot[0]) * 60;
+  const days = [];
 
-        console.log("slotDuration", slotDuration);
-        console.log("meetingDuration", meetingDuration);
-      }
-    }
-  });
+  // const days = freeSlots.map((item, index) => {
+  //   if (item.slots.length === 0) {
+  //     return (
+  //       <td key={index}>
+  //         <span>{item.day.getDate()}</span>
+  //       </td>
+  //     );
+  //   } else {
+  //     return (
+  //       <td key={index}>
+  //         <button
+  //           type="button"
+  //           className={`day${
+  //             item.day.toDateString() === selectedDay ? " selected" : ""
+  //           }`}
+  //           onClick={() => setSelectedDay(item.day.toDateString())}
+  //         >
+  //           {item.day.getDate()}
+  //         </button>
+  //       </td>
+  //     );
+  //   }
+  // });
 
-  const days = freeSlots.map((item, index) => {
-    /*
-    if (item.slots.length === 0) {
-      return (
-        <td key={index}>
-          <span>{item.day.getDate()}</span>
-        </td>
-      );
-    } else {
-      return (
-        <td key={index}>
-          <button
-            type="button"
-            className={`day${
-              item.day.toDateString() === selectedDay ? " selected" : ""
-            }`}
-            onClick={() => setSelectedDay(item.day.toDateString())}
-          >
-            {item.day.getDate()}
-          </button>
-        </td>
-      );
-    }*/
-  });
+  // const months = [];
 
-  const months = [];
+  // for (let item of freeSlots) {
+  //   const month = item.day.getMonth();
+  //   !months.includes(month) && months.push(month);
+  // }
 
-  for (let item of freeSlots) {
-    const month = item.day.getMonth();
-    !months.includes(month) && months.push(month);
-  }
+  // const monthsWorded = months.map((item) => monthNames[item]);
 
-  const monthsWorded = months.map((item) => monthNames[item]);
+  // const monthsFormatted =
+  //   months.length === 1
+  //     ? monthsWorded[0]
+  //     : `${monthsWorded[0]} - ${monthsWorded[1]}`;
 
-  const monthsFormatted =
-    months.length === 1
-      ? monthsWorded[0]
-      : `${monthsWorded[0]} - ${monthsWorded[1]}`;
+  // const years = [];
 
-  const years = [];
+  // for (let item of freeSlots) {
+  //   const year = item.day.getFullYear();
+  //   !years.includes(year) && years.push(year);
+  // }
 
-  for (let item of freeSlots) {
-    const year = item.day.getFullYear();
-    !years.includes(year) && years.push(year);
-  }
-
-  const yearsFormatted =
-    years.length === 1 ? years[0] : `${years[0]}/${years[1]}`;
+  // const yearsFormatted =
+  //   years.length === 1 ? years[0] : `${years[0]}/${years[1]}`;
 
   // useEffect(() => {
   //   const firstAvailableSlot = freeSlots.find((item) => item.slots.length > 0);
@@ -97,12 +84,8 @@ const Week = ({ freeSlots, meetingDuration, selectedDay, setSelectedDay }) => {
       </h2>
       <table>
         <tbody>
-          <tr>
-            <th colSpan="7">{yearsFormatted}</th>
-          </tr>
-          <tr>
-            <th colSpan="7">{monthsFormatted}</th>
-          </tr>
+          <tr>{/* <th colSpan="7">{yearsFormatted}</th> */}</tr>
+          <tr>{/* <th colSpan="7">{monthsFormatted}</th> */}</tr>
           <tr>
             <th>Pn</th>
             <th>Wt</th>

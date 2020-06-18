@@ -13,11 +13,16 @@ a.button-typ {
  padding: 0.5rem 0;
  background-color: rgba(255, 255, 255, 0.6);
 
+ &:focus,
  &:hover {
-  color: #000000;
-  background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: -0.5px 0.5px 1.5px var(--bg-color),
-   0.5px -0.5px 1.5px var(--bg-color);
+  text-shadow: 0 0 00px #000;
+ }
+
+ &:hover {
+  // color: #000000;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: -1.5px 1.5px 2.5px var(--bg-color),
+   1.5px -1.5px 2.5px var(--bg-color);
  }
 
  i {

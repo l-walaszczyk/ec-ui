@@ -28,7 +28,7 @@ const HeaderDesktop = () => {
 
   return (
     <header className="desktop">
-      <NavLink className="logo" to="/#home" exact type="button">
+      <NavLink className="logo" to="/#home" exact>
         <img className="logo" src={logo} alt="Emilia Cwojdzińska - logo" />
       </NavLink>
       <nav className="desktop-menu">
