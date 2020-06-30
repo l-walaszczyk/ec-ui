@@ -3,8 +3,6 @@ import "../styles/Week.scss";
 import moment from "moment";
 
 const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
-  // const [selectedDay, setSelectedDay] = useState(null);
-
   const monthNames = [
     "Styczeń",
     "Luty",
@@ -20,8 +18,6 @@ const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
     "Grudzień",
   ];
 
-  // const days = [];
-
   const days = weekArray.map((item, index) => {
     if (item.hours.length === 0) {
       return (
@@ -35,9 +31,9 @@ const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
           <button
             type="button"
             className={`day${
-              moment.utc(item.day).date() === selectedDay ? " selected" : ""
+              moment.utc(item.day).isSame(selectedDay) ? " selected" : ""
             }`}
-            onClick={() => setSelectedDay(moment.utc(item.day).date())}
+            onClick={() => setSelectedDay(moment.utc(item.day))}
           >
             {moment.utc(item.day).date()}
           </button>

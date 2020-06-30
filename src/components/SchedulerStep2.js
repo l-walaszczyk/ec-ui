@@ -11,8 +11,7 @@ const SchedulerStep2 = ({
   selectedTime,
   setSelectedTime,
 }) => {
-  // const weekJump = 0;
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [weekArray, setWeekArray] = useState(null);
   // const [url, setUrl] = useState(
   //   "/after/?" +
@@ -22,7 +21,8 @@ const SchedulerStep2 = ({
   //     })
   // );
   const [url, setUrl] = useState(
-    "/asap/?" + new URLSearchParams({ meetingDuration })
+    "https://ec-api-a.herokuapp.com/asap/?" +
+      new URLSearchParams({ meetingDuration })
   );
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const SchedulerStep2 = ({
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         (error) => {
-          setError(error);
-          console.log("Error: ", error);
+          // setError(error);
+          console.log("Error:", error);
         }
       );
   }, [url]);
@@ -54,11 +54,12 @@ const SchedulerStep2 = ({
           setSelectedDay={setSelectedDay}
         />
       )}
-      {selectedDay && (
+      {weekArray && selectedDay && (
         <Time
-        // slots={freeSlots.find((item) => item.day.toDateString() === selectedDay).slots}
-        // selectedTime={selectedTime}
-        // setSelectedTime={setSelectedTime}
+          weekArray={weekArray}
+          selectedDay={selectedDay}
+          // selectedTime={selectedTime}
+          // setSelectedTime={setSelectedTime}
         />
       )}
     </div>
