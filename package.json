@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
@@ -43,11 +44,12 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 opera version",
+      "last 1 edge version"
     ]
   },
   "devDependencies": {
     "gh-pages": "^3.0.0"
   },
-  "proxy": "http://localhost:8000"
+  "proxy": "https://ec-api-a.herokuapp.com/"
 }

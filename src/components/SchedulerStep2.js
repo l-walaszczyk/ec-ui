@@ -12,35 +12,48 @@ const SchedulerStep2 = ({
   setSelectedTime,
 }) => {
   // const weekJump = 0;
-  const [weekJump, setWeekJump] = useState(0);
-  const [data, setData] = useState({});
+  const [error, setError] = useState(null);
+  const [weekArray, setWeekArray] = useState(null);
+  // const [url, setUrl] = useState(
+  //   "/after/?" +
+  //     new URLSearchParams({
+  //       meetingDuration,
+  //       date: new Date("2020-06-28").toJSON(),
+  //     })
+  // );
   const [url, setUrl] = useState(
-    "http://localhost:8000/?" +
-      new URLSearchParams({ meetingDuration, weekJump })
+    "/asap/?" + new URLSearchParams({ meetingDuration })
   );
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(url);
-      res
-        .json()
-        .then((res) => setData(res))
-        .catch((err) => console.log("Error: ", err));
-      console.log(res);
-    };
-
-    fetchData();
+    fetch(url)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setWeekArray(result);
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setError(error);
+          console.log("Error: ", error);
+        }
+      );
   }, [url]);
 
   return (
     <div className="options-container">
-      <Week
-      // freeSlots={freeSlots}
-      // availableDays={availableDays}
-      // meetingDuration={meetingDuration}
-      // selectedDay={selectedDay}
-      // setSelectedDay={setSelectedDay}
-      />
+      {weekArray && (
+        <Week
+          weekArray={weekArray}
+          // availableDays={availableDays}
+          // meetingDuration={meetingDuration}
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
+        />
+      )}
       {selectedDay && (
         <Time
         // slots={freeSlots.find((item) => item.day.toDateString() === selectedDay).slots}
