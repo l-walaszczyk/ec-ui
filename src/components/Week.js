@@ -2,7 +2,13 @@ import React from "react";
 import "../styles/Week.scss";
 import moment from "moment";
 
-const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
+const Week = ({
+  weekArray = [],
+  meetingDuration,
+  setUrl,
+  selectedDay,
+  setSelectedDay,
+}) => {
   const monthNames = [
     "Styczeń",
     "Luty",
@@ -72,6 +78,22 @@ const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
   //   setSelectedDay(firstAvailableDate);
   // }, [freeSlots]);
 
+  const handleArrowClick = (e) => {
+    if (!weekArray.length) {
+      return;
+    }
+    const { direction } = e.currentTarget.dataset;
+    setUrl(
+      "https://ec-api-a.herokuapp.com/" +
+        direction +
+        "/?" +
+        new URLSearchParams({
+          meetingDuration,
+          date: weekArray[Math.floor(Math.random() * 7)].day,
+        })
+    );
+  };
+
   return (
     <div className="week-container">
       <h2>
@@ -82,12 +104,13 @@ const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
       <table>
         <tbody>
           <tr>
-            <th colSpan="7">{yearsFormatted}</th>
+            <th colSpan="9">{weekArray.length ? yearsFormatted : "..."}</th>
           </tr>
           <tr>
-            <th colSpan="7">{monthsFormatted}</th>
+            <th colSpan="9">{weekArray.length ? monthsFormatted : "..."}</th>
           </tr>
           <tr>
+            <th></th>
             <th>Pn</th>
             <th>Wt</th>
             <th>Śr</th>
@@ -95,8 +118,31 @@ const Week = ({ weekArray, selectedDay, setSelectedDay }) => {
             <th>Pt</th>
             <th>Sb</th>
             <th>Nd</th>
+            <th></th>
           </tr>
-          <tr>{days}</tr>
+          <tr>
+            <td>
+              <button
+                className="calendar-arrow"
+                type="button"
+                data-direction="before"
+                onClick={handleArrowClick}
+              >
+                <i className="fas fa-angle-left"></i>
+              </button>
+            </td>
+            {weekArray.length ? days : <td colSpan="7">...</td>}
+            <td>
+              <button
+                className="calendar-arrow"
+                type="button"
+                data-direction="after"
+                onClick={handleArrowClick}
+              >
+                <i className="fas fa-angle-right"></i>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

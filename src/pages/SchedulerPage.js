@@ -61,6 +61,9 @@ const SchedulerPage = () => {
           setStep={setStep}
           selected={selected}
           setSelected={setSelected}
+          meetingDuration={meetingDuration}
+          selectedDay={selectedDay}
+          selectedTime={selectedTime}
         />
       </section>
     </main>

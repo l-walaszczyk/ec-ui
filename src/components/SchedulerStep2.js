@@ -12,14 +12,7 @@ const SchedulerStep2 = ({
   setSelectedTime,
 }) => {
   // const [error, setError] = useState(null);
-  const [weekArray, setWeekArray] = useState(null);
-  // const [url, setUrl] = useState(
-  //   "/after/?" +
-  //     new URLSearchParams({
-  //       meetingDuration,
-  //       date: new Date("2020-06-28").toJSON(),
-  //     })
-  // );
+  const [weekArray, setWeekArray] = useState(undefined);
   const [url, setUrl] = useState(
     "https://ec-api-a.herokuapp.com/asap/?" +
       new URLSearchParams({ meetingDuration })
@@ -45,21 +38,21 @@ const SchedulerStep2 = ({
 
   return (
     <div className="options-container">
-      {weekArray && (
-        <Week
-          weekArray={weekArray}
-          // availableDays={availableDays}
-          // meetingDuration={meetingDuration}
-          selectedDay={selectedDay}
-          setSelectedDay={setSelectedDay}
-        />
-      )}
+      <Week
+        weekArray={weekArray}
+        meetingDuration={meetingDuration}
+        setUrl={setUrl}
+        selectedDay={selectedDay}
+        setSelectedDay={setSelectedDay}
+      />
+
       {weekArray && selectedDay && (
         <Time
           weekArray={weekArray}
           selectedDay={selectedDay}
-          // selectedTime={selectedTime}
-          // setSelectedTime={setSelectedTime}
+          selectedTime={selectedTime}
+          setSelectedTime={setSelectedTime}
+          setSelected={setSelected}
         />
       )}
     </div>
