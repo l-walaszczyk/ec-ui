@@ -1,13 +1,16 @@
 import React from "react";
 import "../styles/Week.scss";
 import moment from "moment";
+import config from "../config/config";
 
 const Week = ({
-  weekArray = [],
+  setSelected,
+  weekArray,
   meetingDuration,
   setUrl,
   selectedDay,
   setSelectedDay,
+  setSelectedTime,
 }) => {
   const monthNames = [
     "Styczeń",
@@ -39,7 +42,11 @@ const Week = ({
             className={`day${
               moment.utc(item.day).isSame(selectedDay) ? " selected" : ""
             }`}
-            onClick={() => setSelectedDay(moment.utc(item.day))}
+            onClick={() => {
+              setSelectedDay(moment.utc(item.day));
+              setSelectedTime(null);
+              setSelected(2);
+            }}
           >
             {moment.utc(item.day).date()}
           </button>
@@ -72,19 +79,13 @@ const Week = ({
   const yearsFormatted =
     years.length === 1 ? years[0] : `${years[0]}/${years[1]}`;
 
-  // useEffect(() => {
-  //   const firstAvailableSlot = freeSlots.find((item) => item.slots.length > 0);
-  //   const firstAvailableDate = firstAvailableSlot.day.toDateString();
-  //   setSelectedDay(firstAvailableDate);
-  // }, [freeSlots]);
-
   const handleArrowClick = (e) => {
     if (!weekArray.length) {
       return;
     }
     const { direction } = e.currentTarget.dataset;
     setUrl(
-      "https://ec-api-a.herokuapp.com/" +
+      config.apiURL +
         direction +
         "/?" +
         new URLSearchParams({

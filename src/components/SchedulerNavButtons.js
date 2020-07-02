@@ -1,6 +1,7 @@
 import React from "react";
-import moment from "moment";
 import "../styles/SchedulerNavButtons.scss";
+import moment from "moment";
+import config from "../config/config";
 
 const SchedulerNavButtons = ({
   selected,
@@ -9,6 +10,7 @@ const SchedulerNavButtons = ({
   meetingDuration,
   selectedDay,
   selectedTime,
+  setWeekArray,
 }) => {
   const handleNextStep = () => {
     if (step === 2) {
@@ -18,11 +20,32 @@ const SchedulerNavButtons = ({
         .utc()
         .format();
       const url =
-        "https://ec-api-a.herokuapp.com/book/?" +
+        config.apiURL +
+        "book/?" +
         new URLSearchParams({ date, meetingDuration });
       console.log(url);
 
-      //fetch
+      const requestOptions = {
+        method: "POST",
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify({ title: "React POST Request Example" }),
+      };
+
+      fetch(url, requestOptions)
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            if (result.length === 7) {
+              setWeekArray(result);
+              console.log("Ktoś inny zarezerwował ten termin przed chwilą");
+            } else {
+              setStep(step + 1);
+            }
+          },
+          (error) => {
+            console.log("Error:", error);
+          }
+        );
     } else {
       setStep(step + 1);
     }

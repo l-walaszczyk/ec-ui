@@ -7,6 +7,8 @@ const SchedulerStep1 = ({
   meetingTypes,
   selectedMeetingType,
   setSelectedMeetingType,
+  setSelectedDay,
+  setSelectedTime,
 }) => {
   const options = meetingTypes.map((item, index) => (
     <li key={index}>
@@ -16,6 +18,8 @@ const SchedulerStep1 = ({
         onClick={() => {
           setSelectedMeetingType(index);
           setSelected(2);
+          setSelectedDay(null);
+          setSelectedTime(null);
         }}
       >
         <p>{item.name}</p>
