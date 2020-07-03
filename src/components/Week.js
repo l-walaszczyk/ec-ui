@@ -1,7 +1,10 @@
 import React from "react";
 import "../styles/Week.scss";
-import moment from "moment";
+import moment from "moment-timezone";
+import "moment/locale/pl";
 import config from "../config/config";
+
+moment.locale("pl");
 
 const Week = ({
   setSelected,
@@ -12,21 +15,6 @@ const Week = ({
   setSelectedDay,
   setSelectedTime,
 }) => {
-  const monthNames = [
-    "Styczeń",
-    "Luty",
-    "Marzec",
-    "Kwiecień",
-    "Maj",
-    "Czerwiec",
-    "Lipiec",
-    "Sierpień",
-    "Wrzesień",
-    "Październik",
-    "Listopad",
-    "Grudzień",
-  ];
-
   const days = weekArray.map((item, index) => {
     if (item.hours.length === 0) {
       return (
@@ -58,16 +46,12 @@ const Week = ({
   const months = [];
 
   for (let item of weekArray) {
-    const month = moment.utc(item.day).month();
+    const month = moment.utc(item.day).format("MMMM");
     !months.includes(month) && months.push(month);
   }
 
-  const monthsWorded = months.map((item) => monthNames[item]);
-
   const monthsFormatted =
-    months.length === 1
-      ? monthsWorded[0]
-      : `${monthsWorded[0]} - ${monthsWorded[1]}`;
+    months.length === 1 ? months[0] : `${months[0]} - ${months[1]}`;
 
   const years = [];
 

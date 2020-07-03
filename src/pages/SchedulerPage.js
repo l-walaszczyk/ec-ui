@@ -7,7 +7,7 @@ import SchedulerStep2 from "../components/SchedulerStep2";
 import SchedulerStep3 from "../components/SchedulerStep3";
 import texts from "../content/texts";
 import config from "../config/config";
-import moment from "moment";
+import moment from "moment-timezone";
 
 const SchedulerPage = () => {
   useEffect(() => {
@@ -32,10 +32,26 @@ const SchedulerPage = () => {
   const meetingDuration =
     (meetingTypes[selectedMeetingType] || []).minutes || 50;
 
+  const meetingType = (meetingTypes[selectedMeetingType] || []).name;
+
   const [url, setUrl] = useState(
     config.apiURL + "asap/?" + new URLSearchParams({ meetingDuration })
   );
   const [weekArray, setWeekArray] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setWeekArray(result);
+          console.log(result);
+        },
+        (error) => {
+          console.log("Error:", error);
+        }
+      );
+  }, [url, setWeekArray]);
 
   useEffect(() => {
     const params = {
@@ -53,20 +69,6 @@ const SchedulerPage = () => {
     }
     setUrl(config.apiURL + "asap/?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime]);
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setWeekArray(result);
-          console.log(result);
-        },
-        (error) => {
-          console.log("Error:", error);
-        }
-      );
-  }, [url, setWeekArray]);
 
   const SchedulerSteps = [
     <SchedulerStep0
@@ -86,6 +88,7 @@ const SchedulerPage = () => {
     <SchedulerStep2
       setSelected={setSelected}
       meetingDuration={meetingDuration}
+      meetingType={meetingType}
       selectedDay={selectedDay}
       setSelectedDay={setSelectedDay}
       selectedTime={selectedTime}

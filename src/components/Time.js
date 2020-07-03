@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Time.scss";
-import moment from "moment";
+import moment from "moment-timezone";
 
 const Time = ({
   weekArray,
@@ -9,19 +9,20 @@ const Time = ({
   setSelectedTime,
   setSelected,
 }) => {
+  const timeZone = moment.tz.zone("Europe/Warsaw");
+  const timeOffset = timeZone.parse(selectedDay);
+  const timeOffsetHours = timeOffset / 60;
+
   const dayObject = weekArray.find((item) =>
     moment.utc(item.day).isSame(selectedDay, "day")
   );
 
-  // console.log(dayObject);
-
   const hours = dayObject ? dayObject.hours : [];
 
-  // console.log(hours);
-
   const times = hours.map((hour, index) => {
-    const integerPart = Math.trunc(hour);
-    const decimalPart = (hour % 1) * 60;
+    const hourLocal = hour - timeOffsetHours;
+    const integerPart = Math.trunc(hourLocal);
+    const decimalPart = (hourLocal % 1) * 60;
 
     return (
       <button

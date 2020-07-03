@@ -1,5 +1,4 @@
 import React from "react";
-// import "../styles/SchedulerStep.scss";
 import texts from "../content/texts";
 
 const SchedulerStep0 = ({
