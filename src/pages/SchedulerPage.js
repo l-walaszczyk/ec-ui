@@ -35,7 +35,7 @@ const SchedulerPage = () => {
   const meetingType = (meetingTypes[selectedMeetingType] || []).name;
 
   const [url, setUrl] = useState(
-    config.apiURL + "asap/?" + new URLSearchParams({ meetingDuration })
+    config.apiURL + "week/asap/?" + new URLSearchParams({ meetingDuration })
   );
   const [weekArray, setWeekArray] = useState([]);
 
@@ -67,7 +67,7 @@ const SchedulerPage = () => {
           .format();
       }
     }
-    setUrl(config.apiURL + "asap/?" + new URLSearchParams(params));
+    setUrl(config.apiURL + "week/asap/?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime]);
 
   const SchedulerSteps = [

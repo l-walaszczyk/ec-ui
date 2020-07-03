@@ -70,6 +70,7 @@ const Week = ({
     const { direction } = e.currentTarget.dataset;
     setUrl(
       config.apiURL +
+        "week/" +
         direction +
         "/?" +
         new URLSearchParams({
