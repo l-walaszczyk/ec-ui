@@ -79,59 +79,62 @@ const Week = ({
         })
     );
   };
-
-  return (
-    <div className="week-container">
-      <h2>
-        Wybierz termin wizyty
-        <br />
-        użyj strzałek, aby sprawdzić inny tydzień
-      </h2>
-      <table>
-        <tbody>
-          <tr>
-            <th colSpan="9">{weekArray.length ? yearsFormatted : "..."}</th>
-          </tr>
-          <tr>
-            <th colSpan="9">{weekArray.length ? monthsFormatted : "..."}</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>Pn</th>
-            <th>Wt</th>
-            <th>Śr</th>
-            <th>Czw</th>
-            <th>Pt</th>
-            <th>Sb</th>
-            <th>Nd</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td>
-              <button
-                className="calendar-arrow"
-                type="button"
-                data-direction="before"
-                onClick={handleArrowClick}
-              >
-                <i className="fas fa-angle-left"></i>
-              </button>
-            </td>
-            {weekArray.length ? days : <td colSpan="7">...</td>}
-            <td>
-              <button
-                className="calendar-arrow"
-                type="button"
-                data-direction="after"
-                onClick={handleArrowClick}
-              >
-                <i className="fas fa-angle-right"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
+  if (weekArray.length) {
+    return (
+      <div className="week-container">
+        <h2>
+          Wybierz termin wizyty
+          <br />
+          użyj strzałek, aby sprawdzić inny tydzień
+        </h2>
+        <table>
+          <tbody>
+            <tr>
+              <th colSpan="9">{yearsFormatted}</th>
+            </tr>
+            <tr>
+              <th colSpan="9">{monthsFormatted}</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>Pn</th>
+              <th>Wt</th>
+              <th>Śr</th>
+              <th>Czw</th>
+              <th>Pt</th>
+              <th>Sb</th>
+              <th>Nd</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  className="calendar-arrow"
+                  type="button"
+                  data-direction="before"
+                  onClick={handleArrowClick}
+                >
+                  <i className="fas fa-angle-left"></i>
+                </button>
+              </td>
+              {days}
+              <td>
+                <button
+                  className="calendar-arrow"
+                  type="button"
+                  data-direction="after"
+                  onClick={handleArrowClick}
+                >
+                  <i className="fas fa-angle-right"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  } else {
+    return <h2>Trwa pobieranie danych</h2>;
+  }
 };
 export default Week;

@@ -39,13 +39,17 @@ const Time = ({
     );
   });
 
-  return (
-    <div className="time-container">
-      <h2>Wybierz godzinę wizyty</h2>
-      <div className="time">
-        <p>{times}</p>
+  if (hours.length) {
+    return (
+      <div className="time-container">
+        <h2>Wybierz godzinę wizyty</h2>
+        <div className="time">
+          <p>{times}</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 export default Time;
