@@ -1,7 +1,7 @@
 import React from "react";
 
 const SchedulerStep1 = ({
-  setSelected,
+  // setSelected,
   meetingTypes,
   selectedMeetingType,
   setSelectedMeetingType,
@@ -15,7 +15,6 @@ const SchedulerStep1 = ({
         className={`option${selectedMeetingType === index ? " selected" : ""}`}
         onClick={() => {
           setSelectedMeetingType(index);
-          setSelected(2);
           setSelectedDay(null);
           setSelectedTime(null);
         }}

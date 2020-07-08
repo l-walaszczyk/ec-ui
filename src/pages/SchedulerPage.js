@@ -22,36 +22,62 @@ const SchedulerPage = () => {
 
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState(0);
-  const [field, setField] = useState(null);
+  const [selectedField, setSelectedField] = useState(null);
   const [selectedMeetingType, setSelectedMeetingType] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
-  const meetingTypes = types[field] || [];
+  const meetingTypes = types[selectedField] || [];
 
   const meetingDuration =
     (meetingTypes[selectedMeetingType] || []).minutes || 50;
 
-  const meetingType = (meetingTypes[selectedMeetingType] || []).name;
+  const meetingType = meetingTypes[selectedMeetingType] || {};
 
   const [url, setUrl] = useState(
     config.apiURL + "week/asap/?" + new URLSearchParams({ meetingDuration })
   );
   const [weekArray, setWeekArray] = useState([]);
+  const [weekSuccess, setWeekSuccess] = useState(null);
+  const [hintsCheck, setHintsCheck] = useState(false);
+  const [savedMeeting, setSavedMeeting] = useState(null);
 
-  useEffect(() => {
-    fetch(url)
+  const fetchWeek = (url) => {
+    const requestOptions = {
+      method: "GET",
+      withCredentials: true,
+    };
+
+    setHintsCheck(false);
+    fetch(url, requestOptions)
       .then((res) => res.json())
       .then(
         (result) => {
-          setWeekArray(result);
-          console.log(result);
+          setWeekArray(result.array || []);
+          setWeekSuccess(result.success);
+          setHintsCheck(true);
+          // console.log(result.array);
         },
         (error) => {
-          console.log("Error:", error);
+          console.log("Error while fetching week array:", error);
         }
       );
-  }, [url, setWeekArray]);
+  };
+
+  useEffect(() => {
+    const sumSelected = () => {
+      if (selectedTime !== null) return 3;
+      if (selectedDay !== null) return 2.5;
+      if (selectedMeetingType !== null) return 2;
+      if (selectedField !== null) return 1;
+      return 0;
+    };
+    setSelected(sumSelected());
+  }, [selectedField, selectedMeetingType, selectedDay, selectedTime]);
+
+  useEffect(() => {
+    fetchWeek(url);
+  }, [url]);
 
   useEffect(() => {
     const params = {
@@ -67,14 +93,17 @@ const SchedulerPage = () => {
           .format();
       }
     }
+    if (savedMeeting) {
+      params.id = savedMeeting._id;
+    }
     setUrl(config.apiURL + "week/asap/?" + new URLSearchParams(params));
-  }, [meetingDuration, selectedDay, selectedTime]);
+  }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
   const SchedulerSteps = [
     <SchedulerStep0
       setSelected={setSelected}
-      field={field}
-      setField={setField}
+      selectedField={selectedField}
+      setSelectedField={setSelectedField}
       setSelectedMeetingType={setSelectedMeetingType}
     />,
     <SchedulerStep1
@@ -93,10 +122,17 @@ const SchedulerPage = () => {
       setSelectedDay={setSelectedDay}
       selectedTime={selectedTime}
       setSelectedTime={setSelectedTime}
+      url={url}
       setUrl={setUrl}
       weekArray={weekArray}
+      weekSuccess={weekSuccess}
+      hintsCheck={hintsCheck}
+      setHintsCheck={setHintsCheck}
+      fetchWeek={fetchWeek}
+      savedMeeting={savedMeeting}
+      // setSavedMeeting={setSavedMeeting}
     />,
-    <SchedulerStep3 />,
+    <SchedulerStep3 meetingType={meetingType} savedMeeting={savedMeeting} />,
   ];
 
   return (
@@ -111,7 +147,9 @@ const SchedulerPage = () => {
           meetingDuration={meetingDuration}
           selectedDay={selectedDay}
           selectedTime={selectedTime}
-          setWeekArray={setWeekArray}
+          setSelectedTime={setSelectedTime}
+          savedMeeting={savedMeeting}
+          setSavedMeeting={setSavedMeeting}
         />
       </section>
     </main>

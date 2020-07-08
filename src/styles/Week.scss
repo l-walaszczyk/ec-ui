@@ -1,4 +1,7 @@
 div.week-container {
+ // margin-bottom: 1rem;
+ position: relative;
+
  table {
   text-align: center;
   margin: auto;
@@ -44,4 +47,57 @@ div.week-container {
    }
   }
  }
+
+ div.hint {
+  position: absolute;
+  bottom: -3rem;
+  // width: 50%;
+
+  &.before {
+   left: 0;
+   text-align: left;
+  }
+
+  &.after {
+   right: 0;
+   text-align: right;
+  }
+
+  p {
+   font-size: 1.25rem;
+   // font-weight: 100;
+   // font-style: italic;
+  }
+ }
+
 }
+
+/* HINT TRANSITION */
+/* \/ */
+.hint-transition-enter {
+ // transform: translateX(100%);
+ opacity: 0;
+}
+
+.hint-transition-enter-active {
+ // transform: translateX(0);
+ opacity: 1;
+}
+
+.hint-transition-exit {
+ // transform: translateX(0);
+ opacity: 1;
+}
+
+.hint-transition-exit-active {
+ // transform: translateX(100%);
+ opacity: 0;
+}
+
+.hint-transition-enter-active,
+.hint-transition-exit-active {
+ transition: 250ms ease-out;
+}
+
+/* /\ */
+/* HINT TRANSITION */

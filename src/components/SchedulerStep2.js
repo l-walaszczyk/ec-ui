@@ -3,19 +3,25 @@ import Week from "./Week";
 import Time from "./Time";
 import moment from "moment-timezone";
 import "moment/locale/pl";
+import texts from "../content/texts";
 
 moment.locale("pl");
 
 const SchedulerStep2 = ({
-  setSelected,
   meetingDuration,
   meetingType,
   selectedDay,
   setSelectedDay,
   selectedTime,
   setSelectedTime,
+  url,
   setUrl,
   weekArray,
+  weekSuccess,
+  hintsCheck,
+  setHintsCheck,
+  fetchWeek,
+  savedMeeting,
 }) => {
   const meetingDateLocal = moment(selectedDay)
     .hour(Math.trunc(selectedTime))
@@ -25,13 +31,18 @@ const SchedulerStep2 = ({
   return (
     <div className="options-container">
       <Week
-        setSelected={setSelected}
         weekArray={weekArray}
+        weekSuccess={weekSuccess}
         meetingDuration={meetingDuration}
+        url={url}
         setUrl={setUrl}
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
         setSelectedTime={setSelectedTime}
+        hintsCheck={hintsCheck}
+        setHintsCheck={setHintsCheck}
+        fetchWeek={fetchWeek}
+        savedMeeting={savedMeeting}
       />
 
       {weekArray && selectedDay && (
@@ -40,7 +51,6 @@ const SchedulerStep2 = ({
           selectedDay={selectedDay}
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime}
-          setSelected={setSelected}
         />
       )}
       {weekArray && selectedDay && selectedTime && (
@@ -48,7 +58,7 @@ const SchedulerStep2 = ({
           <h2>Podsumowanie wyboru</h2>
           <div className="summary">
             <p>
-              Rodzaj spotkania: <span>{meetingType}</span>
+              Rodzaj spotkania: <span>{meetingType.name}</span>
             </p>
             <p>
               Data: <span>{meetingDateLocal.format("dddd, D MMMM YYYY")}</span>
@@ -59,6 +69,10 @@ const SchedulerStep2 = ({
           </div>
         </div>
       )}
+      <p>
+        Jeśli nie możesz znaleźć odpowiadającego terminu proszę o kontakt pod
+        nr. tel.: {texts.home.contact.phone}
+      </p>
     </div>
   );
 };

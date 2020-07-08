@@ -31,7 +31,7 @@ const Time = ({
         className={`time${hour === selectedTime ? " selected" : ""}`}
         onClick={() => {
           setSelectedTime(hour);
-          setSelected(3);
+          // setSelected(3);
         }}
       >
         {integerPart} <sup>{(decimalPart < 10 ? "0" : "") + decimalPart}</sup>

@@ -1,19 +1,27 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/Week.scss";
 import moment from "moment-timezone";
 import "moment/locale/pl";
 import config from "../config/config";
+import { CSSTransition } from "react-transition-group";
+import { useEffect } from "react";
 
 moment.locale("pl");
 
 const Week = ({
-  setSelected,
   weekArray,
+  weekSuccess,
   meetingDuration,
+  url,
   setUrl,
   selectedDay,
   setSelectedDay,
   setSelectedTime,
+  hintsCheck,
+  setHintsCheck,
+  fetchWeek,
+  savedMeeting,
 }) => {
   const days = weekArray.map((item, index) => {
     if (item.hours.length === 0) {
@@ -33,7 +41,6 @@ const Week = ({
             onClick={() => {
               setSelectedDay(moment.utc(item.day));
               setSelectedTime(null);
-              setSelected(2);
             }}
           >
             {moment.utc(item.day).date()}
@@ -63,22 +70,59 @@ const Week = ({
   const yearsFormatted =
     years.length === 1 ? years[0] : `${years[0]}/${years[1]}`;
 
+  const [direction, setDirection] = useState(null);
+  const [directionClass, setDirectionClass] = useState(null);
+  const [showHint, setShowHint] = useState(false);
+
   const handleArrowClick = (e) => {
     if (!weekArray.length) {
       return;
     }
     const { direction } = e.currentTarget.dataset;
+    setDirection(direction);
+    setShowHint(false);
+    setHintsCheck(false);
+
+    const getRandomDayFromWeek = () => {
+      let dayCandidate;
+      do {
+        dayCandidate = weekArray[Math.floor(Math.random() * 7)].day;
+      } while (dayCandidate === selectedDay);
+      return dayCandidate;
+    };
+
+    const params = {
+      meetingDuration,
+      date: getRandomDayFromWeek(),
+    };
+
+    if (savedMeeting) {
+      params.id = savedMeeting._id;
+    }
+
     setUrl(
-      config.apiURL +
-        "week/" +
-        direction +
-        "/?" +
-        new URLSearchParams({
-          meetingDuration,
-          date: weekArray[Math.floor(Math.random() * 7)].day,
-        })
+      config.apiURL + "week/" + direction + "/?" + new URLSearchParams(params)
     );
   };
+
+  useEffect(() => {
+    if (hintsCheck && !weekSuccess) {
+      setShowHint(true);
+      setDirectionClass(direction);
+    }
+  }, [weekSuccess, hintsCheck, direction]);
+
+  useEffect(() => {
+    const handleClickAnywhere = () => {
+      setShowHint(false);
+      setHintsCheck(false);
+    };
+    window.addEventListener("click", handleClickAnywhere);
+    return () => {
+      window.removeEventListener("click", handleClickAnywhere);
+    };
+  }, [setShowHint, setHintsCheck]);
+
   if (weekArray.length) {
     return (
       <div className="week-container">
@@ -131,10 +175,38 @@ const Week = ({
             </tr>
           </tbody>
         </table>
+        <CSSTransition
+          in={showHint}
+          classNames="hint-transition"
+          timeout={250}
+          mountOnEnter
+          unmountOnExit
+        >
+          <div className={`hint ${directionClass}`}>
+            <p>
+              Brak terminów
+              <br />
+              {(directionClass === "before" && "we wcześniejszych") ||
+                (directionClass === "after" && "w późniejszych")}{" "}
+              tygodniach
+            </p>
+          </div>
+        </CSSTransition>
       </div>
     );
   } else {
-    return <h2>Trwa pobieranie danych</h2>;
+    return (
+      <div className="loading">
+        <h2>Trwa pobieranie danych</h2>
+        <p>
+          Kliknij{" "}
+          <span type="button" onClick={() => fetchWeek(url)}>
+            tutaj
+          </span>{" "}
+          aby spróbować ponownie
+        </p>
+      </div>
+    );
   }
 };
 export default Week;

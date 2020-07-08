@@ -10,36 +10,45 @@ const SchedulerNavButtons = ({
   meetingDuration,
   selectedDay,
   selectedTime,
-  setWeekArray,
+  setSelectedTime,
+  savedMeeting,
+  setSavedMeeting,
 }) => {
   const handleNextStep = () => {
     if (step === 2) {
-      const date = moment(selectedDay)
-        .hour(Math.trunc(selectedTime))
-        .minute((selectedTime % 1) * 60)
-        .utc()
-        .format();
-      const url =
-        config.apiURL +
-        "book/?" +
-        new URLSearchParams({ date, meetingDuration });
-      console.log(url);
+      const params = {
+        date: moment(selectedDay)
+          .hour(Math.trunc(selectedTime))
+          .minute((selectedTime % 1) * 60)
+          .utc()
+          .format(),
+        meetingDuration,
+      };
 
       const requestOptions = {
         method: "POST",
-        // headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ title: "React POST Request Example" }),
+        withCredentials: true,
       };
+
+      if (savedMeeting) {
+        params.id = savedMeeting._id;
+        requestOptions.method = "PATCH";
+      }
+
+      const url = config.apiURL + "?" + new URLSearchParams(params);
 
       fetch(url, requestOptions)
         .then((res) => res.json())
         .then(
           (result) => {
-            if (result.length === 7) {
-              setWeekArray(result);
-              console.log("Ktoś inny zarezerwował ten termin przed chwilą");
-            } else {
+            if (result.success) {
+              setSavedMeeting(result.savedMeeting);
               setStep(step + 1);
+            } else {
+              setSavedMeeting(null);
+              setSelectedTime(null);
+              console.log("Wybrany termin nie jest już dostępny");
+              console.log(result.success);
             }
           },
           (error) => {
@@ -54,7 +63,11 @@ const SchedulerNavButtons = ({
   return (
     <div className="button-container">
       {step === 0 ? null : (
-        <button type="button" className="nav" onClick={() => setStep(step - 1)}>
+        <button
+          type="button"
+          className={`nav${step >= 3 ? " inactive" : ""}`}
+          onClick={step >= 3 ? null : () => setStep(step - 1)}
+        >
           Wstecz
         </button>
       )}

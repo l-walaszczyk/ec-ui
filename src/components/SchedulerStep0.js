@@ -2,9 +2,9 @@ import React from "react";
 import texts from "../content/texts";
 
 const SchedulerStep0 = ({
-  setSelected,
-  field,
-  setField,
+  // setSelected,
+  selectedField,
+  setSelectedField,
   setSelectedMeetingType,
 }) => {
   const fields = [
@@ -17,10 +17,10 @@ const SchedulerStep0 = ({
     <li key={index}>
       <button
         type="button"
-        className={`option${field === index ? " selected" : ""}`}
+        className={`option${selectedField === index ? " selected" : ""}`}
         onClick={() => {
-          setField(index);
-          setSelected(1);
+          setSelectedField(index);
+          // setSelected(1);
           setSelectedMeetingType(null);
         }}
       >
