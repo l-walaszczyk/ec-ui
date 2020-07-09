@@ -93,9 +93,9 @@ const SchedulerPage = () => {
           .format();
       }
     }
-    if (savedMeeting) {
-      params.id = savedMeeting._id;
-    }
+    // if (savedMeeting) {
+    //   params.id = savedMeeting._id;
+    // }
     setUrl(config.apiURL + "week/asap/?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
@@ -129,7 +129,7 @@ const SchedulerPage = () => {
       hintsCheck={hintsCheck}
       setHintsCheck={setHintsCheck}
       fetchWeek={fetchWeek}
-      savedMeeting={savedMeeting}
+      // savedMeeting={savedMeeting}
       // setSavedMeeting={setSavedMeeting}
     />,
     <SchedulerStep3 meetingType={meetingType} savedMeeting={savedMeeting} />,
@@ -148,7 +148,7 @@ const SchedulerPage = () => {
           selectedDay={selectedDay}
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime}
-          savedMeeting={savedMeeting}
+          // savedMeeting={savedMeeting}
           setSavedMeeting={setSavedMeeting}
         />
       </section>

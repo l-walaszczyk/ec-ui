@@ -21,7 +21,7 @@ const Week = ({
   hintsCheck,
   setHintsCheck,
   fetchWeek,
-  savedMeeting,
+  // savedMeeting,
 }) => {
   const days = weekArray.map((item, index) => {
     if (item.hours.length === 0) {
@@ -96,9 +96,9 @@ const Week = ({
       date: getRandomDayFromWeek(),
     };
 
-    if (savedMeeting) {
-      params.id = savedMeeting._id;
-    }
+    // if (savedMeeting) {
+    //   params.id = savedMeeting._id;
+    // }
 
     setUrl(
       config.apiURL + "week/" + direction + "/?" + new URLSearchParams(params)

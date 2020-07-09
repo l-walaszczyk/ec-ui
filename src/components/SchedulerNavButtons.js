@@ -11,7 +11,7 @@ const SchedulerNavButtons = ({
   selectedDay,
   selectedTime,
   setSelectedTime,
-  savedMeeting,
+  // savedMeeting,
   setSavedMeeting,
 }) => {
   const handleNextStep = () => {
@@ -30,10 +30,10 @@ const SchedulerNavButtons = ({
         withCredentials: true,
       };
 
-      if (savedMeeting) {
-        params.id = savedMeeting._id;
-        requestOptions.method = "PATCH";
-      }
+      // if (savedMeeting) {
+      //   params.id = savedMeeting._id;
+      //   requestOptions.method = "PATCH";
+      // }
 
       const url = config.apiURL + "?" + new URLSearchParams(params);
 
@@ -48,7 +48,6 @@ const SchedulerNavButtons = ({
               setSavedMeeting(null);
               setSelectedTime(null);
               console.log("Wybrany termin nie jest już dostępny");
-              console.log(result.success);
             }
           },
           (error) => {

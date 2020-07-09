@@ -21,7 +21,7 @@ const SchedulerStep2 = ({
   hintsCheck,
   setHintsCheck,
   fetchWeek,
-  savedMeeting,
+  // savedMeeting,
 }) => {
   const meetingDateLocal = moment(selectedDay)
     .hour(Math.trunc(selectedTime))
@@ -42,7 +42,7 @@ const SchedulerStep2 = ({
         hintsCheck={hintsCheck}
         setHintsCheck={setHintsCheck}
         fetchWeek={fetchWeek}
-        savedMeeting={savedMeeting}
+        // savedMeeting={savedMeeting}
       />
 
       {weekArray && selectedDay && (
