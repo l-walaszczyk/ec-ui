@@ -7,22 +7,6 @@ const SchedulerStep0 = ({
   setSelectedField,
   setSelectedMeetingType,
 }) => {
-  // const fields = [
-  //   <span>
-  //     Psychoterapia poznawczo - behawioralna
-  //     <br />
-  //     osób dorosłych
-  //   </span>,
-  //   <span>
-  //     Psychoterapia poznawczo - behawioralna
-  //     <br />
-  //     dzieci i młodzieży
-  //   </span>,
-  //   <span>
-  //     Psychologia transportu i medycyna pracy
-  //     <br />- badania psychologiczne / psychotechniczne
-  //   </span>,
-  // ];
   const fields = [
     texts.services.titles.one,
     texts.services.titles.two,
