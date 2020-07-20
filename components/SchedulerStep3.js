@@ -37,12 +37,12 @@ const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
           </p>
         </div>
         <div className="form-container">
-          <h2>
-            Proszę podaj jeszcze kilka informacji
-            <br />
-            (wymagane oznaczono *)
-          </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <h2>
+              Proszę podaj jeszcze kilka informacji
+              <br />
+              (wymagane oznaczono *)
+            </h2>
             <label htmlFor="forSomeoneElse">
               <input
                 id="forSomeoneElse"
@@ -133,7 +133,34 @@ const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
               name="telephone"
               ref={register({ required: true, minLength: 9, maxLength: 12 })}
             />
-
+            <h2>Wybierz sposób płatności</h2>
+            <select name="paymentMethod" ref={register({ required: true })}>
+              <option defaultValue>wybierz z listy...</option>
+              <option value="przelewy24">
+                Płatność z góry przez Przelewy24.pl
+              </option>
+              <option value="personally">
+                Płatność podczas wizyty w gabinecie
+              </option>
+            </select>
+            <label htmlFor="agreement1">
+              <input
+                id="agreement1"
+                name="agreement1"
+                type="checkbox"
+                ref={register({ required: true })}
+              />
+              <p>Akceptuję regulamin serwisu emiliacwojdzinska.pl</p>
+            </label>
+            <label htmlFor="agreement2">
+              <input
+                id="agreement2"
+                name="agreement2"
+                type="checkbox"
+                ref={register({ required: true })}
+              />
+              <p>Akceptuję informację o danych osobowych</p>
+            </label>
             <input type="submit" />
           </form>
         </div>
