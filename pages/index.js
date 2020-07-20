@@ -15,13 +15,19 @@ import Button from "../components/Button";
 // smoothscroll.polyfill();
 
 const Index = () => {
-  // const [width, setWidth] = useState(window.innerWidth);
-  const [width, setWidth] = useState();
+  const [width, setWidth] = useState(300);
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
+    if (window) {
+      handleResize();
+    }
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -62,7 +68,7 @@ const Index = () => {
               {texts.home.home}
               {width < 533 ? (
                 <Button to="/scheduler">
-                  <i className="far fa-calendar-check"></i>
+                  <i className="far fa-calendar-check" aria-hidden></i>
                   <span>Umów spotkanie</span>
                 </Button>
               ) : null}
@@ -130,7 +136,7 @@ const Index = () => {
                   <tbody>
                     <tr>
                       <td>
-                        <i className="fas fa-id-card"></i>
+                        <i className="fas fa-id-card" aria-hidden></i>
                       </td>
                       <td>
                         <p>{texts.home.contact.companyLine1}</p>
@@ -140,7 +146,7 @@ const Index = () => {
                     </tr>
                     <tr>
                       <td>
-                        <i className="fas fa-home"></i>
+                        <i className="fas fa-home" aria-hidden></i>
                       </td>
                       <td>
                         <p>{texts.home.contact.addressLine1}</p>
@@ -149,7 +155,7 @@ const Index = () => {
                     </tr>
                     <tr>
                       <td>
-                        <i className="fas fa-envelope"></i>
+                        <i className="fas fa-envelope" aria-hidden></i>
                       </td>
                       <td>
                         <a
@@ -163,7 +169,7 @@ const Index = () => {
                     </tr>
                     <tr>
                       <td>
-                        <i className="fas fa-phone-alt"></i>
+                        <i className="fas fa-phone-alt" aria-hidden></i>
                       </td>
                       <td>
                         <a
@@ -177,7 +183,7 @@ const Index = () => {
                     </tr>
                     <tr>
                       <td>
-                        <i className="fas fa-money-bill-wave"></i>
+                        <i className="fas fa-money-bill-wave" aria-hidden></i>
                       </td>
                       <td>
                         <p>{texts.home.contact.accountNumberLine1}</p>
@@ -186,7 +192,7 @@ const Index = () => {
                     </tr>
                     <tr>
                       <td>
-                        <i className="fab fa-facebook-square"></i>
+                        <i className="fab fa-facebook-square" aria-hidden></i>
                       </td>
                       <td>
                         <p>Zapraszam także do odwiedzenia</p>
@@ -207,7 +213,7 @@ const Index = () => {
               </div>
               {/* <div className="button-container"> */}
               <Button to="/scheduler">
-                <i className="far fa-calendar-check"></i>
+                <i className="far fa-calendar-check" aria-hidden></i>
                 <span>Umów spotkanie</span>
               </Button>
               {/* </div> */}

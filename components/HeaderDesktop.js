@@ -52,7 +52,10 @@ const HeaderDesktop = () => {
           >
             <button className="menu-item" type="button" onClick={handleClick}>
               <span>Oferta</span>
-              <i className={`fas fa-angle-${drawerOpen ? "up" : "down"}`}></i>
+              <i
+                className={`fas fa-angle-${drawerOpen ? "up" : "down"}`}
+                aria-hidden
+              ></i>
             </button>
             <CSSTransition
               in={drawerOpen}
@@ -92,7 +95,7 @@ const HeaderDesktop = () => {
           </li>
           <li>
             <Button to="/scheduler">
-              <i className="far fa-calendar-check"></i>
+              <i className="far fa-calendar-check" aria-hidden></i>
               <span>Umów spotkanie</span>
             </Button>
           </li>

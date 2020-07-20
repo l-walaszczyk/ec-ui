@@ -3,13 +3,19 @@ import HeaderMobile from "../components/HeaderMobile";
 import HeaderDesktop from "../components/HeaderDesktop";
 
 const Header = () => {
-  // const [width, setWidth] = useState(window.innerWidth);
-  const [width, setWidth] = useState();
+  const [width, setWidth] = useState(300);
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
+    if (window) {
+      handleResize();
+    }
+  }, []);
+
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);

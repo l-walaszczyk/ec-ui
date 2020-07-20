@@ -12,14 +12,14 @@ const Footer = () => {
           rel="noopener noreferrer"
           href="mailto:l.walaszczyk@interia.pl"
         >
-          <i className="fas fa-envelope"></i>
+          <i className="fas fa-envelope" aria-hidden></i>
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/l-walaszczyk/"
         >
-          <i className="fab fa-linkedin"></i>
+          <i className="fab fa-linkedin" aria-hidden></i>
         </a>
       </p>
     </footer>

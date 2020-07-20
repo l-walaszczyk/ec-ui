@@ -28,6 +28,7 @@ const SchedulerNavButtons = ({
       const requestOptions = {
         method: "POST",
         withCredentials: true,
+        SameSite: "None",
       };
 
       // if (savedMeeting) {
