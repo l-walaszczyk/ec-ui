@@ -1,5 +1,5 @@
 import React from "react";
-import texts from "../content/texts";
+// import texts from "../content/texts";
 
 const SchedulerStep0 = ({
   // setSelected,
@@ -8,10 +8,26 @@ const SchedulerStep0 = ({
   setSelectedMeetingType,
 }) => {
   const fields = [
-    texts.services.titles.one,
-    texts.services.titles.two,
-    texts.services.titles.three,
+    <span>
+      Psychoterapia poznawczo - behawioralna
+      <br />
+      osób dorosłych
+    </span>,
+    <span>
+      Psychoterapia poznawczo - behawioralna
+      <br />
+      dzieci i młodzieży
+    </span>,
+    <span>
+      Psychologia transportu i medycyna pracy
+      <br />- badania psychologiczne / psychotechniczne
+    </span>,
   ];
+  // const fields = [
+  //   texts.services.titles.one,
+  //   texts.services.titles.two,
+  //   texts.services.titles.three,
+  // ];
 
   const options = fields.map((item, index) => (
     <li key={index}>
@@ -34,7 +50,7 @@ const SchedulerStep0 = ({
       <h2>
         Wybierz obszar, którego będzie dotyczyć spotkanie i naciśnij "dalej"
         <br />
-        Możliwa także rejestracja pod nr tel.: {texts.home.contact.phone}
+        {/* Możliwa także rejestracja pod nr tel.: {texts.home.contact.phone} */}
       </h2>
       <ul>{options}</ul>
     </div>
