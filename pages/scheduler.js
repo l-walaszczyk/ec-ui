@@ -2,7 +2,6 @@ import Layout from "../layouts/Layout";
 
 import React, { useState, useEffect } from "react";
 // import "../styles/scheduler.scss";
-import SchedulerNavButtons from "../components/SchedulerNavButtons";
 import SchedulerStep0 from "../components/SchedulerStep0";
 import SchedulerStep1 from "../components/SchedulerStep1";
 import SchedulerStep2 from "../components/SchedulerStep2";
@@ -103,12 +102,18 @@ const Scheduler = () => {
 
   const SchedulerSteps = [
     <SchedulerStep0
-      setSelected={setSelected}
+      step={step}
+      setStep={setStep}
+      selected={selected}
+      // setSelected={setSelected}
       selectedField={selectedField}
       setSelectedField={setSelectedField}
       setSelectedMeetingType={setSelectedMeetingType}
     />,
     <SchedulerStep1
+      step={step}
+      setStep={setStep}
+      selected={selected}
       setSelected={setSelected}
       meetingTypes={meetingTypes}
       selectedMeetingType={selectedMeetingType}
@@ -117,6 +122,9 @@ const Scheduler = () => {
       setSelectedTime={setSelectedTime}
     />,
     <SchedulerStep2
+      step={step}
+      setStep={setStep}
+      selected={selected}
       setSelected={setSelected}
       meetingDuration={meetingDuration}
       meetingType={meetingType}
@@ -132,17 +140,23 @@ const Scheduler = () => {
       setHintsCheck={setHintsCheck}
       fetchWeek={fetchWeek}
       // savedMeeting={savedMeeting}
-      // setSavedMeeting={setSavedMeeting}
+      setSavedMeeting={setSavedMeeting}
     />,
-    <SchedulerStep3 meetingType={meetingType} savedMeeting={savedMeeting} />,
+    <SchedulerStep3
+      step={step}
+      setStep={setStep}
+      selected={selected}
+      meetingType={meetingType}
+      savedMeeting={savedMeeting}
+    />,
   ];
 
   return (
     <Layout>
       <main>
-        <section className="scheduler">
-          {SchedulerSteps[step]}
-          <SchedulerNavButtons
+        {/* <section className="scheduler"> */}
+        {SchedulerSteps[step]}
+        {/* <SchedulerNavButtons
             step={step}
             setStep={setStep}
             selected={selected}
@@ -153,8 +167,8 @@ const Scheduler = () => {
             setSelectedTime={setSelectedTime}
             // savedMeeting={savedMeeting}
             setSavedMeeting={setSavedMeeting}
-          />
-        </section>
+          /> */}
+        {/* </section> */}
       </main>
     </Layout>
   );

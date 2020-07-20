@@ -3,7 +3,13 @@ import moment from "moment-timezone";
 import "moment/locale/pl";
 import { useForm } from "react-hook-form";
 
-const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
+const SchedulerStep3 = ({
+  step,
+  setStep,
+  selected,
+  meetingType,
+  savedMeeting,
+}) => {
   const meetingDateLocal = moment
     .utc(savedMeeting.meetingDate)
     .tz("Europe/Warsaw");
@@ -12,29 +18,31 @@ const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="options-container">
-      <div className="summary-container">
-        <h2>Podsumowanie, dodatkowe informacje i wybór płatności</h2>
-        <div className="summary">
-          <p>
-            Rodzaj spotkania: <span>{meetingType.name}</span>
-          </p>
-          <p>
-            Data: <span>{meetingDateLocal.format("dddd, D MMMM YYYY")}</span>
-          </p>
-          <p>
-            Godzina: <span>{meetingDateLocal.format("HH:mm")}</span>
-          </p>
-          <p>
-            Czas trwania: <span>Do {meetingType.minutes} minut</span>
-          </p>
-          <p>
-            Koszt: <span>{meetingType.price} zł</span>
-          </p>
-          <p>
-            W trosce o anonimowość klientów, uprzejmie proszę o przybycie nie
-            wcześniej niż o ustalonej godzinie.
-          </p>
+    <section className="scheduler">
+      <div className="options-container">
+        <div className="summary-container">
+          <h2>Podsumowanie, dodatkowe informacje i wybór płatności</h2>
+          <div className="summary">
+            <p>
+              Rodzaj spotkania: <span>{meetingType.name}</span>
+            </p>
+            <p>
+              Data: <span>{meetingDateLocal.format("dddd, D MMMM YYYY")}</span>
+            </p>
+            <p>
+              Godzina: <span>{meetingDateLocal.format("HH:mm")}</span>
+            </p>
+            <p>
+              Czas trwania: <span>Do {meetingType.minutes} minut</span>
+            </p>
+            <p>
+              Koszt: <span>{meetingType.price} zł</span>
+            </p>
+            <p>
+              W trosce o anonimowość klientów, uprzejmie proszę o przybycie nie
+              wcześniej niż o ustalonej godzinie.
+            </p>
+          </div>
         </div>
         <div className="form-container">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -134,10 +142,23 @@ const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
               ref={register({ required: true, minLength: 9, maxLength: 12 })}
             />
             <h2>Wybierz sposób płatności</h2>
-            <select name="paymentMethod" ref={register({ required: true })}>
-              <option defaultValue>wybierz z listy...</option>
-              <option value="przelewy24">
-                Płatność z góry przez Przelewy24.pl
+            <select
+              name="paymentMethod"
+              defaultValue=""
+              ref={register({ required: true })}
+            >
+              {/* <option defaultValue>wybierz z listy...</option> */}
+              <option value="" disabled>
+                wybierz z listy...
+              </option>
+              <option
+                value="przelewy24"
+                style={{
+                  backgroundImage: `url("/images/przelewy24.png")`,
+                  backgroundSize: "auto",
+                }}
+              >
+                Płatność z góry
               </option>
               <option value="personally">
                 Płatność podczas wizyty w gabinecie
@@ -161,11 +182,31 @@ const SchedulerStep3 = ({ meetingType, savedMeeting }) => {
               />
               <p>Akceptuję informację o danych osobowych</p>
             </label>
-            <input type="submit" />
+            <div className="button-container">
+              <button
+                type="button"
+                className={`nav${step >= 3 ? " inactive" : ""}`}
+                // onClick={step >= 3 ? null : () => setStep(step - 1)}
+              >
+                Wstecz
+              </button>
+
+              <button
+                type="submit"
+                className={`nav${selected < step + 1 ? " inactive" : ""}`}
+              >
+                Dalej
+              </button>
+              {/* <input
+                type="submit"
+                className={`nav${selected < step + 1 ? " inactive" : ""}`}
+                value="Dalej"
+              /> */}
+            </div>
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default SchedulerStep3;

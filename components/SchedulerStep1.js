@@ -1,6 +1,9 @@
 import React from "react";
 
 const SchedulerStep1 = ({
+  step,
+  setStep,
+  selected,
   // setSelected,
   meetingTypes,
   selectedMeetingType,
@@ -29,10 +32,29 @@ const SchedulerStep1 = ({
   ));
 
   return (
-    <div className="options-container">
-      <h2>Wybierz rodzaj wizyty</h2>
-      <ul>{options}</ul>
-    </div>
+    <section className="scheduler">
+      <div className="options-container">
+        <h2>Wybierz rodzaj wizyty</h2>
+        <ul>{options}</ul>
+      </div>
+      <div className="button-container">
+        <button
+          type="button"
+          className={`nav${step >= 3 ? " inactive" : ""}`}
+          onClick={step >= 3 ? null : () => setStep(step - 1)}
+        >
+          Wstecz
+        </button>
+
+        <button
+          type="button"
+          className={`nav${selected < step + 1 ? " inactive" : ""}`}
+          onClick={selected < step + 1 ? null : () => setStep(step + 1)}
+        >
+          Dalej
+        </button>
+      </div>
+    </section>
   );
 };
 export default SchedulerStep1;

@@ -4,7 +4,6 @@ import "../styles/Button.scss";
 import "../styles/HeaderDesktop.scss";
 import "../styles/HeaderMobile.scss";
 import "../styles/MenuItem.scss";
-import "../styles/SchedulerNavButtons.scss";
 import "../styles/Time.scss";
 import "../styles/Week.scss";
 import "../styles/Footer.scss";
