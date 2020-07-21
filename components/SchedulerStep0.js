@@ -46,8 +46,8 @@ const SchedulerStep0 = ({
       <div className="button-container">
         <button
           type="button"
-          className={`nav${selected < step + 1 ? " inactive" : ""}`}
-          onClick={selected < step + 1 ? null : () => setStep(step + 1)}
+          className={`nav${selected < 1 ? " inactive" : ""}`}
+          onClick={selected < 1 ? null : () => setStep(step + 1)}
         >
           Dalej
         </button>

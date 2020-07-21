@@ -123,18 +123,14 @@ const SchedulerStep2 = ({
         </p>
       </div>
       <div className="button-container">
-        <button
-          type="button"
-          className={`nav${step >= 3 ? " inactive" : ""}`}
-          onClick={step >= 3 ? null : () => setStep(step - 1)}
-        >
+        <button type="button" className="nav" onClick={() => setStep(step - 1)}>
           Wstecz
         </button>
 
         <button
           type="button"
-          className={`nav${selected < step + 1 ? " inactive" : ""}`}
-          onClick={selected < step + 1 ? null : handleNextStep}
+          className={`nav${selected < 3 ? " inactive" : ""}`}
+          onClick={selected < 3 ? null : handleNextStep}
         >
           Dalej
         </button>

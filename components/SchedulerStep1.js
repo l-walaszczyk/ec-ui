@@ -38,18 +38,14 @@ const SchedulerStep1 = ({
         <ul>{options}</ul>
       </div>
       <div className="button-container">
-        <button
-          type="button"
-          className={`nav${step >= 3 ? " inactive" : ""}`}
-          onClick={step >= 3 ? null : () => setStep(step - 1)}
-        >
+        <button type="button" className="nav" onClick={() => setStep(step - 1)}>
           Wstecz
         </button>
 
         <button
           type="button"
-          className={`nav${selected < step + 1 ? " inactive" : ""}`}
-          onClick={selected < step + 1 ? null : () => setStep(step + 1)}
+          className={`nav${selected < 2 ? " inactive" : ""}`}
+          onClick={selected < 2 ? null : () => setStep(step + 1)}
         >
           Dalej
         </button>
