@@ -42,7 +42,12 @@ const SchedulerStep3 = ({
           </div>
         </div>
         <div className="form-container">
-          <SummaryForm step={step} setStep={setStep} selected={selected} />
+          <SummaryForm
+            step={step}
+            setStep={setStep}
+            selected={selected}
+            savedMeeting={savedMeeting}
+          />
         </div>
       </div>
     </section>

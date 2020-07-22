@@ -6,6 +6,7 @@ import SchedulerStep0 from "../components/SchedulerStep0";
 import SchedulerStep1 from "../components/SchedulerStep1";
 import SchedulerStep2 from "../components/SchedulerStep2";
 import SchedulerStep3 from "../components/SchedulerStep3";
+import SchedulerStep4 from "../components/SchedulerStep4";
 import texts from "../content/texts";
 import config from "../config/config";
 import moment from "moment-timezone";
@@ -149,6 +150,7 @@ const Scheduler = () => {
       meetingType={meetingType}
       savedMeeting={savedMeeting}
     />,
+    <SchedulerStep4 />,
   ];
 
   return (

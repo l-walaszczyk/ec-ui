@@ -3,8 +3,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ErrorHint from "./ErrorHint";
 import SelectField from "./SelectField";
+import config from "../config/config";
 
-const SummaryForm = ({ step, setStep, selected }) => {
+const SummaryForm = ({ step, setStep, savedMeeting }) => {
   return (
     <Formik
       initialValues={{
@@ -54,17 +55,41 @@ const SummaryForm = ({ step, setStep, selected }) => {
         ),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        console.log("submitting");
         const finalValues = Object.assign({}, values);
 
         if (!values.forSomeoneElse) {
           delete finalValues.firstNameContact;
           delete finalValues.lastNameContact;
         }
-        setTimeout(() => {
-          alert(JSON.stringify(finalValues, null, 2));
-          setSubmitting(false);
-        }, 400);
+
+        const params = {
+          id: savedMeeting._id,
+        };
+
+        const requestOptions = {
+          method: "PATCH",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(finalValues),
+          mode: "cors", // no-cors, *cors, same-origin
+          credentials: "include", // include, *same-origin, omit
+        };
+
+        const url = config.apiURL + "summary/?" + new URLSearchParams(params);
+
+        fetch(url, requestOptions)
+          .then((res) => res.json())
+          .then((res) => {
+            setSubmitting(false);
+            if (res.success) {
+              console.log("PATCHing successful");
+              setStep(step + 1);
+            } else {
+              console.log("PATCHing failed");
+            }
+          });
       }}
     >
       {({ values, isSubmitting, isValid, dirty }) => (
