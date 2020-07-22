@@ -1,6 +1,6 @@
-import { FieldProps } from "formik";
+// import { FieldProps } from "formik";
 import React from "react";
-import Select, { Option, ReactSelectProps } from "react-select";
+import Select from "react-select";
 
 const SelectField = ({ options, field, form }) => (
   <Select
@@ -9,6 +9,7 @@ const SelectField = ({ options, field, form }) => (
     value={
       options ? options.find((option) => option.value === field.value) : ""
     }
+    isSearchable={false}
     onChange={(option) => form.setFieldValue(field.name, option.value)}
     onBlur={field.onBlur}
     styles={{
