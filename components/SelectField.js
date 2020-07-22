@@ -14,24 +14,11 @@ const SelectField = ({ options, field, form }) => (
     onBlur={field.onBlur}
     styles={{
       control: (provided) => {
-        delete provided.border;
-        delete provided.borderColor;
-        delete provided.borderRadius;
-
+        delete provided.boxShadow;
         return {
           ...provided,
         };
       },
-      singleValue: (provided) => {
-        delete provided.color;
-
-        return {
-          ...provided,
-        };
-      },
-      // option: (provided, state) => ({
-      //   ...provided,
-      // }),
     }}
   />
 );

@@ -17,6 +17,8 @@ const SummaryForm = ({ step, setStep, selected }) => {
         email: "",
         telephone: "",
         paymentMethod: "",
+        agreement1: false,
+        agreement2: false,
       }}
       validationSchema={Yup.object({
         forSomeoneElse: Yup.boolean(),
@@ -42,6 +44,14 @@ const SummaryForm = ({ step, setStep, selected }) => {
           .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
           .required("Wpisz numer telefonu"),
         paymentMethod: Yup.string().required("Wybierz sposób płatności"),
+        agreement1: Yup.boolean().oneOf(
+          [true],
+          "Potwierdź akceptację regulaminu"
+        ),
+        agreement2: Yup.boolean().oneOf(
+          [true],
+          "Potwierdź zapoznanie się z informacją o danych osobowych"
+        ),
       })}
       onSubmit={(values, { setSubmitting }) => {
         console.log("submitting");
@@ -67,7 +77,10 @@ const SummaryForm = ({ step, setStep, selected }) => {
           <div className="form-field">
             <label>
               <Field type="checkbox" name="forSomeoneElse" />
-              Zaznacz jeśli rezerwujesz termin dla innej osoby (nie dla siebie)
+              <span>
+                Zaznacz jeśli rezerwujesz termin dla innej osoby (nie dla
+                siebie)
+              </span>
             </label>
           </div>
           {values.forSomeoneElse && (
@@ -152,6 +165,7 @@ const SummaryForm = ({ step, setStep, selected }) => {
                 {
                   value: "",
                   label: <p>wybierz z listy...</p>,
+                  isDisabled: true,
                 },
                 {
                   value: "przelewy24",
@@ -170,21 +184,20 @@ const SummaryForm = ({ step, setStep, selected }) => {
               ]}
             />
             <ErrorMessage name="paymentMethod" component={ErrorHint} />
-            {/* <Field
-              name="paymentMethod"
-              as="select"
-              // placeholder="wybierz z listy..."
-              value={values.paymentMethod}
-            >
-              <option value="" disabled>
-                wybierz z listy...
-              </option>
-              <option value="przelewy24">Płatność z góry</option>
-              <option value="personally">
-                Płatność podczas wizyty w gabinecie
-              </option>
-            </Field>
-            <ErrorMessage name="paymentMethod" component={ErrorHint} /> */}
+          </div>
+          <div className="form-field">
+            <label>
+              <Field type="checkbox" name="agreement1" />
+              <span>Akceptuję regulamin serwisu emiliacwojdzinska.pl</span>
+            </label>
+            <ErrorMessage name="agreement1" component={ErrorHint} />
+          </div>
+          <div className="form-field">
+            <label>
+              <Field type="checkbox" name="agreement2" />
+              <span>Akceptuję informację o danych osobowych</span>
+            </label>
+            <ErrorMessage name="agreement2" component={ErrorHint} />
           </div>
           <div className="button-container">
             <button type="button" className="nav inactive">
