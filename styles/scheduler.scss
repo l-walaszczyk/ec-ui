@@ -169,11 +169,7 @@ section.scheduler {
        border-width: 0 0.25rem 0.25rem 0;
        transform: rotate(45deg);
       }
-
      }
-
-
-
 
      input {
       position: absolute;
@@ -211,73 +207,116 @@ section.scheduler {
      color: rgb(226, 0, 0);
     }
 
-    div[class*="container"] {
-     &:focus-within {
-      box-shadow: 0 0 2.5px var(--bg-color);
+    // div[class*="container"] {
+    //  &:focus-within {
+    //   box-shadow: 0 0 2.5px var(--bg-color);
+    //  }
+
+    //  div[class*="control"] {
+    //   border: 0.75px solid var(--hr-color);
+    //   border-radius: 0.5rem;
+
+    //   &:focus,
+    //   &:hover {
+    //    box-shadow: 0 0 2.5px var(--bg-color);
+
+    //   }
+
+    //   div[class*="ValueContainer"] {
+    //    height: 100%;
+    //    padding: 0;
+
+    //    div[class*="singleValue"] {
+    //     color: var(--dark-color);
+    //     width: 100%;
+    //     display: flex;
+    //     flex-direction: row;
+    //     flex-wrap: nowrap;
+    //     flex-grow: 1;
+    //     flex-shrink: 0;
+    //     justify-content: space-evenly;
+    //     align-items: center;
+
+    //     img {
+    //      height: 3.5rem;
+    //     }
+    //    }
+    //   }
+    //  }
+    // }
+
+    // div[class*="menu"] {
+    //  border: 0.75px solid var(--hr-color);
+    //  border-radius: 0.5rem;
+    //  box-shadow: none;
+    //  margin: 0.5rem 0;
+    //  padding: 0.5rem 0;
+
+    //  div[class*="MenuList"] {
+    //   padding: 0;
+
+    //   div[class*="option"] {
+    //    color: var(--dark-color);
+    //    width: 100%;
+    //    height: 4rem;
+    //    display: flex;
+    //    flex-direction: row;
+    //    flex-wrap: nowrap;
+    //    flex-grow: 1;
+    //    flex-shrink: 0;
+    //    justify-content: space-evenly;
+    //    align-items: center;
+    //    padding: 0px;
+
+    //    img {
+    //     // height: 3rem;
+    //     height: 100%;
+    //    }
+    //   }
+    //  }
+
+    div[class*="control"] {
+     border: 0.75px solid var(--hr-color);
+     border-radius: 0.5rem;
+
+     div[class*="singleValue"] {
+      color: var(--dark-color);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      flex-grow: 1;
+      flex-shrink: 0;
+      justify-content: space-evenly;
+      align-items: center;
+
+      img {
+       height: 3rem;
+      }
      }
 
-     div[class*="control"] {
-      border: 0.75px solid var(--hr-color);
-      border-radius: 0.5rem;
-
-      &:focus,
-      &:hover {
-       box-shadow: 0 0 2.5px var(--bg-color);
-
-      }
-
-      div[class*="ValueContainer"] {
-       height: 100%;
-       padding: 0;
-
-       div[class*="singleValue"] {
-        color: var(--dark-color);
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        flex-grow: 1;
-        flex-shrink: 0;
-        justify-content: space-evenly;
-        align-items: center;
-
-        img {
-         height: 3.5rem;
-        }
-       }
-      }
-     }
     }
 
     div[class*="menu"] {
      border: 0.75px solid var(--hr-color);
      border-radius: 0.5rem;
-     box-shadow: none;
-     margin: 0.5rem 0;
-     padding: 0.5rem 0;
 
-     div[class*="MenuList"] {
-      padding: 0;
+     div[class*="option"] {
+      color: var(--dark-color);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      flex-grow: 1;
+      flex-shrink: 0;
+      justify-content: space-evenly;
+      align-items: center;
 
-      div[class*="option"] {
-       color: var(--dark-color);
-       width: 100%;
-       height: 4rem;
-       display: flex;
-       flex-direction: row;
-       flex-wrap: nowrap;
-       flex-grow: 1;
-       flex-shrink: 0;
-       justify-content: space-evenly;
-       align-items: center;
-       padding: 0px;
-
-       img {
-        // height: 3rem;
-        height: 100%;
-       }
+      img {
+       height: 3rem;
       }
      }
+
     }
 
    }
