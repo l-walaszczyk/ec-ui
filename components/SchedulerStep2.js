@@ -4,7 +4,6 @@ import Time from "./Time";
 import moment from "moment-timezone";
 import "moment/locale/pl";
 import texts from "../content/texts";
-import config from "../config/config";
 
 moment.locale("pl");
 
@@ -53,7 +52,7 @@ const SchedulerStep2 = ({
     //   requestOptions.method = "PATCH";
     // }
 
-    const url = config.apiURL + "?" + new URLSearchParams(params);
+    const url = process.env.API_URL + "?" + new URLSearchParams(params);
 
     fetch(url, requestOptions)
       .then((res) => res.json())

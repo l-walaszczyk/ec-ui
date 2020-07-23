@@ -3,7 +3,6 @@ import { useState } from "react";
 // import "../styles/Week.scss";
 import moment from "moment-timezone";
 import "moment/locale/pl";
-import config from "../config/config";
 import { CSSTransition } from "react-transition-group";
 import { useEffect } from "react";
 
@@ -101,7 +100,11 @@ const Week = ({
     // }
 
     setUrl(
-      config.apiURL + "week/" + direction + "/?" + new URLSearchParams(params)
+      process.env.API_URL +
+        "week/" +
+        direction +
+        "/?" +
+        new URLSearchParams(params)
     );
   };
 

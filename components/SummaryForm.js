@@ -3,18 +3,17 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ErrorHint from "./ErrorHint";
 import SelectField from "./SelectField";
-import config from "../config/config";
 
 const SummaryForm = ({ step, setStep, savedMeeting }) => {
   return (
     <Formik
       initialValues={{
         forSomeoneElse: false,
-        firstNameContact: "",
-        lastNameContact: "",
-        firstNamePatient: "",
-        lastNamePatient: "",
-        yearOfBirth: "",
+        contactFirstName: "",
+        contactLastName: "",
+        patient1FirstName: "",
+        patient1LastName: "",
+        patient1YearOfBirth: "",
         email: "",
         telephone: "",
         paymentMethod: "",
@@ -23,14 +22,14 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
       }}
       validationSchema={Yup.object({
         forSomeoneElse: Yup.boolean(),
-        firstNameContact: Yup.string().when("forSomeoneElse", (val, schema) => {
+        contactFirstName: Yup.string().when("forSomeoneElse", (val, schema) => {
           return val ? schema.required("Wpisz imię") : schema;
         }),
 
-        firstNamePatient: Yup.string().required("Wpisz imię"),
-        lastNameContact: Yup.string(),
-        lastNamePatient: Yup.string(),
-        yearOfBirth: Yup.number()
+        patient1FirstName: Yup.string().required("Wpisz imię"),
+        contactLastName: Yup.string(),
+        patient1LastName: Yup.string(),
+        patient1YearOfBirth: Yup.number()
           .typeError("Rok musi być liczbą")
           // .test(
           //   "len",
@@ -58,8 +57,8 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
         const finalValues = Object.assign({}, values);
 
         if (!values.forSomeoneElse) {
-          delete finalValues.firstNameContact;
-          delete finalValues.lastNameContact;
+          delete finalValues.contactFirstName;
+          delete finalValues.contactLastName;
         }
 
         const params = {
@@ -77,7 +76,8 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
           credentials: "include", // include, *same-origin, omit
         };
 
-        const url = config.apiURL + "summary/?" + new URLSearchParams(params);
+        const url =
+          process.env.API_URL + "summary/?" + new URLSearchParams(params);
 
         fetch(url, requestOptions)
           .then((res) => res.json())
@@ -113,15 +113,15 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
               <div className="form-field">
                 <Field
                   type="text"
-                  name="firstNameContact"
+                  name="contactFirstName"
                   placeholder="* Imię osoby kontaktowej"
                 />
-                <ErrorMessage name="firstNameContact" component={ErrorHint} />
+                <ErrorMessage name="contactFirstName" component={ErrorHint} />
               </div>
               <div className="form-field">
                 <Field
                   type="text"
-                  name="lastNameContact"
+                  name="contactLastName"
                   placeholder="Nazwisko osoby kontaktowej"
                 />
               </div>
@@ -130,15 +130,15 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
           <div className="form-field">
             <Field
               type="text"
-              name="firstNamePatient"
+              name="patient1FirstName"
               placeholder={values.forSomeoneElse ? "* Imię pacjenta" : "* Imię"}
             />
-            <ErrorMessage name="firstNamePatient" component={ErrorHint} />
+            <ErrorMessage name="patient1FirstName" component={ErrorHint} />
           </div>
           <div className="form-field">
             <Field
               type="text"
-              name="lastNamePatient"
+              name="pL            lastNamePatient"
               placeholder={
                 values.forSomeoneElse ? "Nazwisko pacjenta" : "Nazwisko"
               }
@@ -147,14 +147,14 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
           <div className="form-field">
             <Field
               type="text"
-              name="yearOfBirth"
+              name="patient1YearOfBirth"
               placeholder={
                 values.forSomeoneElse
                   ? "* Rok urodzenia pacjenta"
                   : "* Rok urodzenia"
               }
             />
-            <ErrorMessage name="yearOfBirth" component={ErrorHint} />
+            <ErrorMessage name="patient1YearOfBirth" component={ErrorHint} />
           </div>
           <div className="form-field">
             <Field

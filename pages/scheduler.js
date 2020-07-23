@@ -1,5 +1,4 @@
 import Layout from "../layouts/Layout";
-
 import React, { useState, useEffect } from "react";
 // import "../styles/scheduler.scss";
 import SchedulerStep0 from "../components/SchedulerStep0";
@@ -8,7 +7,6 @@ import SchedulerStep2 from "../components/SchedulerStep2";
 import SchedulerStep3 from "../components/SchedulerStep3";
 import SchedulerStep4 from "../components/SchedulerStep4";
 import texts from "../content/texts";
-import config from "../config/config";
 import moment from "moment-timezone";
 
 const Scheduler = () => {
@@ -37,7 +35,9 @@ const Scheduler = () => {
   const meetingType = meetingTypes[selectedMeetingType] || {};
 
   const [url, setUrl] = useState(
-    config.apiURL + "week/asap/?" + new URLSearchParams({ meetingDuration })
+    process.env.API_URL +
+      "week/asap/?" +
+      new URLSearchParams({ meetingDuration })
   );
   const [weekArray, setWeekArray] = useState([]);
   const [weekSuccess, setWeekSuccess] = useState(null);
@@ -98,7 +98,7 @@ const Scheduler = () => {
     // if (savedMeeting) {
     //   params.id = savedMeeting._id;
     // }
-    setUrl(config.apiURL + "week/asap/?" + new URLSearchParams(params));
+    setUrl(process.env.API_URL + "week/asap/?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
   const SchedulerSteps = [
