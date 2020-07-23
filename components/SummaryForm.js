@@ -87,6 +87,9 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               console.log("PATCHing successful");
               setStep(step + 1);
             } else {
+              alert(
+                "Błąd podczas zapisywania spotkania. Odśwież stronę i spróbuj zarezerwować spotkanie ponownie."
+              );
               console.log("PATCHing failed");
             }
           });
