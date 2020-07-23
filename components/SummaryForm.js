@@ -138,7 +138,7 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
           <div className="form-field">
             <Field
               type="text"
-              name="pL            lastNamePatient"
+              name="patient1LastName"
               placeholder={
                 values.forSomeoneElse ? "Nazwisko pacjenta" : "Nazwisko"
               }
