@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import ErrorHint from "./ErrorHint";
 import SelectField from "./SelectField";
 
-const SummaryForm = ({ step, setStep, savedMeeting }) => {
+const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
   return (
     <Formik
       initialValues={{
@@ -54,8 +54,8 @@ const SummaryForm = ({ step, setStep, savedMeeting }) => {
         ),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        const finalValues = Object.assign({}, values);
-
+        const finalValues = Object.assign({ meetingType }, values);
+        console.log(finalValues);
         if (!values.forSomeoneElse) {
           delete finalValues.contactFirstName;
           delete finalValues.contactLastName;

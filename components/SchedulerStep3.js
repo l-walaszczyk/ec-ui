@@ -46,6 +46,7 @@ const SchedulerStep3 = ({
             step={step}
             setStep={setStep}
             selected={selected}
+            meetingType={meetingType}
             savedMeeting={savedMeeting}
           />
         </div>
