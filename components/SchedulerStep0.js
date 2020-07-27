@@ -1,5 +1,5 @@
 import React from "react";
-import texts from "../content/texts";
+import texts from "../public/content/texts";
 
 const SchedulerStep0 = ({
   step,

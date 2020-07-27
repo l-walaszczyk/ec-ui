@@ -3,7 +3,7 @@ import Week from "./Week";
 import Time from "./Time";
 import moment from "moment-timezone";
 import "moment/locale/pl";
-import texts from "../content/texts";
+import texts from "../public/content/texts";
 
 moment.locale("pl");
 

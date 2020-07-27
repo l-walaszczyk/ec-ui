@@ -1,16 +1,8 @@
-import Layout from "../layouts/Layout";
-// import React from "react";
 import React, { useState, useEffect } from "react";
-// import { useLocation } from "react-router-dom";
 // import smoothscroll from "smoothscroll-polyfill";
-// import "../styles/index.scss";
-import texts from "../content/texts";
+import Layout from "../layouts/Layout";
+import texts from "../public/content/texts";
 import Button from "../components/Button";
-// import portrait from "../public/images/portrait.png";
-// import services1 from "../public/images/services1.png";
-// import services2 from "../public/images/services2.png";
-// import services3 from "../public/images/services3.png";
-// import room from "../public/images/gabinet.png";
 
 // smoothscroll.polyfill();
 
@@ -62,7 +54,7 @@ const Index = () => {
         <div className="first-view-wrap">
           <section className="home" ref={homeRef}>
             <div className="portrait-container">
-              <img src="/images/portrait.png" alt="" />
+              <img src="/images/portrait.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.home.home}
@@ -85,7 +77,7 @@ const Index = () => {
           <h1>Pracuję w trzech obszarach:</h1>
           <div className="service">
             <div className="img-container">
-              <img src="/images/services1.png" alt="" />
+              <img src="/images/services1.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.home.services.one}
@@ -98,7 +90,7 @@ const Index = () => {
           <hr />
           <div className="service">
             <div className="img-container">
-              <img src="/images/services2.png" alt="" />
+              <img src="/images/services2.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.home.services.two}
@@ -111,7 +103,7 @@ const Index = () => {
           <hr />
           <div className="service">
             <div className="img-container">
-              <img src="/images/services3.png" alt="" />
+              <img src="/images/services3.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.home.services.three}
@@ -127,7 +119,7 @@ const Index = () => {
           <div className="contact-wrap">
             {/* <div className="img-wrap"> */}
             <div className="img-container">
-              <img src="/images/gabinet.png" alt="" />
+              <img src="/images/gabinet.jpg" alt="" />
             </div>
             {/* </div> */}
             <div className="details-wrap">

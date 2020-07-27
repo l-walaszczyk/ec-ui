@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 // import "../styles/BurgerMenu.scss";
 import Button from "./Button";
 import MenuItem from "./MenuItem";
-import texts from "../content/texts";
+import texts from "../public/content/texts";
 
 const BurgerMenu = ({
   burgerMenuOpen,

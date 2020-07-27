@@ -5,7 +5,7 @@ import { CSSTransition } from "react-transition-group";
 // import "../styles/HeaderDesktop.scss";
 import Button from "../components/Button";
 import MenuItem from "../components/MenuItem";
-import texts from "../content/texts";
+import texts from "../public/content/texts";
 
 const HeaderDesktop = () => {
   const [drawerOpen, toggleDrawer] = useState(false);

@@ -1,12 +1,9 @@
-import Layout from "../layouts/Layout";
-
 import React, { useEffect } from "react";
 // import smoothscroll from "smoothscroll-polyfill";
-// import "../styles/services.scss";
-import texts from "../content/texts";
+import Layout from "../layouts/Layout";
+import texts from "../public/content/texts";
 import Button from "../components/Button";
 import PriceList from "../components/PriceList";
-// import services2 from "../public/images/services2.png";
 
 // smoothscroll.polyfill();
 
@@ -34,7 +31,7 @@ const Services2 = () => {
           </div>
           <div className="description-wrap">
             <div className="img-container">
-              <img src="/images/services2.png" alt="" />
+              <img src="/images/services2.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.services.descriptions.two.extended}

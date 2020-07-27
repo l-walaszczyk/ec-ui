@@ -1,10 +1,7 @@
-import Layout from "../layouts/Layout";
-
 import React from "react";
-// import "../styles/about.scss";
-import texts from "../content/texts";
+import Layout from "../layouts/Layout";
 import Button from "../components/Button";
-// import certificate from "../public/images/certificate_small.png";
+import texts from "../public/content/texts";
 
 const About = () => {
   return (
@@ -18,7 +15,7 @@ const About = () => {
           <div className="about-wrap">
             <div className="text-container">{texts.about.about}</div>
             <div className="img-container">
-              <img src="/images/certificate_small.png" alt="" />
+              <img src="/images/certificate_small.jpg" alt="" />
               {texts.about.caption}
             </div>
           </div>

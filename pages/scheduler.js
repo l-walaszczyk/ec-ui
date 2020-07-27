@@ -6,7 +6,7 @@ import SchedulerStep1 from "../components/SchedulerStep1";
 import SchedulerStep2 from "../components/SchedulerStep2";
 import SchedulerStep3 from "../components/SchedulerStep3";
 import SchedulerStep4 from "../components/SchedulerStep4";
-import texts from "../content/texts";
+import texts from "../public/content/texts";
 import moment from "moment-timezone";
 
 const Scheduler = () => {
