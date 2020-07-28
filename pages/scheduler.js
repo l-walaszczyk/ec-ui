@@ -9,6 +9,12 @@ import SchedulerStep4 from "../components/SchedulerStep4";
 import texts from "../public/content/texts";
 import moment from "moment-timezone";
 
+if (!Math.trunc) {
+  Math.trunc = function (v) {
+    return v < 0 ? Math.ceil(v) : Math.floor(v);
+  };
+}
+
 const Scheduler = () => {
   // useEffect(() => {
   //   window.scrollTo(0, 0);

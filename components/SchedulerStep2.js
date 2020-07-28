@@ -5,6 +5,12 @@ import moment from "moment-timezone";
 import "moment/locale/pl";
 import texts from "../public/content/texts";
 
+if (!Math.trunc) {
+  Math.trunc = function (v) {
+    return v < 0 ? Math.ceil(v) : Math.floor(v);
+  };
+}
+
 moment.locale("pl");
 
 const SchedulerStep2 = ({
