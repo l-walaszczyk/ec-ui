@@ -216,14 +216,30 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
           <div className="form-field">
             <label>
               <Field type="checkbox" name="agreement1" />
-              <span>Akceptuję regulamin serwisu emiliacwojdzinska.pl</span>
+              <span>
+                Akceptuję{" "}
+                <a
+                  href="/docs/Kwestionariusz dzieci pytania.pdf"
+                  target="_blank"
+                >
+                  regulamin serwisu emiliacwojdzinska.pl
+                </a>
+              </span>
             </label>
             <ErrorMessage name="agreement1" component={ErrorHint} />
           </div>
           <div className="form-field">
             <label>
               <Field type="checkbox" name="agreement2" />
-              <span>Akceptuję informację o danych osobowych</span>
+              <span>
+                Akceptuję{" "}
+                <a
+                  href="/docs/Kwestionariusz dzieci pytania.pdf"
+                  target="_blank"
+                >
+                  informację o danych osobowych
+                </a>
+              </span>
             </label>
             <ErrorMessage name="agreement2" component={ErrorHint} />
           </div>

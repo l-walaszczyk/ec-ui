@@ -205,6 +205,10 @@ const Index = () => {
                   height="100%"
                   frameBorder="0"
                   allowFullScreen
+                  loading="lazy"
+                  onLoad={() => {
+                    console.log("iframe loaded");
+                  }}
                 ></iframe>
               </div>
             </div>
