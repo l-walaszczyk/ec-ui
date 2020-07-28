@@ -145,7 +145,7 @@ const Index = () => {
                           rel="noopener noreferrer"
                           href={`mailto:${texts.home.contact.email}`}
                         >
-                          <p>{texts.home.contact.email}</p>
+                          {texts.home.contact.email}
                         </a>
                       </td>
                     </tr>
@@ -159,7 +159,7 @@ const Index = () => {
                           rel="noopener noreferrer"
                           href={`tel:${texts.home.contact.phone}`}
                         >
-                          <p>{texts.home.contact.phone}</p>
+                          {texts.home.contact.phone}
                         </a>
                       </td>
                     </tr>

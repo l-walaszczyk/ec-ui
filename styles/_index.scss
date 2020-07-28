@@ -295,8 +295,8 @@ section.contact {
    margin: 2rem;
 
    table {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     border-collapse: collapse;
 
     tr {
@@ -310,16 +310,8 @@ section.contact {
       }
 
       &:last-child {
-       // display: flex;
-       // flex-direction: row;
-       // flex-wrap: wrap;
-       // align-items: center;
-       // align-content: center;
-
        p {
         float: left;
-        // flex-grow: 0;
-        // flex-shrink: 0;
         margin-right: 0.5rem;
        }
       }
