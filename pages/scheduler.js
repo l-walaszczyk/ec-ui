@@ -1,6 +1,5 @@
 import Layout from "../layouts/Layout";
 import React, { useState, useEffect } from "react";
-// import "../styles/scheduler.scss";
 import SchedulerStep0 from "../components/SchedulerStep0";
 import SchedulerStep1 from "../components/SchedulerStep1";
 import SchedulerStep2 from "../components/SchedulerStep2";
@@ -16,9 +15,9 @@ if (!Math.trunc) {
 }
 
 const Scheduler = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const types = [
     texts.services.types.one,

@@ -53,11 +53,6 @@ const SchedulerStep2 = ({
       SameSite: "None",
     };
 
-    // if (savedMeeting) {
-    //   params.id = savedMeeting._id;
-    //   requestOptions.method = "PATCH";
-    // }
-
     const url = process.env.API_URL + "?" + new URLSearchParams(params);
 
     fetch(url, requestOptions)
