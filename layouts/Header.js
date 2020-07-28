@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import HeaderMobile from "../components/HeaderMobile";
 import HeaderDesktop from "../components/HeaderDesktop";
+import HeaderBlank from "../components/HeaderBlank";
 
 const Header = () => {
-  const [width, setWidth] = useState(300);
+  const [width, setWidth] = useState();
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -22,7 +23,13 @@ const Header = () => {
     };
   }, []);
 
-  return width < 1024 ? <HeaderMobile /> : <HeaderDesktop />;
+  if (width === undefined) {
+    return <HeaderBlank />;
+  } else if (width < 1024) {
+    return <HeaderMobile />;
+  } else {
+    return <HeaderDesktop />;
+  }
 };
 
 export default Header;

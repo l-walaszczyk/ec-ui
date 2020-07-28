@@ -1,10 +1,8 @@
 footer {
- height: var(--header-height);
+ height: $header-height-small;
  display: flex;
  flex-direction: column;
  justify-content: center;
- // padding: 1rem 0;
- // box-sizing: border-box;
  color: #ffffff;
  background-color: #424746;
  text-align: center;
@@ -22,5 +20,11 @@ footer {
    text-decoration: none;
    font-size: 1.6rem;
   }
+ }
+}
+
+@media (min-width: 360px) and (min-height: 360px) {
+ footer {
+  height: $header-height-big;
  }
 }

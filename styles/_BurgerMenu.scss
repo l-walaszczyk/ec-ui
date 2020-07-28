@@ -9,7 +9,7 @@ nav.burger-menu {
  background-color: #EEF0F2;
 
  >ul {
-  margin-top: calc(7vh + var(--header-height));
+  margin-top: calc(7vh + #{$header-height-small});
 
   >li {
    margin: 6vh 0;

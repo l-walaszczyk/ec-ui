@@ -7,7 +7,14 @@ import Button from "../components/Button";
 // smoothscroll.polyfill();
 
 const Index = () => {
-  const [width, setWidth] = useState(300);
+  // const contactRef = React.createRef();
+
+  // useEffect(() => {
+  //   window.location.href.includes("/#contact") &&
+  //     contactRef.current.scrollIntoView({ behavior: "smooth" });
+  // });
+
+  const [width, setWidth] = useState();
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -26,39 +33,20 @@ const Index = () => {
     };
   }, []);
 
-  const contactRef = React.createRef();
-  const homeRef = React.createRef();
-
-  // const { pathname } = useLocation();
-
-  // useEffect(() => {
-  //   let timer = null;
-  //   if (window.location.href.includes("#contact")) {
-  //     timer = setTimeout(
-  //       () => contactRef.current.scrollIntoView({ behavior: "smooth" }),
-  //       250
-  //     );
-  //   }
-
-  //   window.location.href.includes("#home") &&
-  //     homeRef.current.scrollIntoView({ behavior: "smooth" });
-
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [pathname, contactRef, homeRef]);
-
   return (
     <Layout>
       <main>
         <div className="first-view-wrap">
-          <section className="home" ref={homeRef}>
+          <section
+            className="home"
+            // ref={homeRef}
+          >
             <div className="portrait-container">
               <img src="/images/portrait.jpg" alt="" />
             </div>
             <div className="text-container">
               {texts.home.home}
-              {width < 533 ? (
+              {width === undefined || width < 533 ? (
                 <Button to="/scheduler">
                   <i className="far fa-calendar-check" aria-hidden></i>
                   <span>Umów spotkanie</span>
@@ -114,14 +102,16 @@ const Index = () => {
             </Button>
           </div>
         </section>
-        <section className="contact" ref={contactRef}>
+        <section
+          className="contact"
+          id="contact"
+          // ref={contactRef}
+        >
           <h1>Kontakt</h1>
           <div className="contact-wrap">
-            {/* <div className="img-wrap"> */}
             <div className="img-container">
               <img src="/images/gabinet.jpg" alt="" />
             </div>
-            {/* </div> */}
             <div className="details-wrap">
               <div className="text-container">
                 <table>
@@ -203,12 +193,10 @@ const Index = () => {
                   </tbody>
                 </table>
               </div>
-              {/* <div className="button-container"> */}
               <Button to="/scheduler">
                 <i className="far fa-calendar-check" aria-hidden></i>
                 <span>Umów spotkanie</span>
               </Button>
-              {/* </div> */}
               <div className="map-container">
                 <iframe
                   title="google-maps"

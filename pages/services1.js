@@ -38,6 +38,7 @@ const Services1 = () => {
             </div>
           </div>
           <hr />
+          {/* <div className="prices-wrap"> */}
           <div className="prices" ref={pricesRef}>
             <h2>Cennik</h2>
             <PriceList types={texts.services.types.one} />
@@ -46,6 +47,7 @@ const Services1 = () => {
               <span>Umów spotkanie</span>
             </Button>
           </div>
+          {/* </div> */}
           <hr />
         </section>
         <section className="see-also">

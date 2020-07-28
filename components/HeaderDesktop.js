@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { CSSTransition } from "react-transition-group";
-// import logo from "../public/images/logo.svg";
-// import "../styles/HeaderDesktop.scss";
 import Button from "../components/Button";
 import MenuItem from "../components/MenuItem";
 import texts from "../public/content/texts";
@@ -29,7 +27,7 @@ const HeaderDesktop = () => {
   return (
     <header className="desktop">
       <Link href="/">
-        <a className="logo" onClick={() => toggleBurgerMenu(false)}>
+        <a className="logo">
           <img
             className="logo"
             src="/images/logo.svg"

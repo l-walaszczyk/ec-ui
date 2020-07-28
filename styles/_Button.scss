@@ -1,16 +1,17 @@
 a.button-typ {
  display: block;
+ max-width: 17rem;
  width: fit-content;
- border: 0.5px solid var(--dark-color);
+ border: 0.5px solid $dark-color;
  border-radius: 1.1rem 0;
  font-family: 'Montserrat', sans-serif;
  font-style: italic;
  font-weight: normal;
- font-size: 1.25rem;
+ font-size: 1.35rem;
  text-decoration: none;
  text-align: center;
  color: inherit;
- padding: 0.5rem 0;
+ padding: 0.5rem 1rem;
  background-color: rgba(255, 255, 255, 0.6);
 
  &:focus,
@@ -21,13 +22,13 @@ a.button-typ {
  &:hover {
   // color: #000000;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: -1.5px 1.5px 2.5px var(--bg-color),
-   1.5px -1.5px 2.5px var(--bg-color);
+  box-shadow: -1.5px 1.5px 2.5px $bg-color,
+   1.5px -1.5px 2.5px $bg-color;
  }
 
  i {
-  margin-left: 1rem;
-  margin-right: -0.4rem;
+  // margin-left: 1rem;
+  margin-right: 0.5rem;
 
   &+span {
    font-family: 'Quicksand', sans-serif;
@@ -36,8 +37,8 @@ a.button-typ {
  }
 
  span {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  // margin-left: 1rem;
+  // margin-right: 1rem;
   line-height: 1rem;
  }
 }

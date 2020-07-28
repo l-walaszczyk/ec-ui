@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-// import logo from "../public/images/logo.svg";
-// import "../styles/HeaderMobile.scss";
-// // import "../styles/hamburgers.css";
 import BurgerMenu from "../components/BurgerMenu";
 
 const HeaderMobile = () => {

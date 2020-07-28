@@ -1,4 +1,14 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap);
+@import "variables.scss";
+@import "about.scss";
+@import "BurgerMenu.scss";
+@import "Button.scss";
+@import "hamburgers.scss";
+@import "Header.scss";
+@import "MenuItem.scss";
+@import "Footer.scss";
+@import "index.scss";
+@import "services.scss";
 
 * {
  margin: 0;
@@ -6,18 +16,12 @@
 }
 
 :root {
- --header-height: 55px;
- --dark-color: #2d3130;
- --bg-color: #d5e1df;
- --shadow-color: #e2eeec;
- --shadow-light-color: #effffc;
- --hr-color: #a3b8b4;
  font-size: 9px;
+ // scroll-behavior: smooth;
 }
 
 @media (min-width: 360px) and (min-height: 360px) {
  :root {
-  --header-height: 65px;
   font-size: 10px;
  }
 }
@@ -25,25 +29,22 @@
 @media (min-width: 1024px) {
  :root {
   font-size: 9px;
-  --margin-side: 4vw;
+  // --margin-side: 4vw;
  }
 }
 
 @media (min-width: 1440px) {
  :root {
   font-size: 11px;
-  --margin-side: 8vw;
+  // --margin-side: 8vw;
  }
 }
 
 body {
  font-family: "Montserrat", sans-serif;
- -webkit-font-smoothing: antialiased;
- -moz-osx-font-smoothing: grayscale;
- color: var(--dark-color);
+ color: $dark-color;
  min-height: 100vh;
  overflow-y: scroll;
- // position: relative;
 
  h1 {
   font-family: "Quicksand", sans-serif;
@@ -109,13 +110,6 @@ body {
    &.inactive {
     text-shadow: none;
    }
-
-   // box-shadow: -0.25px 0.25px 1px var(--shadow-color),
-   //  0.25px -0.25px 1px var(--shadow-color),
-   //  0.25px -0.25px 1px var(--shadow-color) inset,
-   //  -0.25px 0.25px 1px var(--shadow-color) inset;
-
-
   }
  }
 }
