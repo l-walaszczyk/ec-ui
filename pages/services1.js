@@ -42,7 +42,12 @@ const Services1 = () => {
           <div className="prices" ref={pricesRef}>
             <h2>Cennik</h2>
             <PriceList types={texts.services.types.one} />
-            <Button to="/scheduler">
+            <Button
+              to={{
+                pathname: "/scheduler",
+                // query: { field: 1 }
+              }}
+            >
               <i className="far fa-calendar-check"></i>
               <span>Umów spotkanie</span>
             </Button>

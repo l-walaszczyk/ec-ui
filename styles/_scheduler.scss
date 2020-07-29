@@ -108,6 +108,11 @@ section.scheduler {
      cursor: pointer;
     }
    }
+
+   p {
+    text-align: center;
+   }
+
   }
  }
 
@@ -135,6 +140,7 @@ section.scheduler {
       align-items: center;
       align-content: space-between;
       font-size: 1.35rem;
+      height: 2rem;
 
       &::before {
        content: "";
@@ -157,7 +163,7 @@ section.scheduler {
        position: absolute;
        display: none;
        left: 0.55rem;
-       // top: 0;
+       top: 0;
        width: 1rem;
        height: 1.6rem;
        border: solid $dark-color;

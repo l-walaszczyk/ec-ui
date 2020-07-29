@@ -49,6 +49,10 @@ const Scheduler = () => {
   const [hintsCheck, setHintsCheck] = useState(false);
   const [savedMeeting, setSavedMeeting] = useState(null);
 
+  // const checkCookie = () => {
+
+  // }
+
   const fetchWeek = (url) => {
     const requestOptions = {
       method: "GET",
@@ -70,17 +74,6 @@ const Scheduler = () => {
         }
       );
   };
-
-  useEffect(() => {
-    const sumSelected = () => {
-      if (selectedTime !== null) return 3;
-      if (selectedDay !== null) return 2.5;
-      if (selectedMeetingType !== null) return 2;
-      if (selectedField !== null) return 1;
-      return 0;
-    };
-    setSelected(sumSelected());
-  }, [selectedField, selectedMeetingType, selectedDay, selectedTime]);
 
   useEffect(() => {
     fetchWeek(url);
@@ -105,6 +98,17 @@ const Scheduler = () => {
     // }
     setUrl(process.env.API_URL + "week/asap/?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
+
+  useEffect(() => {
+    const sumSelected = () => {
+      if (selectedTime !== null) return 3;
+      if (selectedDay !== null) return 2.5;
+      if (selectedMeetingType !== null) return 2;
+      if (selectedField !== null) return 1;
+      return 0;
+    };
+    setSelected(sumSelected());
+  }, [selectedField, selectedMeetingType, selectedDay, selectedTime]);
 
   const SchedulerSteps = [
     <SchedulerStep0

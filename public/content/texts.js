@@ -294,27 +294,17 @@ const texts = {
       ],
       two: [
         {
-          name: "Konsultacja psychologiczna",
+          name: "Konsultacja psychologiczna dziecka/nastolatka",
           price: 150,
           minutes: 50,
         },
         {
-          name: "Sesja psychoterapii indywidualnej",
+          name: "Sesja psychoterapii indywidualnej dziecka/nastolatka",
           price: 150,
           minutes: 50,
         },
         {
-          name: "Konsultacja psychologiczna pary",
-          price: 170,
-          minutes: 50,
-        },
-        {
-          name: "Sesja terapii par",
-          price: 170,
-          minutes: 50,
-        },
-        {
-          name: "Wizyta przez Skype",
+          name: "Wizyta przez Skype dziecka/nastolatka",
           price: 150,
           minutes: 50,
         },
