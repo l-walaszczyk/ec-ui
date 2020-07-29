@@ -49,8 +49,12 @@ const SchedulerStep2 = ({
 
     const requestOptions = {
       method: "POST",
-      withCredentials: true,
-      SameSite: "None",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      mode: "cors", // no-cors, *cors, same-origin
+      credentials: "include", // include, *same-origin, omit
     };
 
     const url = process.env.API_URL + "?" + new URLSearchParams(params);
