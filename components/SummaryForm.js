@@ -23,12 +23,17 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
       validationSchema={Yup.object({
         forSomeoneElse: Yup.boolean(),
         contactFirstName: Yup.string().when("forSomeoneElse", (val, schema) => {
-          return val ? schema.required("Wpisz imię") : schema;
+          return val ? schema.required("Wpisz imię osoby kontaktowej") : schema;
         }),
-
+        contactLastName: Yup.string().when("forSomeoneElse", (val, schema) => {
+          return val
+            ? schema.required("Wpisz nazwisko osoby kontaktowej")
+            : schema;
+        }),
         patient1FirstName: Yup.string().required("Wpisz imię"),
-        contactLastName: Yup.string(),
-        patient1LastName: Yup.string(),
+        patient1LastName: Yup.string().when("forSomeoneElse", (val, schema) => {
+          return val ? schema : schema.required("Wpisz nazwisko");
+        }),
         patient1YearOfBirth: Yup.number()
           .typeError("Rok musi być liczbą")
           // .test(
@@ -36,21 +41,21 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
           //   "Rok urodzenia powinien być 4-cyfrowy",
           //   (val) => val.toString().length === 4
           // )
-          .required("Wpisz rok urodzenia"),
+          .required("Wpisz rok urodzenia pacjenta"),
         email: Yup.string()
           .email("Adres email niepoprawny")
           .required("Wpisz adres email"),
         telephone: Yup.string()
           .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
           .required("Wpisz numer telefonu"),
-        paymentMethod: Yup.string().required("Wybierz sposób płatności"),
+        paymentMethod: Yup.string().required("Wybierz metodę płatności"),
         agreement1: Yup.boolean().oneOf(
           [true],
           "Potwierdź akceptację regulaminu"
         ),
         agreement2: Yup.boolean().oneOf(
           [true],
-          "Potwierdź zapoznanie się z informacją o danych osobowych"
+          "Potwierdź akceptację informacji o danych osobowych"
         ),
       })}
       onSubmit={(values, { setSubmitting }) => {
@@ -59,6 +64,9 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
         if (!values.forSomeoneElse) {
           delete finalValues.contactFirstName;
           delete finalValues.contactLastName;
+        } else {
+          delete finalValues.patient1LastName;
+          delete finalValues.patient2LastName;
         }
 
         const params = {
@@ -100,13 +108,13 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
           <h2>
             Proszę podaj jeszcze kilka informacji
             <br />
-            (wymagane oznaczono *)
+            {/* (wymagane oznaczono *) */}
           </h2>
           <div className="form-field">
             <label>
               <Field type="checkbox" name="forSomeoneElse" />
               <span>
-                Zaznacz jeśli rezerwujesz termin dla innej osoby (nie dla
+                Zaznacz tylko jeśli rezerwujesz termin dla innej osoby (nie dla
                 siebie)
               </span>
             </label>
@@ -117,7 +125,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
                 <Field
                   type="text"
                   name="contactFirstName"
-                  placeholder="* Imię osoby kontaktowej"
+                  placeholder="Imię osoby kontaktowej"
                 />
                 <ErrorMessage name="contactFirstName" component={ErrorHint} />
               </div>
@@ -127,6 +135,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
                   name="contactLastName"
                   placeholder="Nazwisko osoby kontaktowej"
                 />
+                <ErrorMessage name="contactFirstName" component={ErrorHint} />
               </div>
             </>
           )}
@@ -134,28 +143,34 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
             <Field
               type="text"
               name="patient1FirstName"
-              placeholder={values.forSomeoneElse ? "* Imię pacjenta" : "* Imię"}
+              placeholder={values.forSomeoneElse ? "Imię pacjenta" : "Imię"}
+              autocomplete={values.forSomeoneElse ? "off" : "on"}
             />
             <ErrorMessage name="patient1FirstName" component={ErrorHint} />
           </div>
-          <div className="form-field">
-            <Field
-              type="text"
-              name="patient1LastName"
-              placeholder={
-                values.forSomeoneElse ? "Nazwisko pacjenta" : "Nazwisko"
-              }
-            />
-          </div>
+          {!values.forSomeoneElse && (
+            <div className="form-field">
+              <Field
+                type="text"
+                name="patient1LastName"
+                placeholder={
+                  values.forSomeoneElse ? "Nazwisko pacjenta" : "Nazwisko"
+                }
+                // autocomplete={values.forSomeoneElse ? "off" : "on"}
+              />
+              <ErrorMessage name="patient1LastName" component={ErrorHint} />
+            </div>
+          )}
           <div className="form-field">
             <Field
               type="text"
               name="patient1YearOfBirth"
               placeholder={
                 values.forSomeoneElse
-                  ? "* Rok urodzenia pacjenta"
-                  : "* Rok urodzenia"
+                  ? "Rok urodzenia pacjenta"
+                  : "Rok urodzenia"
               }
+              autocomplete="off"
             />
             <ErrorMessage name="patient1YearOfBirth" component={ErrorHint} />
           </div>
@@ -165,8 +180,8 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               name="email"
               placeholder={
                 values.forSomeoneElse
-                  ? "* Adres e-mail os. kontaktowej"
-                  : "* Adres e-mail"
+                  ? "Adres e-mail os. kontaktowej"
+                  : "Adres e-mail"
               }
             />
             <ErrorMessage name="email" component={ErrorHint} />
@@ -177,8 +192,8 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               name="telephone"
               placeholder={
                 values.forSomeoneElse
-                  ? "* Numer telefonu os. kontaktowej"
-                  : "* Numer telefonu"
+                  ? "Numer telefonu os. kontaktowej"
+                  : "Numer telefonu"
               }
             />
             <ErrorMessage name="telephone" component={ErrorHint} />{" "}
