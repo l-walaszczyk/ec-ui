@@ -183,7 +183,7 @@ const Index = () => {
                             className="row"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="https://www.facebook.com"
+                            href="https://www.facebook.com/emliacwojdzinska"
                           >
                             mojego profilu na Facebooku
                           </a>
