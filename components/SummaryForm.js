@@ -218,10 +218,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               <Field type="checkbox" name="agreement1" />
               <span>
                 Akceptuję{" "}
-                <a
-                  href="/docs/Kwestionariusz dzieci pytania.pdf"
-                  target="_blank"
-                >
+                <a href="/docs/Regulamin.pdf" target="_blank">
                   regulamin serwisu emiliacwojdzinska.pl
                 </a>
               </span>
@@ -233,10 +230,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               <Field type="checkbox" name="agreement2" />
               <span>
                 Akceptuję{" "}
-                <a
-                  href="/docs/Kwestionariusz dzieci pytania.pdf"
-                  target="_blank"
-                >
+                <a href="/docs/Regulamin.pdf" target="_blank">
                   informację o danych osobowych
                 </a>
               </span>
