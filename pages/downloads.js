@@ -33,18 +33,12 @@ const Downloads = () => {
               <h3>Regulaminy:</h3>
               <ul>
                 <li>
-                  <a
-                    href="/docs/Kwestionariusz dzieci pytania.pdf"
-                    target="_blank"
-                  >
+                  <a href="/docs/Regulamin.pdf" target="_blank">
                     Regulamin serwisu emiliacwojdzinska.pl
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/docs/Kwestionariusz dzieci pytania.pdf"
-                    target="_blank"
-                  >
+                  <a href="/docs/Regulamin.pdf" target="_blank">
                     Informacja o danych osobowych
                   </a>
                 </li>

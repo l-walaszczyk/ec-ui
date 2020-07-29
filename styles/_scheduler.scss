@@ -1,3 +1,15 @@
+div.test {
+ position: fixed;
+ z-index: 20;
+ font-size: 3rem;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(-5deg);
+ // transform: rotate(10deg);
+ text-align: center;
+ background-color: rgba(255, 255, 255, 0.6);
+}
+
 section.scheduler {
  box-sizing: border-box;
  min-height: calc(100vh - #{$header-height-small});

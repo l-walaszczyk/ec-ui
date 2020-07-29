@@ -38,7 +38,15 @@ const SchedulerStep0 = ({
         <h2>
           Wybierz obszar, którego będzie dotyczyć spotkanie i naciśnij "dalej"
           <br />
-          Możliwa także rejestracja pod nr tel.: {texts.home.contact.phone}
+          Możliwa także rejestracja pod nr tel.:
+          <br />
+          <a
+            className="row"
+            rel="noopener noreferrer"
+            href={`tel:${texts.home.contact.phone}`}
+          >
+            {texts.home.contact.phone}
+          </a>
         </h2>
         <ul>{options}</ul>
       </div>

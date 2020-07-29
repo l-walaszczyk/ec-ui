@@ -165,6 +165,19 @@ const Scheduler = () => {
   return (
     <Layout>
       <main>
+        <div className="test">
+          System w fazie testów
+          <br />
+          Rejestracja pod nr tel.:
+          <br />
+          <a
+            className="row"
+            rel="noopener noreferrer"
+            href={`tel:${texts.home.contact.phone}`}
+          >
+            {texts.home.contact.phone}
+          </a>
+        </div>
         {/* <section className="scheduler"> */}
         {SchedulerSteps[step]}
         {/* <SchedulerNavButtons
