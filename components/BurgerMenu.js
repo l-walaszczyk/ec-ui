@@ -59,7 +59,7 @@ const BurgerMenu = ({
                 </li>
                 <li>
                   <MenuItem
-                    to="/psychoterapia-dzieci"
+                    to="/psychoterapia-dzieci-mlodziez"
                     handleClick={toggleBurgerMenu}
                   >
                     {texts.services.titles.two}

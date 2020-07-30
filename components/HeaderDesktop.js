@@ -69,7 +69,7 @@ const HeaderDesktop = () => {
                   </MenuItem>
                 </li>
                 <li>
-                  <MenuItem to="/psychoterapia-dzieci">
+                  <MenuItem to="/psychoterapia-dzieci-mlodziez">
                     {texts.services.titles.two}
                   </MenuItem>
                 </li>

@@ -10,7 +10,16 @@ const Downloads = () => {
         <meta
           name="description"
           content="Kwestionariusze do wypełnienia przed rozpoczęciem terapii dla dzieci i młodzieży, a także regulaminy i informacje o przetwarzaniu danych osobowych"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - Materiały do pobrania"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://emiliacwojdzinska.pl/do-pobrania"
+        />
       </Head>
       <main>
         <section className="downloads">

@@ -23,7 +23,16 @@ const Services1 = () => {
         <meta
           name="description"
           content="Nurt terapii o potwierdzonej naukowo skuteczności. Psychoterapia indywidualna, terapia par, leczenie depresji, zaburzeń, uzależnień. Możliwa także online"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - Psychoterapia poznawczo-behawioralna osób dorosłych"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://emiliacwojdzinska.pl/psychoterapia-dorosli"
+        />
       </Head>
       <main>
         <section className="services-full">
@@ -66,7 +75,7 @@ const Services1 = () => {
         <section className="see-also">
           <h2>Zobacz czym jeszcze się zajmuję</h2>
           <div className="button-container">
-            <Button to="/psychoterapia-dzieci">
+            <Button to="/psychoterapia-dzieci-mlodziez">
               {texts.services.titles.two}
             </Button>
             <Button to="/psychologia-transportu-medycyna-pracy">

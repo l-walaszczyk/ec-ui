@@ -23,7 +23,16 @@ const Services3 = () => {
         <meta
           name="description"
           content="Psychologiczne badania kierowców (psychotesty), psychologiczne badania operatorów maszyn, osób pracujących na wysokościach, badania w zakresie medycyny pracy"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - Psychologia transportu i medycyna pracy"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://emiliacwojdzinska.pl/psychologia-transportu-medycyna-pracy"
+        />
       </Head>
       <main>
         <section className="services-full">
@@ -72,7 +81,7 @@ const Services3 = () => {
             <Button to="/psychoterapia-dorosli">
               {texts.services.titles.one}
             </Button>
-            <Button to="/psychoterapia-dzieci">
+            <Button to="/psychoterapia-dzieci-mlodziez">
               {texts.services.titles.two}
             </Button>
           </div>

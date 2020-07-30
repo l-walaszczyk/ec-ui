@@ -23,13 +23,22 @@ const Services2 = () => {
         <meta
           name="description"
           content="Psychoterapia dzieci, młodzieży. W proces terapeutyczny włączam opiekunów. Prowadzę także warsztaty psychoedukacyjne dla dzieci i młodzieży"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - Psychoterapia poznawczo-behawioralna dzieci i młodzieży"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://emiliacwojdzinska.pl/psychoterapia-dzieci-mlodziez"
+        />
       </Head>
       <main>
         <section className="services-full">
           <h2>{texts.services.titles.two}</h2>
           <div className="button-container">
-            <Button to="/psychoterapia-dzieci/#cennik">
+            <Button to="/psychoterapia-dzieci-mlodziez/#cennik">
               <span>Cennik</span>
             </Button>
             <Button to="/umow-spotkanie">

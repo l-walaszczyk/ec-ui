@@ -12,7 +12,10 @@ const About = () => {
         <meta
           name="description"
           content="Mgr Emilia Cwojdzińska - dyplomowany psycholog, certyfikowany psychoterapeuta, posiada uprawnienia do badań z zakresu psychologii transportu i medycyny pracy"
-        ></meta>
+        />
+        <meta property="og:title" content="Emilia Cwojdzińska - o mnie" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://emiliacwojdzinska.pl/o-mnie" />
       </Head>
       <main>
         <section className="about-full">
@@ -34,7 +37,7 @@ const About = () => {
             <Button to="/psychoterapia-dorosli">
               {texts.services.titles.one}
             </Button>
-            <Button to="/psychoterapia-dzieci">
+            <Button to="/psychoterapia-dzieci-mlodziez">
               {texts.services.titles.two}
             </Button>
             <Button to="/psychologia-transportu-medycyna-pracy">

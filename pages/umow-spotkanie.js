@@ -170,7 +170,16 @@ const Scheduler = () => {
         <meta
           name="description"
           content="Zarezerwuj przez internet termin wizyty. Dostępne wizyty online oraz w gabinecie w miescowości Babimost - na granicy województwa lubuskiego i wielkopolskiego"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - Umów spotkanie"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://emiliacwojdzinska.pl/umow-spotkanie"
+        />
       </Head>
       <main>
         <div className="test">

@@ -43,7 +43,13 @@ const Index = () => {
         <meta
           name="description"
           content="Emilia Cwojdzińska: dyplomowany psycholog i psychoterapeuta. Pomoc psychologiczna, psychoterapia poznawczo-behawioralna, badania kierowców. Umów wizytę online"
-        ></meta>
+        />
+        <meta
+          property="og:title"
+          content="Emilia Cwojdzińska - strona główna"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://emiliacwojdzinska.pl/" />
       </Head>
       <main>
         <div className="first-view-wrap">
@@ -94,7 +100,7 @@ const Index = () => {
               {texts.home.services.two}
               {width < 1024 ? null : texts.services.descriptions.two.intro}
             </div>
-            <Button to="/psychoterapia-dzieci">
+            <Button to="/psychoterapia-dzieci-mlodziez">
               <span>Więcej informacji</span>
             </Button>
           </div>
