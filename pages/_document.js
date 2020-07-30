@@ -19,7 +19,7 @@ class MyDocument extends Document {
             type="image/png"
             sizes="32x32"
           />
-          <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
+          <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
           <meta name="theme-color" content="#d5e1df" />
           <meta
             property="og:site_name"
