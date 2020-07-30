@@ -37,7 +37,9 @@ const Index = () => {
   return (
     <Layout>
       <Head>
-        <title>Emilia Cwojdzińska - psycholog, psychoterapia | Babimost</title>
+        <title>
+          Emilia Cwojdzińska - psycholog, psychoterapeuta - Babimost
+        </title>
         <meta
           name="description"
           content="Emilia Cwojdzińska: dyplomowany psycholog i psychoterapeuta. Pomoc psychologiczna, psychoterapia poznawczo-behawioralna, badania kierowców. Umów wizytę online"
