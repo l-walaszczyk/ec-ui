@@ -191,10 +191,10 @@ const texts = {
         extended: (
           <>
             <p>
-              Założenia teoretyczne psychoterapii poznawczo- behawioralnej
-              dzieci i młodzieży są takie same jak w terapii osób dorosłych.
-              Dodatkowo w proces terapeutyczny włącza się osoby bliskie takie
-              jak rodzice, opiekunowie.
+              Założenia teoretyczne psychoterapii poznawczo-behawioralnej dzieci
+              i młodzieży są takie same jak w terapii osób dorosłych. Dodatkowo
+              w proces terapeutyczny włącza się osoby bliskie takie jak rodzice,
+              opiekunowie.
             </p>
             <p>
               Ważnym aspektem zrozumienia trudności dziecka jest dostosowanie

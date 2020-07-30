@@ -41,7 +41,7 @@ const HeaderDesktop = () => {
             <MenuItem to="/">Home</MenuItem>
           </li>
           <li>
-            <MenuItem to="/about">O mnie</MenuItem>
+            <MenuItem to="/o-mnie">O mnie</MenuItem>
           </li>
           <li
             className="submenu"
@@ -64,17 +64,17 @@ const HeaderDesktop = () => {
             >
               <ul>
                 <li>
-                  <MenuItem to="/services1">
+                  <MenuItem to="/psychoterapia-dorosli">
                     {texts.services.titles.one}
                   </MenuItem>
                 </li>
                 <li>
-                  <MenuItem to="/services2">
+                  <MenuItem to="/psychoterapia-dzieci">
                     {texts.services.titles.two}
                   </MenuItem>
                 </li>
                 <li>
-                  <MenuItem to="/services3">
+                  <MenuItem to="/psychologia-transportu-medycyna-pracy">
                     {texts.services.titles.three}
                   </MenuItem>
                 </li>
@@ -82,17 +82,17 @@ const HeaderDesktop = () => {
             </CSSTransition>
           </li>
           <li>
-            <MenuItem to="/downloads">
+            <MenuItem to="/do-pobrania">
               Materiały
               <br />
               do pobrania
             </MenuItem>
           </li>
           <li>
-            <MenuItem to="/#contact">Kontakt</MenuItem>
+            <MenuItem to="/#kontakt">Kontakt</MenuItem>
           </li>
           <li>
-            <Button to="/scheduler">
+            <Button to="/umow-spotkanie">
               <i className="far fa-calendar-check" aria-hidden></i>
               <span>Umów spotkanie</span>
             </Button>

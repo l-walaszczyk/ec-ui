@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import smoothscroll from "smoothscroll-polyfill";
+import Head from "next/head";
 import Layout from "../layouts/Layout";
 import texts from "../public/content/texts";
 import Button from "../components/Button";
@@ -10,7 +11,7 @@ const Index = () => {
   // const contactRef = React.createRef();
 
   // useEffect(() => {
-  //   window.location.href.includes("/#contact") &&
+  //   window.location.href.includes("/#kontakt") &&
   //     contactRef.current.scrollIntoView({ behavior: "smooth" });
   // });
 
@@ -35,6 +36,13 @@ const Index = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Emilia Cwojdzińska - psycholog, psychoterapia | Babimost</title>
+        <meta
+          name="description"
+          content="Emilia Cwojdzińska: dyplomowany psycholog i psychoterapeuta. Pomoc psychologiczna, psychoterapia poznawczo-behawioralna, badania kierowców. Umów wizytę online"
+        ></meta>
+      </Head>
       <main>
         <div className="first-view-wrap">
           <section
@@ -47,7 +55,7 @@ const Index = () => {
             <div className="text-container">
               {texts.home.home}
               {width === undefined || width < 533 ? (
-                <Button to="/scheduler">
+                <Button to="/umow-spotkanie">
                   <i className="far fa-calendar-check" aria-hidden></i>
                   <span>Umów spotkanie</span>
                 </Button>
@@ -56,7 +64,7 @@ const Index = () => {
           </section>
           <section className="about">
             {texts.home.about}
-            <Button to="/about">
+            <Button to="/o-mnie">
               <span>Więcej o mnie</span>
             </Button>
           </section>
@@ -71,7 +79,7 @@ const Index = () => {
               {texts.home.services.one}
               {width < 1024 ? null : texts.services.descriptions.one.intro}
             </div>
-            <Button to="/services1">
+            <Button to="/psychoterapia-dorosli">
               <span>Więcej informacji</span>
             </Button>
           </div>
@@ -84,7 +92,7 @@ const Index = () => {
               {texts.home.services.two}
               {width < 1024 ? null : texts.services.descriptions.two.intro}
             </div>
-            <Button to="/services2">
+            <Button to="/psychoterapia-dzieci">
               <span>Więcej informacji</span>
             </Button>
           </div>
@@ -97,14 +105,14 @@ const Index = () => {
               {texts.home.services.three}
               {width < 1024 ? null : texts.services.descriptions.three.intro}
             </div>
-            <Button to="/services3">
+            <Button to="/psychologia-transportu-medycyna-pracy">
               <span>Więcej informacji</span>
             </Button>
           </div>
         </section>
         <section
           className="contact"
-          id="contact"
+          id="kontakt"
           // ref={contactRef}
         >
           <h1>Kontakt</h1>
@@ -193,7 +201,7 @@ const Index = () => {
                   </tbody>
                 </table>
               </div>
-              <Button to="/scheduler">
+              <Button to="/umow-spotkanie">
                 <i className="far fa-calendar-check" aria-hidden></i>
                 <span>Umów spotkanie</span>
               </Button>

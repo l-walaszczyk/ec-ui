@@ -1,10 +1,17 @@
-import Layout from "../layouts/Layout";
-
 import React from "react";
+import Head from "next/head";
+import Layout from "../layouts/Layout";
 
 const Downloads = () => {
   return (
     <Layout>
+      <Head>
+        <title>Materiały do pobrania</title>
+        <meta
+          name="description"
+          content="Kwestionariusze do wypełnienia przed rozpoczęciem terapii dla dzieci i młodzieży, a także regulaminy i informacje o przetwarzaniu danych osobowych"
+        ></meta>
+      </Head>
       <main>
         <section className="downloads">
           <h1>Materiały do pobrania</h1>

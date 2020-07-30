@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 // import smoothscroll from "smoothscroll-polyfill";
+import Head from "next/head";
 import Layout from "../layouts/Layout";
 import texts from "../public/content/texts";
 import Button from "../components/Button";
@@ -11,20 +12,27 @@ const Services3 = () => {
   const pricesRef = React.createRef();
 
   useEffect(() => {
-    window.location.href.includes("/services3/#prices") &&
+    window.location.href.includes("#cennik") &&
       pricesRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
   return (
     <Layout>
+      <Head>
+        <title>Psychologia transportu i medycyna pracy</title>
+        <meta
+          name="description"
+          content="Psychologiczne badania kierowców (psychotesty), psychologiczne badania operatorów maszyn, osób pracujących na wysokościach, badania w zakresie medycyny pracy"
+        ></meta>
+      </Head>
       <main>
         <section className="services-full">
           <h2>Psychologia transportu i medycyna pracy</h2>
           <div className="button-container">
-            <Button to="/services3/#prices">
+            <Button to="/psychologia-transportu-medycyna-pracy/#cennik">
               <span>Cennik</span>
             </Button>
-            <Button to="/scheduler">
+            <Button to="/umow-spotkanie">
               <i className="far fa-calendar-check"></i>
               <span>Umów spotkanie</span>
             </Button>
@@ -50,7 +58,7 @@ const Services3 = () => {
               <div className="discounts">
                 {texts.services.descriptions.three.extended.part3}
               </div>
-              <Button to="/scheduler">
+              <Button to="/umow-spotkanie">
                 <i className="far fa-calendar-check"></i>
                 <span>Umów spotkanie</span>
               </Button>
@@ -61,8 +69,12 @@ const Services3 = () => {
         <section className="see-also">
           <h2>Zobacz czym jeszcze się zajmuję</h2>
           <div className="button-container">
-            <Button to="/services1">{texts.services.titles.one}</Button>
-            <Button to="/services2">{texts.services.titles.two}</Button>
+            <Button to="/psychoterapia-dorosli">
+              {texts.services.titles.one}
+            </Button>
+            <Button to="/psychoterapia-dzieci">
+              {texts.services.titles.two}
+            </Button>
           </div>
         </section>
       </main>

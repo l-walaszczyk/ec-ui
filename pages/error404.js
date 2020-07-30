@@ -1,10 +1,13 @@
-import Layout from "../layouts/Layout";
-
 import React from "react";
+import Head from "next/head";
+import Layout from "../layouts/Layout";
 
 const Error404 = () => {
   return (
     <Layout>
+      <Head>
+        <title>Błąd 404</title>
+      </Head>
       <main
         style={{
           height: "100vh",

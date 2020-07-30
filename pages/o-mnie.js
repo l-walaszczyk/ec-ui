@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Layout from "../layouts/Layout";
 import Button from "../components/Button";
 import texts from "../public/content/texts";
@@ -6,6 +7,13 @@ import texts from "../public/content/texts";
 const About = () => {
   return (
     <Layout>
+      <Head>
+        <title>Emilia Cwojdzińska - o mnie</title>
+        <meta
+          name="description"
+          content="Mgr Emilia Cwojdzińska - dyplomowany psycholog, certyfikowany psychoterapeuta, posiada uprawnienia do badań z zakresu psychologii transportu i medycyny pracy"
+        ></meta>
+      </Head>
       <main>
         <section className="about-full">
           {/* <div className="text-container"> */}
@@ -23,9 +31,15 @@ const About = () => {
         <section className="see-also">
           <h3>Zapraszam do zapoznania się z ofertą:</h3>
           <div className="button-container">
-            <Button to="/services1">{texts.services.titles.one}</Button>
-            <Button to="/services2">{texts.services.titles.two}</Button>
-            <Button to="/services3">{texts.services.titles.three}</Button>
+            <Button to="/psychoterapia-dorosli">
+              {texts.services.titles.one}
+            </Button>
+            <Button to="/psychoterapia-dzieci">
+              {texts.services.titles.two}
+            </Button>
+            <Button to="/psychologia-transportu-medycyna-pracy">
+              {texts.services.titles.three}
+            </Button>
           </div>
         </section>
       </main>

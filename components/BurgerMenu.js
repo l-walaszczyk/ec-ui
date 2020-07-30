@@ -28,7 +28,7 @@ const BurgerMenu = ({
             </MenuItem>
           </li>
           <li>
-            <MenuItem to="/about" handleClick={toggleBurgerMenu}>
+            <MenuItem to="/o-mnie" handleClick={toggleBurgerMenu}>
               O mnie
             </MenuItem>
           </li>
@@ -50,17 +50,26 @@ const BurgerMenu = ({
             >
               <ul>
                 <li>
-                  <MenuItem to="/services1" handleClick={toggleBurgerMenu}>
+                  <MenuItem
+                    to="/psychoterapia-dorosli"
+                    handleClick={toggleBurgerMenu}
+                  >
                     {texts.services.titles.one}
                   </MenuItem>
                 </li>
                 <li>
-                  <MenuItem to="/services2" handleClick={toggleBurgerMenu}>
+                  <MenuItem
+                    to="/psychoterapia-dzieci"
+                    handleClick={toggleBurgerMenu}
+                  >
                     {texts.services.titles.two}
                   </MenuItem>
                 </li>
                 <li>
-                  <MenuItem to="/services3" handleClick={toggleBurgerMenu}>
+                  <MenuItem
+                    to="/psychologia-transportu-medycyna-pracy"
+                    handleClick={toggleBurgerMenu}
+                  >
                     {texts.services.titles.three}
                   </MenuItem>
                 </li>
@@ -68,17 +77,17 @@ const BurgerMenu = ({
             </CSSTransition>
           </li>
           <li>
-            <MenuItem to="/downloads" handleClick={toggleBurgerMenu}>
+            <MenuItem to="/do-pobrania" handleClick={toggleBurgerMenu}>
               Materiały do pobrania
             </MenuItem>
           </li>
           <li>
-            <MenuItem to="/#contact" handleClick={toggleBurgerMenu}>
+            <MenuItem to="/#kontakt" handleClick={toggleBurgerMenu}>
               Kontakt
             </MenuItem>
           </li>
           <li>
-            <Button to="/scheduler" handleClick={toggleBurgerMenu}>
+            <Button to="/umow-spotkanie" handleClick={toggleBurgerMenu}>
               <i className="far fa-calendar-check"></i>
               <span>Umów spotkanie</span>
             </Button>

@@ -1,5 +1,6 @@
-import Layout from "../layouts/Layout";
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Layout from "../layouts/Layout";
 import SchedulerStep0 from "../components/SchedulerStep0";
 import SchedulerStep1 from "../components/SchedulerStep1";
 import SchedulerStep2 from "../components/SchedulerStep2";
@@ -164,6 +165,13 @@ const Scheduler = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Umów spotkanie</title>
+        <meta
+          name="description"
+          content="Zarezerwuj przez internet termin wizyty. Dostępne wizyty online oraz w gabinecie w miescowości Babimost - na granicy województwa lubuskiego i wielkopolskiego"
+        ></meta>
+      </Head>
       <main>
         <div className="test">
           System w fazie testów
