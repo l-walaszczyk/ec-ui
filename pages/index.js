@@ -41,6 +41,10 @@ const Index = () => {
           Emilia Cwojdzińska - psycholog, psychoterapeuta - Babimost
         </title>
         <meta
+          name="keywords"
+          content="emilia cwojdzinska, emilia cwojdzinska psycholog, emilia cwojdzinska psychoterapeuta, emilia cwojdzinska babimost, emilia cwojdzinska psycholog dziecięcy, psycholog lubuskie, psycholog dziecięcy lubuskie, psychoterapia lubuskie, psychoterapia wielkoposlkie, psychoterapia online, psychoterapeuta onilne, psycholog z certyfikatem lubuskie, psychoterapeuta z certyfikatem lubuskie, badania psychologiczne babimost, badania psychologiczne kierowców, psychotesty babimost, badania kierowców babimost, badania kierowców wolsztyn, psychotesty wózki widłowe babimost, psychotesty wolsztyn, dobry psycholog wolsztyn, dobry psycholog lubuskie, psycholog zielona góra, psychoterapia zielona góra, psycholog dziecięcy zielona góra, psychotesty zbąszyń, badania kierowców zbąszyń, psycholog dziecięcy zbąszyń, psychoterapia zbąszyń, psycholog dziecięcy wolsztyn, psycholog dziecięcy babimost, psycholog wolsztyn, psycholog babimost, psycholog lubuskie, psychoterapeuta lubuskie, psychoterapeuta wielkopolskie, psychoterapia lubuskie, psychoterapia dzieci, psychoterapia nastolatków, psychoterapia nastolatków online"
+        />
+        <meta
           name="description"
           content="Emilia Cwojdzińska: dyplomowany psycholog i psychoterapeuta. Pomoc psychologiczna, psychoterapia poznawczo-behawioralna, badania kierowców. Umów wizytę online"
         />
@@ -58,7 +62,10 @@ const Index = () => {
             // ref={homeRef}
           >
             <div className="portrait-container">
-              <img src="/images/portrait.jpg" alt="" />
+              <img
+                src="/images/portrait.jpg"
+                alt="Emilia Cwojdzińska - zdjęcie portretowe"
+              />
             </div>
             <div className="text-container">
               {texts.home.home}
@@ -81,7 +88,10 @@ const Index = () => {
           <h1>Pracuję w trzech obszarach:</h1>
           <div className="service">
             <div className="img-container">
-              <img src="/images/services1.jpg" alt="" />
+              <img
+                src="/images/services1.jpg"
+                alt="Psychoterapia poznawczo-behawioralna dorosłych - zdjęcie symboliczne: kobieta"
+              />
             </div>
             <div className="text-container">
               {texts.home.services.one}
@@ -94,7 +104,10 @@ const Index = () => {
           <hr />
           <div className="service">
             <div className="img-container">
-              <img src="/images/services2.jpg" alt="" />
+              <img
+                src="/images/services2.jpg"
+                alt="Psychoterapia poznawczo-behawioralna dzieci i młodzieży - zdjęcie symboliczne: nastolatek"
+              />
             </div>
             <div className="text-container">
               {texts.home.services.two}
@@ -107,7 +120,10 @@ const Index = () => {
           <hr />
           <div className="service">
             <div className="img-container">
-              <img src="/images/services3.jpg" alt="" />
+              <img
+                src="/images/services3.jpg"
+                alt="Psychologia transportu i medycyna pracy - zdjęcie symboliczne: kierowca ciężarówki"
+              />
             </div>
             <div className="text-container">
               {texts.home.services.three}
@@ -126,7 +142,10 @@ const Index = () => {
           <h1>Kontakt</h1>
           <div className="contact-wrap">
             <div className="img-container">
-              <img src="/images/gabinet.jpg" alt="" />
+              <img
+                src="/images/gabinet.jpg"
+                alt="Gabinet psychologiczny w miescowości Babimost, na granicy województwa lubuskiego i wielkopolskiego"
+              />
             </div>
             <div className="details-wrap">
               <div className="text-container">

@@ -26,7 +26,10 @@ const About = () => {
           <div className="about-wrap">
             <div className="text-container">{texts.about.about}</div>
             <div className="img-container">
-              <img src="/images/certificate_small.jpg" alt="" />
+              <img
+                src="/images/certificate_small.jpg"
+                alt="Certyfikat psychoterapeuty poznawczo-behawioralnego przyznany mgr Emilii Cwojdzińskiej"
+              />
               {texts.about.caption}
             </div>
           </div>

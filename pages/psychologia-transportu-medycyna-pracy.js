@@ -48,7 +48,10 @@ const Services3 = () => {
           </div>
           <div className="description-wrap">
             <div className="img-container">
-              <img src="/images/services3.jpg" alt="" />
+              <img
+                src="/images/services3.jpg"
+                alt="Psychologia transportu i medycyna pracy - zdjęcie symboliczne: kierowca ciężarówki"
+              />
             </div>
             <div className="text-container">
               {texts.services.descriptions.three.extended.part1}
@@ -59,7 +62,10 @@ const Services3 = () => {
           <hr />
           <div className="prices-wrap">
             <div className="img-container wide">
-              <img src="/images/equipment.jpg" alt="" />
+              <img
+                src="/images/equipment.jpg"
+                alt="Sprzęt do badań psychologicznych kierowców, w który wyposażony jest gabinet"
+              />
             </div>
             <div className="prices" ref={pricesRef}>
               <h2>Cennik</h2>

@@ -22,7 +22,7 @@ const Services2 = () => {
         <title>Psychoterapia poznawczo-behawioralna dzieci i młodzieży</title>
         <meta
           name="description"
-          content="Psychoterapia dzieci, młodzieży. W proces terapeutyczny włączam opiekunów. Prowadzę także warsztaty psychoedukacyjne dla dzieci i młodzieży"
+          content="Psychoterapia dzieci i młodzieży w nurcie poznawczo-behawioralnym. Psychoterapia nastolatków, psycholog dziecięcy, wizyty online lub w gabinecie"
         />
         <meta
           property="og:title"
@@ -48,7 +48,10 @@ const Services2 = () => {
           </div>
           <div className="description-wrap">
             <div className="img-container">
-              <img src="/images/services2.jpg" alt="" />
+              <img
+                src="/images/services2.jpg"
+                alt="Psychoterapia poznawczo-behawioralna dzieci i młodzieży - zdjęcie symboliczne: nastolatek"
+              />
             </div>
             <div className="text-container">
               {texts.services.descriptions.two.extended}

@@ -48,7 +48,10 @@ const Services1 = () => {
           </div>
           <div className="description-wrap">
             <div className="img-container">
-              <img src="/images/services1.jpg" alt="" />
+              <img
+                src="/images/services1.jpg"
+                alt="Psychoterapia poznawczo-behawioralna dorosłych - zdjęcie symboliczne: kobieta"
+              />
             </div>
             <div className="text-container">
               {texts.services.descriptions.one.extended}
