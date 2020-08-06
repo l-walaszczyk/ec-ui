@@ -54,7 +54,7 @@ const Downloads = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/docs/Regulamin.pdf" target="_blank">
+                  <a href="/docs/RODO.pdf" target="_blank">
                     Informacja o danych osobowych
                   </a>
                 </li>
