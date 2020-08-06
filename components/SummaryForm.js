@@ -245,7 +245,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
               <Field type="checkbox" name="agreement2" />
               <span>
                 Akceptuję{" "}
-                <a href="/docs/Regulamin.pdf" target="_blank">
+                <a href="/docs/RODO.pdf" target="_blank">
                   informację o danych osobowych
                 </a>
               </span>
