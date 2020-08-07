@@ -103,7 +103,7 @@ const Week = ({
       process.env.API_URL +
         "week/" +
         direction +
-        "/?" +
+        "?" +
         new URLSearchParams(params)
     );
   };

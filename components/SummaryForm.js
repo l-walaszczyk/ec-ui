@@ -15,7 +15,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
         patient1LastName: "",
         patient1YearOfBirth: "",
         email: "",
-        telephone: "",
+        tel: "",
         paymentMethod: "",
         agreement1: false,
         agreement2: false,
@@ -45,7 +45,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
         email: Yup.string()
           .email("Adres email niepoprawny")
           .required("Wpisz adres email"),
-        telephone: Yup.string()
+        tel: Yup.string()
           .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
           .required("Wpisz numer telefonu"),
         paymentMethod: Yup.string().required("Wybierz metodę płatności"),
@@ -85,7 +85,10 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
         };
 
         const url =
-          process.env.API_URL + "summary/?" + new URLSearchParams(params);
+          process.env.API_URL +
+          finalValues.paymentMethod +
+          "?" +
+          new URLSearchParams(params);
 
         fetch(url, requestOptions)
           .then((res) => res.json())
@@ -93,7 +96,12 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
             setSubmitting(false);
             if (res.success) {
               console.log("PATCHing successful");
-              setStep(step + 1);
+              if (res.url) {
+                console.log("Redirecting to url:", res.url);
+                window.location = res.url;
+              } else {
+                setStep(step + 1);
+              }
             } else {
               alert(
                 "Błąd podczas zapisywania spotkania. Odśwież stronę i spróbuj zarezerwować spotkanie ponownie."
@@ -189,14 +197,14 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
           <div className="form-field">
             <Field
               type="tel"
-              name="telephone"
+              name="tel"
               placeholder={
                 values.forSomeoneElse
                   ? "Numer telefonu os. kontaktowej"
                   : "Numer telefonu"
               }
             />
-            <ErrorMessage name="telephone" component={ErrorHint} />{" "}
+            <ErrorMessage name="tel" component={ErrorHint} />{" "}
           </div>
           <h2>Wybierz sposób płatności</h2>
           <div className="form-field">
@@ -211,7 +219,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
                   isDisabled: true,
                 },
                 {
-                  value: "przelewy24",
+                  value: "p24",
                   label: (
                     <>
                       <p>Płatność z góry</p>
@@ -221,7 +229,7 @@ const SummaryForm = ({ step, setStep, savedMeeting, meetingType }) => {
                   ),
                 },
                 {
-                  value: "personally",
+                  value: "in-person",
                   label: <p>Płatność podczas wizyty w gabinecie</p>,
                 },
               ]}

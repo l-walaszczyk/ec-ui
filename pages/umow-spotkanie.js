@@ -42,7 +42,7 @@ const Scheduler = () => {
 
   const [url, setUrl] = useState(
     process.env.API_URL +
-      "week/asap/?" +
+      "week/asap?" +
       new URLSearchParams({ meetingDuration })
   );
   const [weekArray, setWeekArray] = useState([]);
@@ -97,7 +97,7 @@ const Scheduler = () => {
     // if (savedMeeting) {
     //   params.id = savedMeeting._id;
     // }
-    setUrl(process.env.API_URL + "week/asap/?" + new URLSearchParams(params));
+    setUrl(process.env.API_URL + "week/asap?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
   useEffect(() => {
