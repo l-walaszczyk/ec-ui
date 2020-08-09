@@ -38,13 +38,13 @@ const About = () => {
           <h3>Zapraszam do zapoznania się z ofertą:</h3>
           <div className="button-container">
             <Button to="/psychoterapia-dorosli">
-              {texts.services.titles.one}
+              {texts.services.titles[0]}
             </Button>
             <Button to="/psychoterapia-dzieci-mlodziez">
-              {texts.services.titles.two}
+              {texts.services.titles[1]}
             </Button>
             <Button to="/psychologia-transportu-medycyna-pracy">
-              {texts.services.titles.three}
+              {texts.services.titles[2]}
             </Button>
           </div>
         </section>

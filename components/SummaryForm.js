@@ -63,57 +63,76 @@ const SummaryForm = ({
     }
   };
 
+  const initialValues = {
+    firstNameContact: "",
+    lastNameContact: "",
+    emailContact: "",
+    phoneContact: "",
+    paymentMethod: "",
+    agreement1: false,
+    agreement2: false,
+  };
+
+  const validationSchema = Yup.object({
+    firstNameContact: Yup.string().required("Wpisz imię osoby kontaktowej"),
+    lastNameContact: Yup.string().required("Wpisz nazwisko osoby kontaktowej"),
+    // firstName2: Yup.string(),
+    // lastName2: Yup.string(),
+    // yearOfBirth2: Yup.number().typeError("Rok musi być liczbą"),
+    // .test(
+    //   "len",
+    //   "Rok urodzenia powinien być 4-cyfrowy",
+    //   (val) => val.toString().length === 4
+    // )
+    // .required("Wpisz rok urodzenia pacjenta")
+    emailContact: Yup.string()
+      .email("Adres email niepoprawny")
+      .required("Wpisz adres email"),
+    phoneContact: Yup.string()
+      .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
+      .required("Wpisz numer telefonu"),
+    paymentMethod: Yup.string().required("Wybierz metodę płatności"),
+    agreement1: Yup.boolean().oneOf([true], "Potwierdź akceptację regulaminu"),
+    agreement2: Yup.boolean().oneOf(
+      [true],
+      "Potwierdź akceptację informacji o danych osobowych"
+    ),
+  });
+
+  switch (selectedFieldIndex) {
+    case 0:
+      if (meetingName.includes(" par")) {
+        initialValues.firstName2 = "";
+        initialValues.lastName2 = "";
+      }
+      break;
+
+    case 1:
+      initialValues.firstName2 = "";
+      initialValues.lastName2 = "";
+      initialValues.yearOfBirth2 = "";
+      break;
+
+    case 2:
+      if (numberOfPeople === 2) {
+        initialValues.firstName2 = "";
+        initialValues.lastName2 = "";
+      } else if (numberOfPeople === 3) {
+        initialValues.firstName3 = "";
+        initialValues.lastName3 = "";
+      }
+      break;
+
+    default:
+      break;
+  }
+
   return (
     <Formik
-      initialValues={{
-        firstNameContact: "",
-        lastNameContact: "",
-        emailContact: "",
-        phoneContact: "",
-        paymentMethod: "",
-        agreement1: false,
-        agreement2: false,
-      }}
-      validationSchema={Yup.object({
-        firstNameContact: Yup.string().required("Wpisz imię osoby kontaktowej"),
-        lastNameContact: Yup.string().required(
-          "Wpisz nazwisko osoby kontaktowej"
-        ),
-        // firstName2: Yup.string(),
-        // lastName2: Yup.string(),
-        // yearOfBirth2: Yup.number().typeError("Rok musi być liczbą"),
-        // .test(
-        //   "len",
-        //   "Rok urodzenia powinien być 4-cyfrowy",
-        //   (val) => val.toString().length === 4
-        // )
-        // .required("Wpisz rok urodzenia pacjenta")
-        emailContact: Yup.string()
-          .email("Adres email niepoprawny")
-          .required("Wpisz adres email"),
-        phoneContact: Yup.string()
-          .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
-          .required("Wpisz numer telefonu"),
-        paymentMethod: Yup.string().required("Wybierz metodę płatności"),
-        agreement1: Yup.boolean().oneOf(
-          [true],
-          "Potwierdź akceptację regulaminu"
-        ),
-        agreement2: Yup.boolean().oneOf(
-          [true],
-          "Potwierdź akceptację informacji o danych osobowych"
-        ),
-      })}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
         const finalValues = Object.assign(values);
-        // console.log(finalValues);
-        // if (!values.forSomeoneElse) {
-        //   delete finalValues.firstNameContact;
-        //   delete finalValues.lastNameContact;
-        // } else {
-        //   delete finalValues.firstName2;
-        //   delete finalValues.lastName2;
-        // }
 
         const requestOptions = {
           method: "PATCH",

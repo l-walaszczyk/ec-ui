@@ -54,9 +54,9 @@ const Services3 = () => {
               />
             </div>
             <div className="text-container">
-              {texts.services.descriptions.three.extended.part1}
+              {texts.services.descriptions[2].extended.part1}
               <hr />
-              {texts.services.descriptions.three.extended.part2}
+              {texts.services.descriptions[2].extended.part2}
             </div>
           </div>
           <hr />
@@ -69,9 +69,9 @@ const Services3 = () => {
             </div>
             <div className="prices" ref={pricesRef}>
               <h2>Cennik</h2>
-              <PriceList types={texts.services.types.three} />
+              <PriceList types={texts.services.types[2]} />
               <div className="discounts">
-                {texts.services.descriptions.three.extended.part3}
+                {texts.services.descriptions[2].extended.part3}
               </div>
               <Button to="/umow-spotkanie">
                 <i className="far fa-calendar-check"></i>
@@ -85,10 +85,10 @@ const Services3 = () => {
           <h2>Zobacz czym jeszcze się zajmuję</h2>
           <div className="button-container">
             <Button to="/psychoterapia-dorosli">
-              {texts.services.titles.one}
+              {texts.services.titles[0]}
             </Button>
             <Button to="/psychoterapia-dzieci-mlodziez">
-              {texts.services.titles.two}
+              {texts.services.titles[1]}
             </Button>
           </div>
         </section>

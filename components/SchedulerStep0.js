@@ -16,9 +16,9 @@ const SchedulerStep0 = ({
   }, []);
 
   const fields = [
-    texts.services.titles.one,
-    texts.services.titles.two,
-    texts.services.titles.three,
+    texts.services.titles[0],
+    texts.services.titles[1],
+    texts.services.titles[2],
   ];
 
   const options = fields.map((item, index) => (

@@ -35,17 +35,15 @@ const texts = {
         </p>
       </>
     ),
-    services: {
-      one: <p>1) Psychoterapia poznawczo - behawioralna dorosłych</p>,
-      two: <p>2) Psychoterapia poznawczo - behawioralna dzieci i młodzieży</p>,
-      three: (
-        <p>
-          3) Psychologia transportu i medycyna pracy - badania psychologiczne /
-          psychotechniczne dla osób wykonujących zawód wymagający szczególnej
-          sprawności psychomotorycznej, np. kierowcy i operatorzy maszyn
-        </p>
-      ),
-    },
+    services: [
+      <p>1) Psychoterapia poznawczo - behawioralna dorosłych</p>,
+      <p>2) Psychoterapia poznawczo - behawioralna dzieci i młodzieży</p>,
+      <p>
+        3) Psychologia transportu i medycyna pracy - badania psychologiczne /
+        psychotechniczne dla osób wykonujących zawód wymagający szczególnej
+        sprawności psychomotorycznej, np. kierowcy i operatorzy maszyn
+      </p>,
+    ],
     contact: {
       addressLine1: "ul. T. Kościuszki 2,",
       addressLine2: "66-110 Babimost",
@@ -94,30 +92,24 @@ const texts = {
     ),
   },
   services: {
-    titles: {
-      one: (
-        <span>
-          Psychoterapia poznawczo - behawioralna
-          <br />
-          osób dorosłych
-        </span>
-      ),
-      two: (
-        <span>
-          Psychoterapia poznawczo - behawioralna
-          <br />
-          dzieci i młodzieży
-        </span>
-      ),
-      three: (
-        <span>
-          Psychologia transportu i medycyna pracy
-          <br />- badania psychologiczne / psychotechniczne
-        </span>
-      ),
-    },
-    descriptions: {
-      one: {
+    titles: [
+      <span>
+        Psychoterapia poznawczo - behawioralna
+        <br />
+        osób dorosłych
+      </span>,
+      <span>
+        Psychoterapia poznawczo - behawioralna
+        <br />
+        dzieci i młodzieży
+      </span>,
+      <span>
+        Psychologia transportu i medycyna pracy
+        <br />- badania psychologiczne / psychotechniczne
+      </span>,
+    ],
+    descriptions: [
+      {
         intro: (
           <>
             <p>
@@ -175,7 +167,7 @@ const texts = {
           </>
         ),
       },
-      two: {
+      {
         intro: (
           <>
             <p>
@@ -209,7 +201,7 @@ const texts = {
           </>
         ),
       },
-      three: {
+      {
         intro: (
           <ul>
             <li>
@@ -263,9 +255,9 @@ const texts = {
           ),
         },
       },
-    },
-    types: {
-      one: [
+    ],
+    types: [
+      [
         {
           name: "Konsultacja psychologiczna",
           price: 150,
@@ -297,7 +289,7 @@ const texts = {
           minutes: 80,
         },
       ],
-      two: [
+      [
         {
           name: "Konsultacja psychologiczna dziecka/nastolatka",
           price: 150,
@@ -314,7 +306,7 @@ const texts = {
           minutes: 50,
         },
       ],
-      three: [
+      [
         {
           name:
             "Badanie psychologiczne dla kandydatów i kierowców zawodowych kategorii: C, C+E, C1, C1+E, D1, D1+E, D, D+E C, C+E",
@@ -343,6 +335,15 @@ const texts = {
           minutes: 110,
         },
       ],
+    ],
+    formFields: {
+      firstNameContact: {
+        placeholder: [
+          "Twoje imię",
+          "Imię rodzica/opiekuna prawnego",
+          "Imię pierwszej osoby",
+        ],
+      },
     },
   },
 };

@@ -1,12 +1,7 @@
 import React, { useEffect } from "react";
 import PeopleCounter from "./PeopleCounter";
 import texts from "../public/content/texts";
-
-const types = [
-  texts.services.types.one,
-  texts.services.types.two,
-  texts.services.types.three,
-];
+const types = texts.services.types;
 
 const SchedulerStep1 = ({
   step,
@@ -56,8 +51,8 @@ const SchedulerStep1 = ({
           <div className="details">
             <p>
               {`${
-                numberOfPeople > 1 ? "Łączny czas" : "Czas"
-              } trwania: do ${minutesMod} minut`}
+                numberOfPeople > 1 ? "Łączny czas:" : "Czas trwania:"
+              } do ${minutesMod} minut`}
             </p>
             <p>
               {`${

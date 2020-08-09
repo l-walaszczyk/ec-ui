@@ -54,7 +54,7 @@ const BurgerMenu = ({
                     to="/psychoterapia-dorosli"
                     handleClick={toggleBurgerMenu}
                   >
-                    {texts.services.titles.one}
+                    {texts.services.titles[0]}
                   </MenuItem>
                 </li>
                 <li>
@@ -62,7 +62,7 @@ const BurgerMenu = ({
                     to="/psychoterapia-dzieci-mlodziez"
                     handleClick={toggleBurgerMenu}
                   >
-                    {texts.services.titles.two}
+                    {texts.services.titles[1]}
                   </MenuItem>
                 </li>
                 <li>
@@ -70,7 +70,7 @@ const BurgerMenu = ({
                     to="/psychologia-transportu-medycyna-pracy"
                     handleClick={toggleBurgerMenu}
                   >
-                    {texts.services.titles.three}
+                    {texts.services.titles[2]}
                   </MenuItem>
                 </li>
               </ul>

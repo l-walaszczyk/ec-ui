@@ -36,7 +36,7 @@ const Services1 = () => {
       </Head>
       <main>
         <section className="services-full">
-          <h2>{texts.services.titles.one}</h2>
+          <h2>{texts.services.titles[0]}</h2>
           <div className="button-container">
             <Button to="/psychoterapia-dorosli/#cennik">
               <span>Cennik</span>
@@ -54,14 +54,14 @@ const Services1 = () => {
               />
             </div>
             <div className="text-container">
-              {texts.services.descriptions.one.extended}
+              {texts.services.descriptions[0].extended}
             </div>
           </div>
           <hr />
           {/* <div className="prices-wrap"> */}
           <div className="prices" ref={pricesRef}>
             <h2>Cennik</h2>
-            <PriceList types={texts.services.types.one} />
+            <PriceList types={texts.services.types[0]} />
             <Button
               to={{
                 pathname: "/umow-spotkanie",
@@ -79,10 +79,10 @@ const Services1 = () => {
           <h2>Zobacz czym jeszcze się zajmuję</h2>
           <div className="button-container">
             <Button to="/psychoterapia-dzieci-mlodziez">
-              {texts.services.titles.two}
+              {texts.services.titles[1]}
             </Button>
             <Button to="/psychologia-transportu-medycyna-pracy">
-              {texts.services.titles.three}
+              {texts.services.titles[2]}
             </Button>
           </div>
         </section>

@@ -65,17 +65,17 @@ const HeaderDesktop = () => {
               <ul>
                 <li>
                   <MenuItem to="/psychoterapia-dorosli">
-                    {texts.services.titles.one}
+                    {texts.services.titles[0]}
                   </MenuItem>
                 </li>
                 <li>
                   <MenuItem to="/psychoterapia-dzieci-mlodziez">
-                    {texts.services.titles.two}
+                    {texts.services.titles[1]}
                   </MenuItem>
                 </li>
                 <li>
                   <MenuItem to="/psychologia-transportu-medycyna-pracy">
-                    {texts.services.titles.three}
+                    {texts.services.titles[2]}
                   </MenuItem>
                 </li>
               </ul>

@@ -94,8 +94,8 @@ const Index = () => {
               />
             </div>
             <div className="text-container">
-              {texts.home.services.one}
-              {width < 1024 ? null : texts.services.descriptions.one.intro}
+              {texts.home.services[0]}
+              {width < 1024 ? null : texts.services.descriptions[0].intro}
             </div>
             <Button to="/psychoterapia-dorosli">
               <span>Więcej informacji</span>
@@ -110,8 +110,8 @@ const Index = () => {
               />
             </div>
             <div className="text-container">
-              {texts.home.services.two}
-              {width < 1024 ? null : texts.services.descriptions.two.intro}
+              {texts.home.services[1]}
+              {width < 1024 ? null : texts.services.descriptions[1].intro}
             </div>
             <Button to="/psychoterapia-dzieci-mlodziez">
               <span>Więcej informacji</span>
@@ -126,8 +126,8 @@ const Index = () => {
               />
             </div>
             <div className="text-container">
-              {texts.home.services.three}
-              {width < 1024 ? null : texts.services.descriptions.three.intro}
+              {texts.home.services[2]}
+              {width < 1024 ? null : texts.services.descriptions[2].intro}
             </div>
             <Button to="/psychologia-transportu-medycyna-pracy">
               <span>Więcej informacji</span>
