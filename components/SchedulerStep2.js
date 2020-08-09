@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Week from "./Week";
 import Time from "./Time";
+import Summary from "./Summary";
 import moment from "moment-timezone";
 import "moment/locale/pl";
 import texts from "../public/content/texts";
@@ -17,8 +18,11 @@ const SchedulerStep2 = ({
   step,
   setStep,
   selected,
+  selectedFieldIndex,
+  numberOfPeople,
+  meetingName,
+  meetingPrice,
   meetingDuration,
-  meetingType,
   selectedDay,
   setSelectedDay,
   selectedTime,
@@ -32,19 +36,23 @@ const SchedulerStep2 = ({
   fetchWeek,
   setSavedMeeting,
 }) => {
-  const meetingDateLocal = moment(selectedDay)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const meetingDate = moment(selectedDay)
     .hour(Math.trunc(selectedTime))
     .minute((selectedTime % 1) * 60)
-    .tz("Europe/Warsaw");
+    .utc();
 
   const handleNextStep = () => {
-    const params = {
-      date: moment(selectedDay)
-        .hour(Math.trunc(selectedTime))
-        .minute((selectedTime % 1) * 60)
-        .utc()
-        .format(),
+    const body = {
+      date: meetingDate.format(),
+      meetingName,
+      meetingPrice,
       meetingDuration,
+      selectedFieldIndex,
+      numberOfPeople,
     };
 
     const requestOptions = {
@@ -53,11 +61,12 @@ const SchedulerStep2 = ({
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(body),
       mode: "cors", // no-cors, *cors, same-origin
       credentials: "include", // include, *same-origin, omit
     };
 
-    const url = process.env.API_URL + "?" + new URLSearchParams(params);
+    const url = process.env.API_URL + "meetings";
 
     fetch(url, requestOptions)
       .then((res) => res.json())
@@ -65,6 +74,9 @@ const SchedulerStep2 = ({
         (result) => {
           if (result.success) {
             setSavedMeeting(result.savedMeeting);
+            document.cookie = `id=${result.savedMeeting._id};max-age=${
+              40 * 60
+            }`;
             setStep(step + 1);
           } else {
             setSavedMeeting(null);
@@ -107,18 +119,14 @@ const SchedulerStep2 = ({
         {weekArray && selectedDay && selectedTime && (
           <div className="summary-container">
             <h2>Podsumowanie wyboru</h2>
-            <div className="summary">
-              <p>
-                Rodzaj spotkania: <span>{meetingType.name}</span>
-              </p>
-              <p>
-                Data:{" "}
-                <span>{meetingDateLocal.format("dddd, D MMMM YYYY")}</span>
-              </p>
-              <p>
-                Godzina: <span>{meetingDateLocal.format("HH:mm")}</span>
-              </p>
-            </div>
+            <Summary
+              selectedFieldIndex={selectedFieldIndex}
+              numberOfPeople={numberOfPeople}
+              meetingName={meetingName}
+              meetingPrice={meetingPrice}
+              meetingDuration={meetingDuration}
+              meetingDate={meetingDate}
+            />
           </div>
         )}
         <p>

@@ -1,39 +1,85 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PeopleCounter from "./PeopleCounter";
+import texts from "../public/content/texts";
+
+const types = [
+  texts.services.types.one,
+  texts.services.types.two,
+  texts.services.types.three,
+];
 
 const SchedulerStep1 = ({
   step,
   setStep,
   selected,
   // setSelected,
-  meetingTypes,
-  selectedMeetingType,
-  setSelectedMeetingType,
+  selectedFieldIndex,
+  // meetingTypes,
+  selectedMeetingIndex,
+  setSelectedMeetingIndex,
+  numberOfPeople,
+  setNumberOfPeople,
+  setMeetingName,
+  setMeetingDuration,
+  setMeetingPrice,
   setSelectedDay,
   setSelectedTime,
 }) => {
-  const options = meetingTypes.map((item, index) => (
-    <li key={index}>
-      <button
-        type="button"
-        className={`option${selectedMeetingType === index ? " selected" : ""}`}
-        onClick={() => {
-          setSelectedMeetingType(index);
-          setSelectedDay(null);
-          setSelectedTime(null);
-        }}
-      >
-        <p>{item.name}</p>
-        <div className="details">
-          <p>Czas trwania: do {item.minutes} minut</p>
-          <p>Koszt: {item.price} zł</p>
-        </div>
-      </button>
-    </li>
-  ));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const meetingTypes = types[selectedFieldIndex] || [];
+  // const showPeopleCounter = selectedFieldIndex === 2 ? true : false;
+
+  const options = meetingTypes.map(({ name, price, minutes }, index) => {
+    const priceMod = price * numberOfPeople;
+    const minutesMod = minutes + (numberOfPeople - 1) * 30;
+
+    return (
+      <li key={index}>
+        <button
+          type="button"
+          className={`option${
+            selectedMeetingIndex === index ? " selected" : ""
+          }`}
+          onClick={() => {
+            setSelectedMeetingIndex(index);
+            setMeetingName(name);
+            setMeetingPrice(priceMod);
+            setMeetingDuration(minutesMod);
+            setSelectedDay(null);
+            setSelectedTime(null);
+          }}
+        >
+          <p>{name}</p>
+          <div className="details">
+            <p>
+              {`${
+                numberOfPeople > 1 ? "Łączny czas" : "Czas"
+              } trwania: do ${minutesMod} minut`}
+            </p>
+            <p>
+              {`${
+                numberOfPeople > 1 ? "Łączny koszt" : "Koszt"
+              }: ${priceMod} zł`}
+            </p>
+          </div>
+        </button>
+      </li>
+    );
+  });
 
   return (
     <section className="scheduler">
       <div className="options-container">
+        {selectedFieldIndex === 2 && (
+          <PeopleCounter
+            numberOfPeople={numberOfPeople}
+            setNumberOfPeople={setNumberOfPeople}
+            setSelectedMeetingIndex={setSelectedMeetingIndex}
+          />
+        )}
         <h2>Wybierz rodzaj wizyty</h2>
         <ul>{options}</ul>
       </div>

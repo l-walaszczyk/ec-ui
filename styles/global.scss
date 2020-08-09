@@ -64,6 +64,12 @@ body {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: 400;
+
+  span {
+   text-transform: none;
+   font-size: 1.4rem;
+   font-style: italic;
+  }
  }
 
  h3 {

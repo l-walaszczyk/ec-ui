@@ -1,16 +1,47 @@
 import React from "react";
+import { useRouter } from "next/router";
 import texts from "../public/content/texts";
 
-const SchedulerStep4 = () => {
+const SchedulerStep4 = ({
+  setSelectedFieldIndex,
+  savedMeeting: {
+    _id: id,
+    status,
+    meetingDate,
+    meetingName,
+    meetingPrice,
+    meetingDuration,
+    numberOfPeople,
+    meetingDetails: { emailContact, paymentMethod },
+  },
+}) => {
+  const router = useRouter();
+
+  const handleOK = () => {
+    const idCookie =
+      document.cookie &&
+      document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("id"))
+        .split("=")[1];
+
+    if (idCookie === id) {
+      document.cookie = "id=;max-age=0";
+    }
+    router.push("/");
+  };
+
   return (
     <section className="scheduler">
       <div className="options-container">
         <div className="summary-container">
-          <h2>Spotkanie zostało zarezerwowane</h2>
+          <h2>
+            Spotkanie zostało zarezerwowane{status === "paid" && " i opłacone"}
+          </h2>
           <p>
-            Na podany adres email zostało wysłane potwierdzenie rezerwacji.
-            Powinno dojść w przeciągu 5 minut, jeśli go nie widzisz, sprawdź
-            folder Spam.
+            Na podany adres email ({emailContact}) zostało wysłane potwierdzenie
+            rezerwacji. Powinno dojść w przeciągu 5 minut, jeśli go nie widzisz,
+            sprawdź folder Spam.
           </p>
           <p>
             W przypadku nieotrzymania potwierdzenia po upływie 10 minut proszę o
@@ -24,6 +55,11 @@ const SchedulerStep4 = () => {
             </a>
           </p>
         </div>
+      </div>
+      <div className="button-container">
+        <button type="button" className="ok" onClick={handleOK}>
+          OK
+        </button>
       </div>
     </section>
   );

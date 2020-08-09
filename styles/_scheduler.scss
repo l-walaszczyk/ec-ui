@@ -99,6 +99,26 @@ section.scheduler {
    }
   }
 
+  div.number-of-people-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+
+   button {
+    font-size: 3rem;
+    width: 3rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: none;
+   }
+
+   p {
+    width: 3rem;
+    text-align: center;
+   }
+  }
+
   div.summary-container {
    text-align: center;
 
@@ -347,18 +367,25 @@ section.scheduler {
    display: block;
   }
 
-  button.nav {
+  button {
    display: block;
    width: 8rem;
    font-size: 1.4rem;
    padding: 1rem;
 
-   &:first-child {
-    float: left;
+   &.ok {
+    margin-left: auto;
+    margin-right: auto;
    }
 
-   &:last-child {
-    float: right;
+   &.nav {
+    &:first-of-type {
+     float: left;
+    }
+
+    &:last-of-type {
+     float: right;
+    }
    }
 
    &:hover {

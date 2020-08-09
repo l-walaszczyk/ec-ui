@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import texts from "../public/content/texts";
 
 const SchedulerStep0 = ({
@@ -6,10 +6,15 @@ const SchedulerStep0 = ({
   setStep,
   selected,
   // setSelected,
-  selectedField,
-  setSelectedField,
-  setSelectedMeetingType,
+  selectedFieldIndex,
+  setSelectedFieldIndex,
+  setNumberOfPeople,
+  setSelectedMeetingIndex,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const fields = [
     texts.services.titles.one,
     texts.services.titles.two,
@@ -20,11 +25,12 @@ const SchedulerStep0 = ({
     <li key={index}>
       <button
         type="button"
-        className={`option${selectedField === index ? " selected" : ""}`}
+        className={`option${selectedFieldIndex === index ? " selected" : ""}`}
         onClick={() => {
-          setSelectedField(index);
+          setSelectedFieldIndex(index);
           // setSelected(1);
-          setSelectedMeetingType(null);
+          setSelectedMeetingIndex(null);
+          setNumberOfPeople(1);
         }}
       >
         {item}
@@ -38,15 +44,17 @@ const SchedulerStep0 = ({
         <h2>
           Wybierz obszar, którego będzie dotyczyć spotkanie i naciśnij "dalej"
           <br />
-          Możliwa także rejestracja pod nr tel.:
-          <br />
-          <a
-            className="row"
-            rel="noopener noreferrer"
-            href={`tel:${texts.home.contact.phone}`}
-          >
-            {texts.home.contact.phone}
-          </a>
+          <span>
+            Możliwa także rejestracja pod nr tel.:
+            <br />
+            <a
+              className="row"
+              rel="noopener noreferrer"
+              href={`tel:${texts.home.contact.phone}`}
+            >
+              {texts.home.contact.phone}
+            </a>
+          </span>
         </h2>
         <ul>{options}</ul>
       </div>

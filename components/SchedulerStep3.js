@@ -1,53 +1,56 @@
-import React from "react";
-import moment from "moment-timezone";
-import "moment/locale/pl";
+import React, { useEffect } from "react";
 import SummaryForm from "./SummaryForm";
+import Summary from "./Summary";
 
 const SchedulerStep3 = ({
   step,
   setStep,
-  selected,
-  meetingType,
-  savedMeeting,
+  // selected,
+  selectedFieldIndex,
+  setSelectedFieldIndex,
+  // meetingName,
+  // meetingPrice,
+  // meetingDuration,
+  savedMeeting: {
+    _id: id,
+    meetingDate,
+    meetingName,
+    meetingPrice,
+    meetingDuration,
+    numberOfPeople,
+  },
+  setSavedMeeting,
 }) => {
-  const meetingDateLocal = moment
-    .utc(savedMeeting.meetingDate)
-    .tz("Europe/Warsaw");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="scheduler">
       <div className="options-container">
         <div className="summary-container">
           <h2>Podsumowanie, dodatkowe informacje i wybór płatności</h2>
-          <div className="summary">
-            <p>
-              Rodzaj spotkania: <span>{meetingType.name}</span>
-            </p>
-            <p>
-              Data: <span>{meetingDateLocal.format("dddd, D MMMM YYYY")}</span>
-            </p>
-            <p>
-              Godzina: <span>{meetingDateLocal.format("HH:mm")}</span>
-            </p>
-            <p>
-              Czas trwania: <span>Do {meetingType.minutes} minut</span>
-            </p>
-            <p>
-              Koszt: <span>{meetingType.price} zł</span>
-            </p>
-            <p>
-              W trosce o anonimowość klientów, uprzejmie proszę o przybycie nie
-              wcześniej niż o ustalonej godzinie.
-            </p>
-          </div>
+          <Summary
+            selectedFieldIndex={selectedFieldIndex}
+            numberOfPeople={numberOfPeople}
+            meetingName={meetingName}
+            meetingPrice={meetingPrice}
+            meetingDuration={meetingDuration}
+            meetingDate={meetingDate}
+          />
         </div>
         <div className="form-container">
           <SummaryForm
             step={step}
             setStep={setStep}
-            selected={selected}
-            meetingType={meetingType}
-            savedMeeting={savedMeeting}
+            selectedFieldIndex={selectedFieldIndex}
+            setSelectedFieldIndex={setSelectedFieldIndex}
+            id={id}
+            meetingName={meetingName}
+            meetingPrice={meetingPrice}
+            meetingDuration={meetingDuration}
+            numberOfPeople={numberOfPeople}
+            setSavedMeeting={setSavedMeeting}
           />
         </div>
       </div>

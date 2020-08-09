@@ -279,17 +279,22 @@ const texts = {
         {
           name: "Konsultacja psychologiczna pary",
           price: 170,
-          minutes: 50,
+          minutes: 80,
         },
         {
           name: "Sesja terapii par",
           price: 170,
-          minutes: 50,
+          minutes: 80,
         },
         {
           name: "Wizyta przez Skype",
           price: 150,
           minutes: 50,
+        },
+        {
+          name: "Wizyta dla par przez Skype",
+          price: 170,
+          minutes: 80,
         },
       ],
       two: [
@@ -319,23 +324,23 @@ const texts = {
         {
           name: "Badanie psychologiczne kierowcy pojazdów służbowych kat. B",
           price: 100,
-          minutes: 20,
+          minutes: 110,
         },
         {
           name: "Badanie psychologiczne operatorów wózków widłowych",
           price: 100,
-          minutes: 50,
+          minutes: 110,
         },
         {
           name: "Badanie psychologiczne osób pracujących na wysokościach",
           price: 80,
-          minutes: 50,
+          minutes: 110,
         },
         {
           name:
             "Badanie psychologiczne w zakresie medycyny pracy na inne stanowiska pracy na podstawie skierowania od lekarza lub pracodawcy",
           price: 100,
-          minutes: 50,
+          minutes: 110,
         },
       ],
     },

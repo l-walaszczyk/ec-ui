@@ -16,34 +16,96 @@ if (!Math.trunc) {
 }
 
 const Scheduler = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const types = [
-    texts.services.types.one,
-    texts.services.types.two,
-    texts.services.types.three,
-  ];
-
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState(0);
-  const [selectedField, setSelectedField] = useState(null);
-  const [selectedMeetingType, setSelectedMeetingType] = useState(null);
+  const [selectedFieldIndex, setSelectedFieldIndex] = useState(null);
+  const [selectedMeetingIndex, setSelectedMeetingIndex] = useState(null);
+  const [meetingName, setMeetingName] = useState(null);
+  const [meetingDuration, setMeetingDuration] = useState(50);
+  const [meetingPrice, setMeetingPrice] = useState(null);
+  const [numberOfPeople, setNumberOfPeople] = useState(1);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
-  const meetingTypes = types[selectedField] || [];
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
 
-  const meetingDuration =
-    (meetingTypes[selectedMeetingType] || []).minutes || 50;
+    const idURL = searchParams.get("id");
 
-  const meetingType = meetingTypes[selectedMeetingType] || {};
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      mode: "cors", // no-cors, *cors, same-origin
+      credentials: "include", // include, *same-origin, omit
+    };
+
+    if (idURL) {
+      const url = process.env.API_URL + "meetings/" + idURL;
+
+      fetch(url, requestOptions)
+        .then((res) => res.json())
+        .then(
+          ({ success, savedMeeting }) => {
+            if (success && savedMeeting.status !== "temp") {
+              setSavedMeeting(savedMeeting);
+              console.log(savedMeeting);
+              setStep(4);
+            } else {
+              console.log("Could not find a non-temp meeting of id", idURL);
+            }
+          },
+          (error) => {
+            console.log("Error:", error);
+          }
+        );
+    } else {
+      const idCookie =
+        document.cookie &&
+        document.cookie
+          .split("; ")
+          .find((row) => row.startsWith("id"))
+          .split("=")[1];
+
+      if (idCookie) {
+        const url = process.env.API_URL + "meetings/" + idCookie;
+
+        fetch(url, requestOptions)
+          .then((res) => res.json())
+          .then(
+            ({ success, savedMeeting }) => {
+              if (success) {
+                setSavedMeeting(savedMeeting);
+                console.log(savedMeeting);
+                if (savedMeeting.status === "temp") {
+                  setStep(3);
+                } else {
+                  setStep(4);
+                }
+              } else {
+                console.log("Could not find a meeting of id", idCookie);
+              }
+            },
+            (error) => {
+              console.log("Error:", error);
+            }
+          );
+      }
+    }
+  }, []);
+
+  // const meetingTypes = types[selectedFieldIndex] || [];
+
+  // const meetingDuration =
+  //   (meetingTypes[selectedMeetingIndex] || []).minutes || 50;
+
+  // const meetingType = meetingTypes[selectedMeetingIndex] || {};
 
   const [url, setUrl] = useState(
-    process.env.API_URL +
-      "week/asap?" +
-      new URLSearchParams({ meetingDuration })
+    process.env.API_URL + "hours?" + new URLSearchParams({ meetingDuration }),
+    [meetingDuration]
   );
   const [weekArray, setWeekArray] = useState([]);
   const [weekSuccess, setWeekSuccess] = useState(null);
@@ -97,19 +159,19 @@ const Scheduler = () => {
     // if (savedMeeting) {
     //   params.id = savedMeeting._id;
     // }
-    setUrl(process.env.API_URL + "week/asap?" + new URLSearchParams(params));
+    setUrl(process.env.API_URL + "hours?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
   useEffect(() => {
     const sumSelected = () => {
       if (selectedTime !== null) return 3;
       if (selectedDay !== null) return 2.5;
-      if (selectedMeetingType !== null) return 2;
-      if (selectedField !== null) return 1;
+      if (selectedMeetingIndex !== null) return 2;
+      if (selectedFieldIndex !== null) return 1;
       return 0;
     };
     setSelected(sumSelected());
-  }, [selectedField, selectedMeetingType, selectedDay, selectedTime]);
+  }, [selectedFieldIndex, selectedMeetingIndex, selectedDay, selectedTime]);
 
   const SchedulerSteps = [
     <SchedulerStep0
@@ -117,18 +179,24 @@ const Scheduler = () => {
       setStep={setStep}
       selected={selected}
       // setSelected={setSelected}
-      selectedField={selectedField}
-      setSelectedField={setSelectedField}
-      setSelectedMeetingType={setSelectedMeetingType}
+      selectedFieldIndex={selectedFieldIndex}
+      setSelectedFieldIndex={setSelectedFieldIndex}
+      setNumberOfPeople={setNumberOfPeople}
+      setSelectedMeetingIndex={setSelectedMeetingIndex}
     />,
     <SchedulerStep1
       step={step}
       setStep={setStep}
       selected={selected}
-      setSelected={setSelected}
-      meetingTypes={meetingTypes}
-      selectedMeetingType={selectedMeetingType}
-      setSelectedMeetingType={setSelectedMeetingType}
+      // setSelected={setSelected}
+      selectedFieldIndex={selectedFieldIndex}
+      numberOfPeople={numberOfPeople}
+      setNumberOfPeople={setNumberOfPeople}
+      selectedMeetingIndex={selectedMeetingIndex}
+      setSelectedMeetingIndex={setSelectedMeetingIndex}
+      setMeetingName={setMeetingName}
+      setMeetingDuration={setMeetingDuration}
+      setMeetingPrice={setMeetingPrice}
       setSelectedDay={setSelectedDay}
       setSelectedTime={setSelectedTime}
     />,
@@ -136,9 +204,12 @@ const Scheduler = () => {
       step={step}
       setStep={setStep}
       selected={selected}
-      setSelected={setSelected}
+      // setSelected={setSelected}
+      selectedFieldIndex={selectedFieldIndex}
+      numberOfPeople={numberOfPeople}
+      meetingName={meetingName}
+      meetingPrice={meetingPrice}
       meetingDuration={meetingDuration}
-      meetingType={meetingType}
       selectedDay={selectedDay}
       setSelectedDay={setSelectedDay}
       selectedTime={selectedTime}
@@ -156,11 +227,20 @@ const Scheduler = () => {
     <SchedulerStep3
       step={step}
       setStep={setStep}
-      selected={selected}
-      meetingType={meetingType}
+      // selected={selected}
+      selectedFieldIndex={selectedFieldIndex}
+      setSelectedFieldIndex={setSelectedFieldIndex}
+      // meetingName={meetingName}
+      // meetingPrice={meetingPrice}
+      // meetingDuration={meetingDuration}
+      // numberOfPeople={numberOfPeople}
+      savedMeeting={savedMeeting}
+      setSavedMeeting={setSavedMeeting}
+    />,
+    <SchedulerStep4
+      setSelectedFieldIndex={setSelectedFieldIndex}
       savedMeeting={savedMeeting}
     />,
-    <SchedulerStep4 />,
   ];
 
   return (

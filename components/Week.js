@@ -91,6 +91,7 @@ const Week = ({
     };
 
     const params = {
+      direction,
       meetingDuration,
       date: getRandomDayFromWeek(),
     };
@@ -99,13 +100,7 @@ const Week = ({
     //   params.id = savedMeeting._id;
     // }
 
-    setUrl(
-      process.env.API_URL +
-        "week/" +
-        direction +
-        "?" +
-        new URLSearchParams(params)
-    );
+    setUrl(process.env.API_URL + "hours?" + new URLSearchParams(params));
   };
 
   useEffect(() => {
