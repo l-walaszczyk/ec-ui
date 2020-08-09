@@ -48,7 +48,6 @@ const SummaryForm = ({
         .then(
           (result) => {
             if (result.success) {
-              // setSavedMeeting(null);
               document.cookie = "id=;max-age=0";
               setSelectedFieldIndex(null);
               setStep(0);

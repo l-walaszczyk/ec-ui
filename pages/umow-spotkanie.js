@@ -96,13 +96,6 @@ const Scheduler = () => {
     }
   }, []);
 
-  // const meetingTypes = types[selectedFieldIndex] || [];
-
-  // const meetingDuration =
-  //   (meetingTypes[selectedMeetingIndex] || []).minutes || 50;
-
-  // const meetingType = meetingTypes[selectedMeetingIndex] || {};
-
   const [url, setUrl] = useState(
     process.env.API_URL + "hours?" + new URLSearchParams({ meetingDuration }),
     [meetingDuration]
@@ -111,10 +104,6 @@ const Scheduler = () => {
   const [weekSuccess, setWeekSuccess] = useState(null);
   const [hintsCheck, setHintsCheck] = useState(false);
   const [savedMeeting, setSavedMeeting] = useState(null);
-
-  // const checkCookie = () => {
-
-  // }
 
   const fetchWeek = (url) => {
     const requestOptions = {
@@ -130,7 +119,6 @@ const Scheduler = () => {
           setWeekArray(result.array || []);
           setWeekSuccess(result.success);
           setHintsCheck(true);
-          // console.log(result.array);
         },
         (error) => {
           console.log("Error while fetching week array:", error);
@@ -156,9 +144,7 @@ const Scheduler = () => {
           .format();
       }
     }
-    // if (savedMeeting) {
-    //   params.id = savedMeeting._id;
-    // }
+
     setUrl(process.env.API_URL + "hours?" + new URLSearchParams(params));
   }, [meetingDuration, selectedDay, selectedTime, savedMeeting]);
 
@@ -275,21 +261,7 @@ const Scheduler = () => {
             {texts.home.contact.phone}
           </a>
         </div>
-        {/* <section className="scheduler"> */}
         {SchedulerSteps[step]}
-        {/* <SchedulerNavButtons
-            step={step}
-            setStep={setStep}
-            selected={selected}
-            setSelected={setSelected}
-            meetingDuration={meetingDuration}
-            selectedDay={selectedDay}
-            selectedTime={selectedTime}
-            setSelectedTime={setSelectedTime}
-            // savedMeeting={savedMeeting}
-            setSavedMeeting={setSavedMeeting}
-          /> */}
-        {/* </section> */}
       </main>
     </Layout>
   );
