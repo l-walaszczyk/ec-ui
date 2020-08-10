@@ -5,7 +5,6 @@ div.test {
  top: 50%;
  left: 50%;
  transform: translate(-50%, -50%) rotate(-5deg);
- // transform: rotate(10deg);
  text-align: center;
  background-color: rgba(255, 255, 255, 0.6);
 }
@@ -13,7 +12,7 @@ div.test {
 section.scheduler {
  box-sizing: border-box;
  min-height: calc(100vh - #{$header-height-small});
- width: 90vw;
+ width: 95vw;
  margin: 0 auto;
  display: flex;
  flex-direction: column;
@@ -77,9 +76,15 @@ section.scheduler {
      width: 100%;
      transform: translate(-50%, -50%);
      border-color: transparent;
-     font-size: 1.25rem;
+     // font-size: 1.25rem;
      padding: 0.5rem;
      margin: auto;
+
+     span {
+      padding-top: 0.5rem;
+      font-size: 1.3rem;
+      font-style: italic;
+     }
 
      &:hover,
      &.selected {
