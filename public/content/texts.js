@@ -341,42 +341,50 @@ const texts = {
         placeholder: [
           "Twoje imię",
           "Imię rodzica/opiekuna prawnego",
-          "Imię pierwszej osoby",
+          "Twoje imię",
         ],
       },
       lastNameContact: {
         placeholder: [
           "Twoje nazwisko",
           "Nazwisko rodzica/opiekuna prawnego",
-          "Nazwisko pierwszej osoby",
+          "Twoje nazwisko",
         ],
       },
       emailContact: {
         placeholder: [
           "Twój adres e-mail",
           "Adres e-mail rodzica/opiekuna prawnego",
-          "Adres e-mail pierwszej osoby",
+          "Twój adres e-mail",
         ],
+        error: "Adres e-mail niepoprawny",
       },
       phoneContact: {
         placeholder: [
           "Twój numer telefonu",
           "Numer telefonu rodzica/opiekuna prawnego",
-          "Numer telefonu pierwszej osoby",
+          "Twój numer telefonu",
         ],
       },
       firstName2: {
         placeholder: [
-          "Imię partnera",
+          "Imię partnera/partnerki",
           "Imię dziecka/nastolatka",
           "Imię drugiej osoby",
         ],
       },
       lastName2: {
         placeholder: [
-          "Nazwisko partnera",
+          "Nazwisko partnera/partnerki",
           "Nazwisko dziecka/nastolatka",
           "Nazwisko drugiej osoby",
+        ],
+      },
+      yearOfBirth2: {
+        placeholder: [
+          "Rok urodzenia partnera/partnerki",
+          "Rok urodzenia dziecka/nastolatka",
+          "Rok urodzenia drugiej osoby",
         ],
       },
       firstName3: {

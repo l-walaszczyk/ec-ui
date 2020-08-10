@@ -49,16 +49,16 @@ const SchedulerStep1 = ({
         >
           <p>{name}</p>
           <div className="details">
-            <p>
+            <span>
               {`${
                 numberOfPeople > 1 ? "Łączny czas:" : "Czas trwania:"
               } do ${minutesMod} minut`}
-            </p>
-            <p>
+            </span>
+            <span>
               {`${
                 numberOfPeople > 1 ? "Łączny koszt" : "Koszt"
               }: ${priceMod} zł`}
-            </p>
+            </span>
           </div>
         </button>
       </li>
@@ -73,6 +73,8 @@ const SchedulerStep1 = ({
             numberOfPeople={numberOfPeople}
             setNumberOfPeople={setNumberOfPeople}
             setSelectedMeetingIndex={setSelectedMeetingIndex}
+            setSelectedDay={setSelectedDay}
+            setSelectedTime={setSelectedTime}
           />
         )}
         <h2>Wybierz rodzaj wizyty</h2>

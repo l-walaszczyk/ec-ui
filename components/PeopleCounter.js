@@ -4,6 +4,8 @@ const PeopleCounter = ({
   numberOfPeople,
   setNumberOfPeople,
   setSelectedMeetingIndex,
+  setSelectedDay,
+  setSelectedTime,
 }) => {
   const handleButtonClick = (e) => {
     const newNumber =
@@ -11,6 +13,8 @@ const PeopleCounter = ({
     if (0 < newNumber && newNumber < 4) {
       setNumberOfPeople(newNumber);
       setSelectedMeetingIndex(null);
+      setSelectedDay(null);
+      setSelectedTime(null);
     }
   };
 

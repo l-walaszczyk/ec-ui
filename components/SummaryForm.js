@@ -3,6 +3,9 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ErrorHint from "./ErrorHint";
 import SelectField from "./SelectField";
+import texts from "../public/content/texts";
+import moment from "moment-timezone";
+import "moment/locale/pl";
 
 const SummaryForm = ({
   step,
@@ -62,63 +65,127 @@ const SummaryForm = ({
     }
   };
 
+  let subHeader1 = null;
+  let header2 = null;
+
   const initialValues = {
     firstNameContact: "",
     lastNameContact: "",
     emailContact: "",
+    repeat: "",
     phoneContact: "",
-    paymentMethod: "",
     agreement1: false,
     agreement2: false,
   };
 
-  const validationSchema = Yup.object({
-    firstNameContact: Yup.string().required("Wpisz imię osoby kontaktowej"),
-    lastNameContact: Yup.string().required("Wpisz nazwisko osoby kontaktowej"),
-    // firstName2: Yup.string(),
-    // lastName2: Yup.string(),
-    // yearOfBirth2: Yup.number().typeError("Rok musi być liczbą"),
-    // .test(
-    //   "len",
-    //   "Rok urodzenia powinien być 4-cyfrowy",
-    //   (val) => val.toString().length === 4
-    // )
-    // .required("Wpisz rok urodzenia pacjenta")
+  const validationSchema = {
+    firstNameContact: Yup.string().required("Pole wymagane"),
+    lastNameContact: Yup.string().required("Pole wymagane"),
+
     emailContact: Yup.string()
       .email("Adres email niepoprawny")
-      .required("Wpisz adres email"),
+      .required("Pole wymagane"),
+    repeat: Yup.string()
+      .required("Pole wymagane")
+      .oneOf(
+        [Yup.ref("emailContact")],
+        "Adres e-mail się nie zgadza. Sprawdź poprawność."
+      ),
     phoneContact: Yup.string()
       .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
-      .required("Wpisz numer telefonu"),
-    paymentMethod: Yup.string().required("Wybierz metodę płatności"),
+      .required("Pole wymagane"),
     agreement1: Yup.boolean().oneOf([true], "Potwierdź akceptację regulaminu"),
     agreement2: Yup.boolean().oneOf(
       [true],
       "Potwierdź akceptację informacji o danych osobowych"
     ),
-  });
+  };
+
+  if (numberOfPeople >= 2) {
+    initialValues.paymentMethod = "in-person";
+  } else if (meetingName.includes(" Skype")) {
+    initialValues.paymentMethod = "p24";
+  } else {
+    initialValues.paymentMethod = "";
+    validationSchema.paymentMethod = Yup.string().required(
+      "Wybierz metodę płatności"
+    );
+  }
 
   switch (selectedFieldIndex) {
     case 0:
       if (meetingName.includes(" par")) {
+        header2 = (
+          <h2>
+            Proszę podaj następujące informacje
+            <br />o partnerze/partnerce
+          </h2>
+        );
         initialValues.firstName2 = "";
         initialValues.lastName2 = "";
+        validationSchema.firstName2 = Yup.string().required("Pole wymagane");
+        validationSchema.lastName2 = Yup.string().required("Pole wymagane");
       }
       break;
 
     case 1:
+      subHeader1 = (
+        <span>
+          <br />
+          (wypełnia rodzic/opiekun prawny)
+        </span>
+      );
+      header2 = (
+        <h2>
+          Proszę podaj następujące informacje
+          <br />o dziecku/nastolatku
+        </h2>
+      );
       initialValues.firstName2 = "";
       initialValues.lastName2 = "";
       initialValues.yearOfBirth2 = "";
+      validationSchema.firstName2 = Yup.string().required("Pole wymagane");
+      validationSchema.lastName2 = Yup.string().required("Pole wymagane");
+      console.log(
+        moment.utc().tz("Europe/Warsaw").subtract(18, "years").get("year")
+      );
+      validationSchema.yearOfBirth2 = Yup.number()
+        .min(
+          moment.utc().tz("Europe/Warsaw").subtract(18, "years").get("year"),
+          "To spotkanie jest przeznaczone dla osób niepełnoletnich"
+        )
+        .max(
+          moment.utc().tz("Europe/Warsaw").subtract(2, "years").get("year"),
+          "To spotkanie jest przeznaczone dla starszych dzieci"
+        )
+        .typeError("Rok musi być liczbą")
+        .required("Pole wymagane");
       break;
 
     case 2:
-      if (numberOfPeople === 2) {
+      if (numberOfPeople >= 2) {
+        subHeader1 = (
+          <span>
+            <br />
+            (wypełnia jedna z osób do badania, osoba kontakowa)
+          </span>
+        );
+        header2 = (
+          <h2>
+            Proszę podaj następujące informacje
+            <br />o pozostałych klientach
+          </h2>
+        );
         initialValues.firstName2 = "";
         initialValues.lastName2 = "";
-      } else if (numberOfPeople === 3) {
+        validationSchema.firstName2 = Yup.string().required("Pole wymagane");
+        validationSchema.lastName2 = Yup.string().required("Pole wymagane");
+      }
+      if (numberOfPeople === 3) {
         initialValues.firstName3 = "";
         initialValues.lastName3 = "";
+        validationSchema.firstName3 = Yup.string().required("Pole wymagane");
+        validationSchema.lastName3 = Yup.string().required("Pole wymagane");
       }
       break;
 
@@ -129,9 +196,16 @@ const SummaryForm = ({
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={Yup.object(validationSchema)}
       onSubmit={(values, { setSubmitting }) => {
-        const finalValues = Object.assign(values);
+        const finalValues = {};
+        for (const property in values) {
+          const value = values[property];
+          if (typeof value === "string") {
+            finalValues[property] = value.trim();
+          } else finalValues[property] = value;
+        }
+        console.log(finalValues);
 
         const requestOptions = {
           method: "PATCH",
@@ -167,23 +241,22 @@ const SummaryForm = ({
               alert(
                 "Błąd podczas zapisywania spotkania. Odśwież stronę i spróbuj zarezerwować spotkanie ponownie."
               );
-              console.log("PATCHing failed");
             }
           });
       }}
     >
       {({ values, isSubmitting, isValid, dirty }) => (
         <Form>
-          <h2>
-            Proszę podaj jeszcze kilka informacji
-            <br />
-            {/* (wymagane oznaczono *) */}
-          </h2>
+          <h2>Proszę podaj kilka informacji o sobie{subHeader1}</h2>
           <div className="form-field">
             <Field
               type="text"
               name="firstNameContact"
-              placeholder="Imię osoby kontaktowej"
+              placeholder={
+                texts.services.formFields.firstNameContact.placeholder[
+                  selectedFieldIndex
+                ]
+              }
             />
             <ErrorMessage name="firstNameContact" component={ErrorHint} />
           </div>
@@ -191,85 +264,182 @@ const SummaryForm = ({
             <Field
               type="text"
               name="lastNameContact"
-              placeholder="Nazwisko osoby kontaktowej"
+              placeholder={
+                texts.services.formFields.lastNameContact.placeholder[
+                  selectedFieldIndex
+                ]
+              }
             />
             <ErrorMessage name="lastNameContact" component={ErrorHint} />
           </div>
-          {/* <div className="form-field">
-            <Field
-              type="text"
-              name="yearOfBirth2"
-              placeholder={
-                values.forSomeoneElse
-                  ? "Rok urodzenia pacjenta"
-                  : "Rok urodzenia"
-              }
-              autocomplete="off"
-            />
-            <ErrorMessage name="yearOfBirth2" component={ErrorHint} />
-          </div> */}
           <div className="form-field">
             <Field
               type="email"
               name="emailContact"
               placeholder={
-                values.forSomeoneElse
-                  ? "Adres e-mail os. kontaktowej"
-                  : "Adres e-mail"
+                texts.services.formFields.emailContact.placeholder[
+                  selectedFieldIndex
+                ]
               }
             />
             <ErrorMessage name="emailContact" component={ErrorHint} />
           </div>
           <div className="form-field">
             <Field
+              type="email"
+              name="repeat"
+              placeholder="Powtórz kontakt mailowy (dla sprawdzenia)"
+            />
+            <ErrorMessage name="repeat" component={ErrorHint} />
+          </div>
+          <div className="form-field">
+            <Field
               type="tel"
               name="phoneContact"
               placeholder={
-                values.forSomeoneElse
-                  ? "Numer telefonu os. kontaktowej"
-                  : "Numer telefonu"
+                texts.services.formFields.phoneContact.placeholder[
+                  selectedFieldIndex
+                ]
               }
             />
             <ErrorMessage name="phoneContact" component={ErrorHint} />{" "}
           </div>
-          <h2>Wybierz sposób płatności</h2>
-          <div className="form-field">
-            <Field
-              name={"paymentMethod"}
-              component={SelectField}
-              value={values.paymentMethod}
-              options={[
-                {
-                  value: "",
-                  label: <p>wybierz z listy...</p>,
-                  isDisabled: true,
-                },
-                {
-                  value: "p24",
-                  label: (
-                    <>
-                      <p>Płatność z góry</p>
+          {header2 && (
+            <>
+              {header2}
+              <div className="form-field">
+                <Field
+                  type="text"
+                  name="firstName2"
+                  placeholder={
+                    texts.services.formFields.firstName2.placeholder[
+                      selectedFieldIndex
+                    ]
+                  }
+                />
+                <ErrorMessage name="firstName2" component={ErrorHint} />
+              </div>
+              <div className="form-field">
+                <Field
+                  type="text"
+                  name="lastName2"
+                  placeholder={
+                    texts.services.formFields.lastName2.placeholder[
+                      selectedFieldIndex
+                    ]
+                  }
+                />
+                <ErrorMessage name="lastName2" component={ErrorHint} />
+              </div>
+              {selectedFieldIndex === 1 && (
+                <div className="form-field">
+                  <Field
+                    type="text"
+                    name="yearOfBirth2"
+                    placeholder={
+                      texts.services.formFields.yearOfBirth2.placeholder[
+                        selectedFieldIndex
+                      ]
+                    }
+                  />
+                  <ErrorMessage name="yearOfBirth2" component={ErrorHint} />
+                </div>
+              )}
+              {numberOfPeople === 3 && (
+                <>
+                  <div className="form-field">
+                    <Field
+                      type="text"
+                      name="firstName3"
+                      placeholder={
+                        texts.services.formFields.firstName3.placeholder[
+                          selectedFieldIndex
+                        ]
+                      }
+                    />
+                    <ErrorMessage name="firstName3" component={ErrorHint} />
+                  </div>
+                  <div className="form-field">
+                    <Field
+                      type="text"
+                      name="lastName3"
+                      placeholder={
+                        texts.services.formFields.lastName3.placeholder[
+                          selectedFieldIndex
+                        ]
+                      }
+                    />
+                    <ErrorMessage name="lastName3" component={ErrorHint} />
+                  </div>
+                </>
+              )}
+            </>
+          )}
+          {numberOfPeople >= 2 ? (
+            <>
+              <h2>Sposób płatności</h2>
+              <div className="payment-container">
+                <div className="text-container">
+                  <p>Płatność do uregulowania podczas wizyty</p>
+                </div>
+              </div>
+            </>
+          ) : meetingName.includes(" Skype") ? (
+            <>
+              <h2>Sposób płatności</h2>
+              <div className="payment-container">
+                <div className="text-container">
+                  <p>Płatność za pośrednictwem serwisu Przelewy24</p>
+                </div>
+                <div className="img-container">
+                  <img src="/images/przelewy24.png" />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2>Wybierz sposób płatności</h2>
+              <div className="form-field">
+                <Field
+                  name={"paymentMethod"}
+                  component={SelectField}
+                  value={values.paymentMethod}
+                  options={[
+                    {
+                      value: "",
+                      label: <p>wybierz z listy...</p>,
+                      isDisabled: true,
+                    },
+                    {
+                      value: "p24",
+                      label: (
+                        <>
+                          <p>Płatność z góry</p>
+                          <img src="/images/przelewy24.png" />
+                        </>
+                      ),
+                    },
+                    {
+                      value: "in-person",
+                      label: <p>Płatność podczas wizyty w gabinecie</p>,
+                    },
+                  ]}
+                />
+                <ErrorMessage name="paymentMethod" component={ErrorHint} />
+              </div>
+            </>
+          )}
 
-                      <img src="/images/przelewy24.png" />
-                    </>
-                  ),
-                },
-                {
-                  value: "in-person",
-                  label: <p>Płatność podczas wizyty w gabinecie</p>,
-                },
-              ]}
-            />
-            <ErrorMessage name="paymentMethod" component={ErrorHint} />
-          </div>
           <div className="form-field">
             <label>
               <Field type="checkbox" name="agreement1" />
               <span>
-                Akceptuję{" "}
-                <a href="/docs/Regulamin.pdf" target="_blank">
-                  regulamin serwisu emiliacwojdzinska.pl
-                </a>
+                <span>
+                  {"Akceptuję "}
+                  <a href="/docs/Regulamin.pdf" target="_blank">
+                    regulamin serwisu emiliacwojdzinska.pl
+                  </a>
+                </span>
               </span>
             </label>
             <ErrorMessage name="agreement1" component={ErrorHint} />
@@ -278,10 +448,12 @@ const SummaryForm = ({
             <label>
               <Field type="checkbox" name="agreement2" />
               <span>
-                Akceptuję{" "}
-                <a href="/docs/RODO.pdf" target="_blank">
-                  informację o danych osobowych
-                </a>
+                <span>
+                  {"Akceptuję "}
+                  <a href="/docs/RODO.pdf" target="_blank">
+                    informację o danych osobowych
+                  </a>
+                </span>
               </span>
             </label>
             <ErrorMessage name="agreement2" component={ErrorHint} />
@@ -296,7 +468,11 @@ const SummaryForm = ({
               className={`nav${dirty && isValid ? "" : " inactive"}`}
               disabled={isSubmitting}
             >
-              Dalej
+              {values.paymentMethod === "p24"
+                ? "Płacę"
+                : values.paymentMethod === "in-person"
+                ? "Rezerwuję"
+                : "Dalej"}
             </button>
           </div>
         </Form>

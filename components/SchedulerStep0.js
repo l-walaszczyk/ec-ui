@@ -33,7 +33,7 @@ const SchedulerStep0 = ({
           setNumberOfPeople(1);
         }}
       >
-        {item}
+        <p>{item}</p>
       </button>
     </li>
   ));

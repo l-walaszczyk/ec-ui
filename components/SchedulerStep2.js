@@ -79,7 +79,9 @@ const SchedulerStep2 = ({
           } else {
             setSavedMeeting(null);
             setSelectedTime(null);
-            console.log("Wybrany termin nie jest już dostępny");
+            alert(
+              "Wybrany termin nie jest już dostępny. Wybierz inną godzinę/dzień."
+            );
           }
         },
         (error) => {
