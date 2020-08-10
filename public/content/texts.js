@@ -344,6 +344,55 @@ const texts = {
           "Imię pierwszej osoby",
         ],
       },
+      lastNameContact: {
+        placeholder: [
+          "Twoje nazwisko",
+          "Nazwisko rodzica/opiekuna prawnego",
+          "Nazwisko pierwszej osoby",
+        ],
+      },
+      emailContact: {
+        placeholder: [
+          "Twój adres e-mail",
+          "Adres e-mail rodzica/opiekuna prawnego",
+          "Adres e-mail pierwszej osoby",
+        ],
+      },
+      phoneContact: {
+        placeholder: [
+          "Twój numer telefonu",
+          "Numer telefonu rodzica/opiekuna prawnego",
+          "Numer telefonu pierwszej osoby",
+        ],
+      },
+      firstName2: {
+        placeholder: [
+          "Imię partnera",
+          "Imię dziecka/nastolatka",
+          "Imię drugiej osoby",
+        ],
+      },
+      lastName2: {
+        placeholder: [
+          "Nazwisko partnera",
+          "Nazwisko dziecka/nastolatka",
+          "Nazwisko drugiej osoby",
+        ],
+      },
+      firstName3: {
+        placeholder: [
+          "Imię trzeciej osoby",
+          "Imię drugiego dziecka/nastolatka",
+          "Imię trzeciej osoby",
+        ],
+      },
+      lastName3: {
+        placeholder: [
+          "Nazwisko trzeciej osoby",
+          "Nazwisko drugiego dziecka/nastolatka",
+          "Nazwisko trzeciej osoby",
+        ],
+      },
     },
   },
 };

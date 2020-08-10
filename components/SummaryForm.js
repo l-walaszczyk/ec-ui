@@ -159,7 +159,7 @@ const SummaryForm = ({
               setSavedMeeting(savedMeeting);
               if (url) {
                 console.log("Redirecting to url:", url);
-                window.location = url;
+                window.location.assign(url);
               } else {
                 setStep(step + 1);
               }

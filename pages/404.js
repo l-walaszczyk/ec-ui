@@ -3,6 +3,10 @@ import Head from "next/head";
 import Layout from "../layouts/Layout";
 
 const Error404 = () => {
+  // const handleButtonClick = () => {
+  //   window.location.assign("https://www.onet.pl");
+  // };
+
   return (
     <Layout>
       <Head>
@@ -23,6 +27,7 @@ const Error404 = () => {
         >
           Strona o podanym adresie nie istnieje
         </h1>
+        {/* <button onClick={handleButtonClick}>PRZEKIERUJ</button> */}
       </main>
     </Layout>
   );
