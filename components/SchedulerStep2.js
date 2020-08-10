@@ -71,12 +71,10 @@ const SchedulerStep2 = ({
     fetch(url, requestOptions)
       .then((res) => res.json())
       .then(
-        (result) => {
-          if (result.success) {
-            setSavedMeeting(result.savedMeeting);
-            document.cookie = `id=${result.savedMeeting._id};max-age=${
-              40 * 60
-            }`;
+        ({ success, savedMeeting }) => {
+          if (success) {
+            setSavedMeeting(savedMeeting);
+            document.cookie = `id=${savedMeeting._id};max-age=${40 * 60}`;
             setStep(step + 1);
           } else {
             setSavedMeeting(null);

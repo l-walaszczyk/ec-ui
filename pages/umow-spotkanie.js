@@ -16,7 +16,7 @@ if (!Math.trunc) {
 }
 
 const Scheduler = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(undefined);
   const [selected, setSelected] = useState(0);
   const [selectedFieldIndex, setSelectedFieldIndex] = useState(null);
   const [selectedMeetingIndex, setSelectedMeetingIndex] = useState(null);
@@ -34,15 +34,10 @@ const Scheduler = () => {
 
     const requestOptions = {
       method: "GET",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      mode: "cors", // no-cors, *cors, same-origin
-      credentials: "include", // include, *same-origin, omit
     };
 
     if (idURL) {
+      console.log("idURL");
       const url = process.env.API_URL + "meetings/" + idURL;
 
       fetch(url, requestOptions)
@@ -55,10 +50,12 @@ const Scheduler = () => {
               setStep(4);
             } else {
               console.log("Could not find a non-temp meeting of id", idURL);
+              setStep(0);
             }
           },
           (error) => {
             console.log("Error:", error);
+            setStep(0);
           }
         );
     } else {
@@ -70,6 +67,7 @@ const Scheduler = () => {
           .split("=")[1];
 
       if (idCookie) {
+        console.log("idCookie");
         const url = process.env.API_URL + "meetings/" + idCookie;
 
         fetch(url, requestOptions)
@@ -86,12 +84,16 @@ const Scheduler = () => {
                 }
               } else {
                 console.log("Could not find a meeting of id", idCookie);
+                setStep(0);
               }
             },
             (error) => {
               console.log("Error:", error);
+              setStep(0);
             }
           );
+      } else {
+        setStep(0);
       }
     }
   }, []);
@@ -115,9 +117,9 @@ const Scheduler = () => {
     fetch(url, requestOptions)
       .then((res) => res.json())
       .then(
-        (result) => {
-          setWeekArray(result.array || []);
-          setWeekSuccess(result.success);
+        ({ success, array }) => {
+          setWeekArray(array || []);
+          setWeekSuccess(success);
           setHintsCheck(true);
         },
         (error) => {
