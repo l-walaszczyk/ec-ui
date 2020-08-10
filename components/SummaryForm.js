@@ -437,7 +437,7 @@ const SummaryForm = ({
                 <span>
                   {"Akceptuję "}
                   <a href="/docs/Regulamin.pdf" target="_blank">
-                    regulamin serwisu emiliacwojdzinska.pl
+                    Regulamin świadczenia usług
                   </a>
                 </span>
               </span>
@@ -451,7 +451,7 @@ const SummaryForm = ({
                 <span>
                   {"Akceptuję "}
                   <a href="/docs/RODO.pdf" target="_blank">
-                    informację o danych osobowych
+                    Informację o przetwarzaniu danych osobowych
                   </a>
                 </span>
               </span>

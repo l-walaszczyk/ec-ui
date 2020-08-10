@@ -1,7 +1,7 @@
 div.test {
  position: fixed;
  z-index: 20;
- font-size: 3rem;
+ font-size: 2.5rem;
  top: 50%;
  left: 50%;
  transform: translate(-50%, -50%) rotate(-5deg);
@@ -80,12 +80,6 @@ section.scheduler {
      padding: 0.5rem;
      margin: auto;
 
-     span {
-      padding-top: 0.5rem;
-      font-size: 1.3rem;
-      font-style: italic;
-     }
-
      &:hover,
      &.selected {
       border-color: $dark-color;
@@ -100,6 +94,12 @@ section.scheduler {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+      span {
+       padding-top: 0.5rem;
+       font-size: 1.3rem;
+       font-style: italic;
+      }
      }
     }
    }
