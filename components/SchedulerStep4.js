@@ -13,6 +13,7 @@ const SchedulerStep4 = ({
     meetingDuration,
     numberOfPeople,
     meetingDetails: { emailContact, paymentMethod },
+    emailDetails: { messageId },
   },
 }) => {
   const router = useRouter();
@@ -38,8 +39,10 @@ const SchedulerStep4 = ({
           <h2>
             Spotkanie zostało zarezerwowane{status === "paid" && " i opłacone"}
           </h2>
+          {status === "paid" && <p>Dziękuję za dokonanie płatności.</p>}
           <p>
-            Na podany adres email ({emailContact}) zostało wysłane potwierdzenie
+            Na podany adres email ({emailContact}){" "}
+            {messageId ? "zostało" : "zostanie"} wysłane potwierdzenie
             rezerwacji. Powinno dojść w przeciągu 5 minut, jeśli go nie widzisz,
             sprawdź folder Spam.
           </p>
