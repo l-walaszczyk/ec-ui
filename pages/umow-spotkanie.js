@@ -43,11 +43,12 @@ const Scheduler = () => {
       fetch(url, requestOptions)
         .then((res) => res.json())
         .then(
-          ({ success, savedMeeting }) => {
-            if (
-              success &&
-              savedMeeting.meetingDetails.paymentMethod === "p24"
-            ) {
+          ({
+            success,
+            savedMeeting,
+            savedMeeting: { meetingDetails: { paymentMethod } = {} } = {},
+          }) => {
+            if (success && paymentMethod === "p24") {
               setSavedMeeting(savedMeeting);
               setStep(4);
             } else {
@@ -78,14 +79,15 @@ const Scheduler = () => {
         fetch(url, requestOptions)
           .then((res) => res.json())
           .then(
-            ({ success, savedMeeting }) => {
+            ({
+              success,
+              savedMeeting,
+              savedMeeting: { meetingDetails: { paymentMethod } = {} } = {},
+            }) => {
               if (success) {
                 setSavedMeeting(savedMeeting);
 
-                if (
-                  savedMeeting.status === "temp" &&
-                  savedMeeting.meetingDetails.paymentMethod !== "p24"
-                ) {
+                if (savedMeeting.status === "temp" && paymentMethod !== "p24") {
                   setStep(3);
                 } else {
                   setStep(4);
