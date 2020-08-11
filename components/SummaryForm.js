@@ -94,11 +94,8 @@ const SummaryForm = ({
     phoneContact: Yup.string()
       .min(9, "Numer telefonu powinien mieć co najmniej 9 znaków")
       .required("Pole wymagane"),
-    agreement1: Yup.boolean().oneOf([true], "Potwierdź akceptację regulaminu"),
-    agreement2: Yup.boolean().oneOf(
-      [true],
-      "Potwierdź akceptację informacji o danych osobowych"
-    ),
+    agreement1: Yup.boolean().oneOf([true], "Akcaptacja wymagana"),
+    agreement2: Yup.boolean().oneOf([true], "Akcaptacja wymagana"),
   };
 
   if (numberOfPeople >= 2) {
@@ -152,11 +149,11 @@ const SummaryForm = ({
       validationSchema.yearOfBirth2 = Yup.number()
         .min(
           moment.utc().tz("Europe/Warsaw").subtract(18, "years").get("year"),
-          "To spotkanie jest przeznaczone dla osób niepełnoletnich"
+          "To spotkanie jest przenaczone dla dzieci/młodzieży"
         )
         .max(
-          moment.utc().tz("Europe/Warsaw").subtract(2, "years").get("year"),
-          "To spotkanie jest przeznaczone dla starszych dzieci"
+          moment.utc().tz("Europe/Warsaw").subtract(1, "year").get("year"),
+          "Rok urodzenia musi być wcześniejszy niż bieżący"
         )
         .typeError("Rok musi być liczbą")
         .required("Pole wymagane");
