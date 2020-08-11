@@ -44,12 +44,17 @@ const Scheduler = () => {
         .then((res) => res.json())
         .then(
           ({ success, savedMeeting }) => {
-            if (success && savedMeeting.status !== "temp") {
+            if (
+              success &&
+              savedMeeting.meetingDetails.paymentMethod === "p24"
+            ) {
               setSavedMeeting(savedMeeting);
-              console.log(savedMeeting);
               setStep(4);
             } else {
-              console.log("Could not find a non-temp meeting of id", idURL);
+              console.log(
+                "Could not find a meeting paid with p24 with id",
+                idURL
+              );
               setStep(0);
             }
           },
@@ -76,8 +81,11 @@ const Scheduler = () => {
             ({ success, savedMeeting }) => {
               if (success) {
                 setSavedMeeting(savedMeeting);
-                console.log(savedMeeting);
-                if (savedMeeting.status === "temp") {
+
+                if (
+                  savedMeeting.status === "temp" &&
+                  savedMeeting.meetingDetails.paymentMethod !== "p24"
+                ) {
                   setStep(3);
                 } else {
                   setStep(4);
