@@ -215,23 +215,21 @@ const SummaryForm = ({
           credentials: "include", // include, *same-origin, omit
         };
 
-        const url =
-          process.env.API_URL +
-          "meetings/" +
-          id +
-          "/" +
-          finalValues.paymentMethod;
+        const url = process.env.API_URL + "meetings/" + id;
+        // +
+        // "/" +
+        // finalValues.paymentMethod;
 
         fetch(url, requestOptions)
           .then((res) => res.json())
           .then(({ success, savedMeeting, url }) => {
             setSubmitting(false);
             if (success) {
-              setSavedMeeting(savedMeeting);
               if (url) {
                 console.log("Redirecting to url:", url);
                 window.location.assign(url);
               } else {
+                setSavedMeeting(savedMeeting);
                 setStep(step + 1);
               }
             } else {
