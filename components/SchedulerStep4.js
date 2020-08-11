@@ -43,11 +43,11 @@ const SchedulerStep4 = ({
               spotkanie nie zostało zarezerwowane
             </h2>
             <p>
-              Jeśli wpłaciliście Państwo pieniądze, proszę o przesłanie
-              wiadomości e-mail otrzymanej od seriwsu Przelewy24 i kontakt
-              telefoniczny. Na podstawie danych transakcji z serwisu Przelewy24
-              wpłata zostanie zidentyfikowana i zwrócona Państwu bądź zaliczona
-              na poczet przyszłego spotkania.
+              Jeśli wpłaciliście Państwo pieniądze, proszę o przesłanie do mnie
+              wiadomości e-mail otrzymanej od seriwsu Przelewy24. Na podstawie
+              danych transakcji z serwisu Przelewy24 wpłata zostanie
+              zidentyfikowana i zwrócona Państwu bądź zaliczona na poczet
+              przyszłego spotkania.
             </p>
           </div>
         ) : (
@@ -59,7 +59,7 @@ const SchedulerStep4 = ({
             {status === "paid" && <p>Dziękuję za dokonanie płatności.</p>}
             <p>
               Na podany adres email ({emailContact}){" "}
-              {messageId ? "zostało" : "zostanie"} wysłane potwierdzenie
+              {messageId ? "zostało" : "powinno zostać"} wysłane potwierdzenie
               rezerwacji. Powinno dojść w przeciągu 5 minut, jeśli go nie
               widzisz, sprawdź folder Spam.
             </p>
