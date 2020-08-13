@@ -93,20 +93,20 @@ const texts = {
   },
   services: {
     titles: [
-      <span>
+      <>
         Psychoterapia poznawczo - behawioralna
         <br />
         osób dorosłych
-      </span>,
-      <span>
+      </>,
+      <>
         Psychoterapia poznawczo - behawioralna
         <br />
         dzieci i młodzieży
-      </span>,
-      <span>
+      </>,
+      <>
         Psychologia transportu i medycyna pracy
         <br />- badania psychologiczne / psychotechniczne
-      </span>,
+      </>,
     ],
     descriptions: [
       {
@@ -333,6 +333,11 @@ const texts = {
             "Badanie psychologiczne w zakresie medycyny pracy na inne stanowiska pracy na podstawie skierowania od lekarza lub pracodawcy",
           price: 100,
           minutes: 110,
+        },
+        {
+          name: "Usługa testowa - stworzona do testowania systemu płatności",
+          price: 1,
+          minutes: 15,
         },
       ],
     ],
