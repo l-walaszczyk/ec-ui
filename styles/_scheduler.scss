@@ -31,7 +31,7 @@ section.scheduler {
   text-align: center;
   color: inherit;
   background-color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
+  // cursor: pointer;
  }
 
  div.options-container {
@@ -76,18 +76,19 @@ section.scheduler {
      display: block;
      width: 100%;
      transform: translate(-50%, -50%);
-     border-color: transparent;
+     // border-color: transparent;
      // font-size: 1.25rem;
      padding: 0.5rem;
      margin: auto;
 
-     &:hover,
-     &.selected {
-      border-color: $dark-color;
+     &:hover {
+      box-shadow: -2px 2px 3px $bg-color,
+       2px -2px 3px $bg-color;
       color: $dark-color;
      }
 
      &.selected {
+      background-color: $bg-color;
       cursor: default;
      }
 
@@ -430,7 +431,7 @@ section.scheduler {
     background-color: rgba(255, 255, 255, 0.75);
     box-shadow: -0.5px 0.5px 1.5px $bg-color,
      0.5px -0.5px 1.5px $bg-color;
-    cursor: pointer;
+    // cursor: pointer;
    }
 
    &.inactive {

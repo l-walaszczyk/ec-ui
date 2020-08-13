@@ -19,11 +19,14 @@ a.button-typ {
   text-shadow: 0 0 00px #000;
  }
 
- &:hover {
+ &:hover,
+ &:focus {
   // color: #000000;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: -1.5px 1.5px 2.5px $bg-color,
-   1.5px -1.5px 2.5px $bg-color;
+  box-shadow: -2px 2px 3px $bg-color,
+   2px -2px 3px $bg-color;
+  // box-shadow: -1.5px 1.5px 2.5px $bg-color,
+  //  1.5px -1.5px 2.5px $bg-color;
  }
 
  i {

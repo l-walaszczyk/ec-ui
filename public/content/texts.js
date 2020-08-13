@@ -40,8 +40,7 @@ const texts = {
       <p>2) Psychoterapia poznawczo - behawioralna dzieci i młodzieży</p>,
       <p>
         3) Psychologia transportu i medycyna pracy - badania psychologiczne /
-        psychotechniczne dla osób wykonujących zawód wymagający szczególnej
-        sprawności psychomotorycznej, np. kierowcy i operatorzy maszyn
+        psychotechniczne
       </p>,
     ],
     contact: {

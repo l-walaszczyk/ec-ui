@@ -36,7 +36,7 @@ const Services3 = () => {
       </Head>
       <main>
         <section className="services-full">
-          <h2>Psychologia transportu i medycyna pracy</h2>
+          <h2>{texts.services.titles[2]}</h2>
           <div className="button-container">
             <Button to="/psychologia-transportu-medycyna-pracy/#cennik">
               <span>Cennik</span>

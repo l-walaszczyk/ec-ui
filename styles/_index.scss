@@ -168,6 +168,12 @@ section.services {
    p {
     margin: 1.5rem 2rem;
     line-height: 2rem;
+
+    &:first-of-type {
+     margin-bottom: 2rem;
+     font-size: 1.5rem;
+     font-weight: 500;
+    }
    }
   }
  }
@@ -217,10 +223,21 @@ section.services {
     height: calc(2 * #{$base-size});
     overflow: hidden;
 
+    h4 {
+     margin-bottom: 2rem;
+     font-size: 1.5rem;
+    }
+
     p {
      width: auto;
      margin: 0;
      margin-bottom: 1rem;
+
+     // &:first-of-type {
+     //  margin-bottom: 2rem;
+     //  font-size: 1.5rem;
+     //  font-weight: 500;
+     // }
     }
 
     ul {

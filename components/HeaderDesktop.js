@@ -11,8 +11,8 @@ const HeaderDesktop = () => {
   let timeoutNum = 0;
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutNum);
-    toggleDrawer(true);
+    drawerOpen && clearTimeout(timeoutNum);
+    // toggleDrawer(true);
   };
 
   const handleMouseLeave = () => {

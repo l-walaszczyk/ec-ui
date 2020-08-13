@@ -117,6 +117,7 @@ body {
    outline: none;
    color: #000;
    text-shadow: 0 0 0.25px #000;
+   cursor: pointer;
 
    &.inactive {
     text-shadow: none;
