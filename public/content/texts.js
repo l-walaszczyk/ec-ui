@@ -334,11 +334,11 @@ const texts = {
           price: 100,
           minutes: 110,
         },
-        {
-          name: "Usługa testowa - stworzona do testowania systemu płatności",
-          price: 1,
-          minutes: 15,
-        },
+        // {
+        //   name: "Usługa testowa - stworzona do testowania systemu płatności",
+        //   price: 1,
+        //   minutes: 15,
+        // },
       ],
     ],
     formFields: {
