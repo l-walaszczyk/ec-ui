@@ -131,7 +131,15 @@ const SchedulerStep2 = ({
         )}
         <p>
           Jeśli nie możesz znaleźć odpowiadającego terminu proszę o kontakt pod
-          nr. tel.: {texts.home.contact.phone}
+          numerem tel.:
+          <br />
+          <a
+            className="row"
+            rel="noopener noreferrer"
+            href={`tel:${texts.home.contact.phone}`}
+          >
+            {texts.home.contact.phone}
+          </a>
         </p>
       </div>
       <div className="button-container">

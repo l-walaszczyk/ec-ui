@@ -49,7 +49,11 @@ const Time = ({
       </div>
     );
   } else {
-    return null;
+    return (
+      <div className="time-container">
+        <h2>Brak terminów w wybranym dniu</h2>
+      </div>
+    );
   }
 };
 export default Time;

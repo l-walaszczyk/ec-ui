@@ -9,8 +9,14 @@ div.week-container {
   tr {
    &:nth-child(3) {
     th {
-     padding: 0.5rem;
+     width: 3.5rem;
+     padding: 0.5rem 0;
      font-size: 1.3rem;
+
+     &:first-of-type,
+     &:last-of-type {
+      width: 3.5rem;
+     }
     }
    }
 
@@ -21,27 +27,44 @@ div.week-container {
    }
 
    td {
-    width: 4rem;
-    height: 3rem;
+    height: 3.5rem;
     font-size: 1.6rem;
 
     span {
      color: #bbb;
     }
 
-    button {
+    button.day {
      height: 100%;
      width: 100%;
-     border-color: transparent;
+     // border-color: transparent;
+     border-radius: 1rem;
 
-     &:hover,
-     &.selected {
-      border-color: $dark-color;
-      color: $dark-color;
+     &.inactive {
+      color: #ccc;
+     }
+
+     &:focus,
+     &:hover {
+      @include button-box-shadow();
      }
 
      &.selected {
+      background-color: $footer-color;
+      color: #ffffff;
       cursor: default;
+     }
+    }
+
+    button.calendar-arrow {
+     height: 3rem;
+     width: 3rem;
+     border-radius: 1rem 0;
+     font-size: 2.5rem;
+
+     &:focus,
+     &:hover {
+      @include button-box-shadow();
      }
     }
    }
@@ -50,7 +73,8 @@ div.week-container {
 
  div.hint {
   position: absolute;
-  bottom: -3rem;
+  bottom: -2.5rem;
+  line-height: 1.2rem;
   // width: 50%;
 
   &.before {
@@ -65,6 +89,7 @@ div.week-container {
 
   p {
    font-size: 1.25rem;
+   color: rgb(226, 0, 0);
    // font-weight: 100;
    // font-style: italic;
   }

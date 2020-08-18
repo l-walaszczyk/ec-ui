@@ -23,7 +23,7 @@ section.scheduler {
 
  button {
   border: 0.5px solid $dark-color;
-  border-radius: 1.1rem 0;
+  // border-radius: 1.1rem 0;
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
   font-size: inherit;
@@ -31,15 +31,11 @@ section.scheduler {
   text-align: center;
   color: inherit;
   background-color: rgba(255, 255, 255, 0.6);
-  // cursor: pointer;
  }
 
  div.options-container {
   width: 100%;
   height: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
 
   &> {
    div {
@@ -69,26 +65,24 @@ section.scheduler {
     width: 100%;
     min-height: 11rem;
 
-    button {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     display: block;
+    button.option {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
      width: 100%;
-     transform: translate(-50%, -50%);
-     // border-color: transparent;
-     // font-size: 1.25rem;
-     padding: 0.5rem;
+     padding: 0.75rem;
      margin: auto;
+     border-radius: 1rem;
+     height: 9rem;
 
      &:hover {
-      box-shadow: -2px 2px 3px $bg-color,
-       2px -2px 3px $bg-color;
+      @include button-box-shadow();
       color: $dark-color;
      }
 
      &.selected {
-      background-color: $bg-color;
+      background-color: $footer-color;
+      color: #ffffff;
       cursor: default;
      }
 
@@ -96,6 +90,8 @@ section.scheduler {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
 
       span {
        padding-top: 0.5rem;
@@ -114,15 +110,21 @@ section.scheduler {
    justify-content: center;
 
    button {
-    font-size: 3rem;
-    width: 3rem;
+    font-size: 2.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
     flex-grow: 0;
     flex-shrink: 0;
-    border: none;
+    border-radius: 1rem 0;
+
+    // border: none;
+    &:hover {
+     @include button-box-shadow();
+    }
    }
 
    p {
-    width: 3rem;
+    width: 5rem;
     text-align: center;
    }
   }
@@ -248,7 +250,7 @@ section.scheduler {
       &:focus,
       &:hover {
        outline: none;
-       box-shadow: 0 0 2.5px $bg-color;
+       @include button-box-shadow();
       }
      }
 
@@ -408,8 +410,9 @@ section.scheduler {
   button {
    display: block;
    width: 9rem;
-   font-size: 1.4rem;
-   padding: 0.75rem 0.5rem;
+   font-size: 1.45rem;
+   padding: 1rem 0.5rem;
+   border-radius: 1.1rem 0;
 
    &.ok {
     margin-left: auto;
@@ -429,9 +432,7 @@ section.scheduler {
    &:hover {
     color: #000000;
     background-color: rgba(255, 255, 255, 0.75);
-    box-shadow: -0.5px 0.5px 1.5px $bg-color,
-     0.5px -0.5px 1.5px $bg-color;
-    // cursor: pointer;
+    @include button-box-shadow();
    }
 
    &.inactive {
@@ -449,6 +450,7 @@ section.scheduler {
 
 @media (min-width: 360px) and (min-height: 360px) {
  section.scheduler {
+  width: 340px;
   min-height: calc(100vh - #{$header-height-big});
   padding-top: $header-height-big;
  }
@@ -457,12 +459,12 @@ section.scheduler {
 
 @media (min-width: 533px) {
  section.scheduler {
-  width: 60vw;
+  width: 400px;
  }
 }
 
-@media (min-width: 1024px) {
- section.scheduler {
-  width: 30vw;
- }
-}
+// @media (min-width: 1024px) {
+//  section.scheduler {
+//   width: 30vw;
+//  }
+// }

@@ -26,7 +26,17 @@ const Week = ({
     if (item.hours.length === 0) {
       return (
         <td key={index}>
-          <span>{moment.utc(item.day).date()}</span>
+          {/* <span>{moment.utc(item.day).date()}</span> */}
+          <button
+            type="button"
+            className="day inactive"
+            onClick={() => {
+              setSelectedDay(moment.utc(item.day));
+              setSelectedTime(null);
+            }}
+          >
+            {moment.utc(item.day).date()}
+          </button>
         </td>
       );
     } else {

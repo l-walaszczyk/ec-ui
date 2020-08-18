@@ -1,0 +1,4 @@
+@mixin button-box-shadow() {
+ box-shadow: -1.5px 1.5px 4px $bg-color,
+  1.5px -1.5px 4px $bg-color;
+}
