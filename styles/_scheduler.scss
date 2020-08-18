@@ -5,7 +5,7 @@ div.test {
  width: 80vw;
  top: 50%;
  left: 50%;
- transform: translate(-50%, -50%) rotate(-5deg);
+ transform: translate(-50%, 50%) rotate(-5deg);
  text-align: center;
  background-color: rgba(255, 255, 255, 0.6);
 }
@@ -69,6 +69,7 @@ section.scheduler {
      display: flex;
      flex-direction: column;
      justify-content: center;
+     // align-items: center;
      width: 100%;
      padding: 0.75rem;
      margin: auto;
@@ -86,12 +87,17 @@ section.scheduler {
       cursor: default;
      }
 
+     p {
+      width: 100%;
+     }
+
      div.details {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-end;
       height: 100%;
+      width: 100%;
 
       span {
        padding-top: 0.5rem;

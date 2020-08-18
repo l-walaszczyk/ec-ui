@@ -15,19 +15,21 @@ div.time-container {
     // width: 100%;
     flex-grow: 0;
     flex-shrink: 0;
-    // height: 3rem;
-    line-height: 3rem;
-    width: 5rem;
+    height: 3.5rem;
+    width: 4rem;
+    // line-height: 3rem;
     text-align: center;
-    border-color: transparent;
+    border-radius: 1rem;
+    margin: 0 0.25rem 0.5rem;
 
-    &:hover,
-    &.selected {
-     border-color: $dark-color;
-     color: $dark-color;
+    &:focus,
+    &:hover {
+     @include button-box-shadow();
     }
 
     &.selected {
+     background-color: $footer-color;
+     color: #ffffff;
      cursor: default;
     }
    }

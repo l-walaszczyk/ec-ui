@@ -37,11 +37,11 @@ div.week-container {
     button.day {
      height: 100%;
      width: 100%;
-     // border-color: transparent;
      border-radius: 1rem;
 
      &.inactive {
       color: #ccc;
+      border-color: #ccc;
      }
 
      &:focus,
