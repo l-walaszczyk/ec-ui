@@ -180,6 +180,7 @@ section.scheduler {
      label {
       width: 100%;
       cursor: pointer;
+      transition: 200ms;
 
       &>span {
        display: flex;
@@ -252,6 +253,7 @@ section.scheduler {
       font-family: "Montserrat", sans-serif;
       font-size: 1.4rem;
       color: $dark-color;
+      transition: 200ms;
 
       &:focus,
       &:hover {
