@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Week from "./Week";
 import Time from "./Time";
 import Summary from "./Summary";
@@ -40,12 +40,19 @@ const SchedulerStep2 = ({
     window.scrollTo(0, 0);
   }, []);
 
+  const [submitting, setSubmitting] = useState(false);
+
   const meetingDate = moment(selectedDay)
     .hour(Math.trunc(selectedTime))
     .minute((selectedTime % 1) * 60)
     .utc();
 
   const handleNextStep = () => {
+    if (submitting) {
+      return;
+    }
+    setSubmitting(true);
+
     const body = {
       date: meetingDate.format(),
       meetingName,
@@ -79,6 +86,7 @@ const SchedulerStep2 = ({
           } else {
             setSavedMeeting(null);
             setSelectedTime(null);
+            setSubmitting(false);
             alert(
               "Wybrany termin nie jest już dostępny. Wybierz inną godzinę/dzień."
             );
@@ -86,6 +94,7 @@ const SchedulerStep2 = ({
         },
         (error) => {
           console.log("Error:", error);
+          setSubmitting(false);
         }
       );
   };

@@ -87,6 +87,13 @@ div.week-container {
    text-align: right;
   }
 
+  &.day-unavailable {
+   left: 0;
+   right: 0;
+   bottom: -2rem;
+   text-align: center;
+  }
+
   p {
    font-size: 1.25rem;
    color: rgb(226, 0, 0);

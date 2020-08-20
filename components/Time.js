@@ -7,7 +7,7 @@ const Time = ({
   selectedDay,
   selectedTime,
   setSelectedTime,
-  setSelected,
+  // setSelected,
 }) => {
   const timeZone = moment.tz.zone("Europe/Warsaw");
   const timeOffset = timeZone.parse(selectedDay);
@@ -49,11 +49,10 @@ const Time = ({
       </div>
     );
   } else {
-    return (
-      <div className="time-container">
-        <h2>Brak terminów w wybranym dniu</h2>
-      </div>
-    );
+    return null;
+    // <div className="time-container">
+    //   <h2>Brak terminów w wybranym dniu</h2>
+    // </div>
   }
 };
 export default Time;

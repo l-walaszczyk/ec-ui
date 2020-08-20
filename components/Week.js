@@ -31,6 +31,7 @@ const Week = ({
             type="button"
             className="day inactive"
             onClick={() => {
+              setShowHintDayUnavailable(true);
               setSelectedDay(moment.utc(item.day));
               setSelectedTime(null);
             }}
@@ -48,6 +49,7 @@ const Week = ({
               moment.utc(item.day).isSame(selectedDay) ? " selected" : ""
             }`}
             onClick={() => {
+              setShowHintDayUnavailable(false);
               setSelectedDay(moment.utc(item.day));
               setSelectedTime(null);
             }}
@@ -82,6 +84,7 @@ const Week = ({
   const [direction, setDirection] = useState(null);
   const [directionClass, setDirectionClass] = useState(null);
   const [showHint, setShowHint] = useState(false);
+  const [showHintDayUnavailable, setShowHintDayUnavailable] = useState(false);
 
   const handleArrowClick = (e) => {
     if (!weekArray.length) {
@@ -91,6 +94,7 @@ const Week = ({
     setDirection(direction);
     setShowHint(false);
     setHintsCheck(false);
+    setShowHintDayUnavailable(false);
 
     const getRandomDayFromWeek = () => {
       let dayCandidate;
@@ -197,6 +201,20 @@ const Week = ({
               {(directionClass === "before" && "we wcześniejszych") ||
                 (directionClass === "after" && "w późniejszych")}{" "}
               tygodniach
+            </p>
+          </div>
+        </CSSTransition>
+        <CSSTransition
+          in={showHintDayUnavailable}
+          classNames="hint-transition"
+          timeout={250}
+          mountOnEnter
+          unmountOnExit
+        >
+          <div className="hint day-unavailable">
+            <p>
+              Brak terminów{" "}
+              {selectedDay ? selectedDay.format("D MMMM") : "w wybranym dniu"}
             </p>
           </div>
         </CSSTransition>
