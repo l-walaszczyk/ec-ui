@@ -257,86 +257,86 @@ const texts = {
     ],
     types: [
       [
-        // {
-        //   name: "Konsultacja psychologiczna",
-        //   price: 150,
-        //   minutes: 50,
-        // },
-        // {
-        //   name: "Sesja psychoterapii indywidualnej",
-        //   price: 150,
-        //   minutes: 50,
-        // },
-        // {
-        //   name: "Konsultacja psychologiczna pary",
-        //   price: 170,
-        //   minutes: 80,
-        // },
-        // {
-        //   name: "Sesja terapii par",
-        //   price: 170,
-        //   minutes: 80,
-        // },
-        // {
-        //   name: "Wizyta przez Skype",
-        //   price: 150,
-        //   minutes: 50,
-        // },
-        // {
-        //   name: "Wizyta dla par przez Skype",
-        //   price: 170,
-        //   minutes: 80,
-        // },
-      ],
-      [
-      //   {
-      //     name: "Konsultacja psychologiczna dziecka/nastolatka",
-      //     price: 150,
-      //     minutes: 50,
-      //   },
-      //   {
-      //     name: "Sesja psychoterapii indywidualnej dziecka/nastolatka",
-      //     price: 150,
-      //     minutes: 50,
-      //   },
-      //   {
-      //     name: "Wizyta przez Skype dziecka/nastolatka",
-      //     price: 150,
-      //     minutes: 50,
-      //   },
-      ],
-      [
-      //   {
-      //     name:
-      //       "Badanie psychologiczne dla kandydatów i kierowców zawodowych kategorii: C, C+E, C1, C1+E, D1, D1+E, D, D+E C, C+E",
-      //     price: 150,
-      //     minutes: 110,
-      //   },
-      //   {
-      //     name: "Badanie psychologiczne kierowcy pojazdów służbowych kat. B",
-      //     price: 100,
-      //     minutes: 110,
-      //   },
-      //   {
-      //     name: "Badanie psychologiczne operatorów wózków widłowych",
-      //     price: 100,
-      //     minutes: 110,
-      //   },
-      //   {
-      //     name: "Badanie psychologiczne osób pracujących na wysokościach",
-      //     price: 80,
-      //     minutes: 110,
-      //   },
-      //   {
-      //     name:
-      //       "Badanie psychologiczne w zakresie medycyny pracy na inne stanowiska pracy na podstawie skierowania od lekarza lub pracodawcy",
-      //     price: 100,
-      //     minutes: 110,
-      //   },
         {
           name: "Usługa testowa - stworzona do testowania systemu płatności",
           price: 1,
           minutes: 15,
+        },
+        {
+          name: "Konsultacja psychologiczna",
+          price: 150,
+          minutes: 50,
+        },
+        {
+          name: "Sesja psychoterapii indywidualnej",
+          price: 150,
+          minutes: 50,
+        },
+        {
+          name: "Konsultacja psychologiczna pary",
+          price: 170,
+          minutes: 80,
+        },
+        {
+          name: "Sesja terapii par",
+          price: 170,
+          minutes: 80,
+        },
+        {
+          name: "Wizyta przez Skype",
+          price: 150,
+          minutes: 50,
+        },
+        {
+          name: "Wizyta dla par przez Skype",
+          price: 170,
+          minutes: 80,
+        },
+      ],
+      [
+        {
+          name: "Konsultacja psychologiczna dziecka/nastolatka",
+          price: 150,
+          minutes: 50,
+        },
+        {
+          name: "Sesja psychoterapii indywidualnej dziecka/nastolatka",
+          price: 150,
+          minutes: 50,
+        },
+        {
+          name: "Wizyta przez Skype dziecka/nastolatka",
+          price: 150,
+          minutes: 50,
+        },
+      ],
+      [
+        {
+          name:
+            "Badanie psychologiczne dla kandydatów i kierowców zawodowych kategorii: C, C+E, C1, C1+E, D1, D1+E, D, D+E C, C+E",
+          price: 150,
+          minutes: 110,
+        },
+        {
+          name: "Badanie psychologiczne kierowcy pojazdów służbowych kat. B",
+          price: 100,
+          minutes: 110,
+        },
+        {
+          name: "Badanie psychologiczne operatorów wózków widłowych",
+          price: 100,
+          minutes: 110,
+        },
+        {
+          name: "Badanie psychologiczne osób pracujących na wysokościach",
+          price: 80,
+          minutes: 110,
+        },
+        {
+          name:
+            "Badanie psychologiczne w zakresie medycyny pracy na inne stanowiska pracy na podstawie skierowania od lekarza lub pracodawcy",
+          price: 100,
+          minutes: 110,
         },
       ],
     ],

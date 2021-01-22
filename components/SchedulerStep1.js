@@ -27,7 +27,9 @@ const SchedulerStep1 = ({
   const meetingTypes = types[selectedFieldIndex] || [];
   // const showPeopleCounter = selectedFieldIndex === 2 ? true : false;
 
-  const options = meetingTypes.map(({ name, price, minutes }, index) => {
+  const options = meetingTypes
+    .filter(({ name }) => name.indexOf("test") > 0)
+    .map(({ name, price, minutes }, index) => {
     const priceMod = price * numberOfPeople;
     const minutesMod = minutes + (numberOfPeople - 1) * 30;
 
