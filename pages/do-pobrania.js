@@ -25,7 +25,7 @@ const Downloads = () => {
         <section className="downloads">
           <h1>Materiały do pobrania</h1>
           <div className="downloads-wrap">
-            <div className="text-container">
+            {/* <div className="text-container">
               <h3>
                 Kwestionariusz do wypełnienia przed terapią dzieci/młodzieży:
               </h3>
@@ -44,7 +44,7 @@ const Downloads = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="text-container">
               <h3>Regulaminy:</h3>
               <ul>
