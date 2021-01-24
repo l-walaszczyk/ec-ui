@@ -79,7 +79,7 @@ const SchedulerStep1 = ({
           // />
           <h2>
             Rejestracja na wizyty z dziedziny <br />
-            psycholigii transportu i medycyny pracy
+            psychologii transportu i medycyny pracy
             <br />
             <br />
             <span>
