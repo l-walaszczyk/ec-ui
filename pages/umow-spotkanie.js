@@ -260,7 +260,7 @@ const Scheduler = () => {
         />
       </Head>
       <main>
-        <div className="test">
+        {/* <div className="test">
           System w fazie testów
           <br />
           Rejestracja pod nr tel.:
@@ -272,7 +272,7 @@ const Scheduler = () => {
           >
             {texts.home.contact.phone}
           </a>
-        </div>
+        </div> */}
         {SchedulerSteps[step]}
       </main>
     </Layout>

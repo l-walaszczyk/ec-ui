@@ -25,62 +25,82 @@ const SchedulerStep1 = ({
   }, []);
 
   const meetingTypes = types[selectedFieldIndex] || [];
-  // const showPeopleCounter = selectedFieldIndex === 2 ? true : false;
 
   const options = meetingTypes
     .filter(({ name }) => name.indexOf("test") > 0)
     .map(({ name, price, minutes }, index) => {
-    const priceMod = price * numberOfPeople;
-    const minutesMod = minutes + (numberOfPeople - 1) * 30;
+      const priceMod = price * numberOfPeople;
+      const minutesMod = minutes + (numberOfPeople - 1) * 30;
 
-    return (
-      <li key={index}>
-        <button
-          type="button"
-          className={`option${
-            selectedMeetingIndex === index ? " selected" : ""
-          }`}
-          onClick={() => {
-            setSelectedMeetingIndex(index);
-            setMeetingName(name);
-            setMeetingPrice(priceMod);
-            setMeetingDuration(minutesMod);
-            setSelectedDay(null);
-            setSelectedTime(null);
-          }}
-        >
-          <p>{name}</p>
-          <div className="details">
-            <span>
-              {`${
-                numberOfPeople > 1 ? "Łączny czas:" : "Czas trwania:"
-              } do ${minutesMod} minut`}
-            </span>
-            <span>
-              {`${
-                numberOfPeople > 1 ? "Łączny koszt" : "Koszt"
-              }: ${priceMod} zł`}
-            </span>
-          </div>
-        </button>
-      </li>
-    );
-  });
+      return (
+        <li key={index}>
+          <button
+            type="button"
+            className={`option${
+              selectedMeetingIndex === index ? " selected" : ""
+            }`}
+            onClick={() => {
+              setSelectedMeetingIndex(index);
+              setMeetingName(name);
+              setMeetingPrice(priceMod);
+              setMeetingDuration(minutesMod);
+              setSelectedDay(null);
+              setSelectedTime(null);
+            }}
+          >
+            <p>{name}</p>
+            <div className="details">
+              <span>
+                {`${
+                  numberOfPeople > 1 ? "Łączny czas:" : "Czas trwania:"
+                } do ${minutesMod} minut`}
+              </span>
+              <span>
+                {`${
+                  numberOfPeople > 1 ? "Łączny koszt" : "Koszt"
+                }: ${priceMod} zł`}
+              </span>
+            </div>
+          </button>
+        </li>
+      );
+    });
 
   return (
     <section className="scheduler">
       <div className="options-container">
-        {selectedFieldIndex === 2 && (
-          <PeopleCounter
-            numberOfPeople={numberOfPeople}
-            setNumberOfPeople={setNumberOfPeople}
-            setSelectedMeetingIndex={setSelectedMeetingIndex}
-            setSelectedDay={setSelectedDay}
-            setSelectedTime={setSelectedTime}
-          />
+        {selectedFieldIndex === 2 ? (
+          // <PeopleCounter
+          //   numberOfPeople={numberOfPeople}
+          //   setNumberOfPeople={setNumberOfPeople}
+          //   setSelectedMeetingIndex={setSelectedMeetingIndex}
+          //   setSelectedDay={setSelectedDay}
+          //   setSelectedTime={setSelectedTime}
+          // />
+          <h2>
+            Rejestracja na wizyty z dziedziny <br />
+            psycholigii transportu i medycyny pracy
+            <br />
+            <br />
+            <span>
+              jest aktualnie możliwa wyłącznie telefonicznie:
+              <br />
+              <br />
+              <a
+                className="row"
+                rel="noopener noreferrer"
+                href={`tel:${texts.home.contact.phone}`}
+              >
+                {texts.home.contact.phone}
+              </a>
+            </span>
+          </h2>
+        ) : (
+          <>
+            <h2>Wybierz rodzaj wizyty</h2>
+            <ul>{options}</ul>
+          </>
         )}
-        <h2>Wybierz rodzaj wizyty</h2>
-        <ul>{options}</ul>
       </div>
       <div className="button-container">
         <button type="button" className="nav" onClick={() => setStep(step - 1)}>
