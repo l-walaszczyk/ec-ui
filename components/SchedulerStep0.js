@@ -43,19 +43,22 @@ const SchedulerStep0 = ({
       <div className="options-container">
         <h2>
           Wybierz obszar, którego będzie dotyczyć spotkanie i naciśnij "dalej"
-          <br />
-          <span>
-            Możliwa także rejestracja pod nr tel.:
-            <br />
-            <a
-              className="row"
-              rel="noopener noreferrer"
-              href={`tel:${texts.home.contact.phone}`}
-            >
-              {texts.home.contact.phone}
-            </a>
-          </span>
         </h2>
+        <p>
+          Możliwa także rejestracja pod nr tel.:{" "}
+          <a
+            className="row"
+            rel="noopener noreferrer"
+            href={`tel:${texts.home.contact.phone}`}
+          >
+            {texts.home.contact.phone}
+          </a>
+        </p>
+        <p>
+          Z uwagi na sytuację związaną z COVID proszę o rezerwację wizyty online
+          Skype. Jeśli wyjątkowo potrzebna jest wizyta w gabinecie, proszę o
+          kontakt telefoniczny.
+        </p>
         <ul>{options}</ul>
       </div>
 

@@ -295,6 +295,11 @@ const texts = {
       ],
       [
         {
+          name: "Usługa testowa, Skype, dziecko - stworzona do testowania systemu płatności",
+          price: 1,
+          minutes: 15,
+        },
+        {
           name: "Konsultacja psychologiczna dziecka/nastolatka",
           price: 150,
           minutes: 50,
