@@ -45,7 +45,7 @@ const SchedulerStep0 = ({
           Wybierz obszar, którego będzie dotyczyć spotkanie i naciśnij "dalej"
         </h2>
         <p>
-          Możliwa także rejestracja pod nr tel.:{" "}
+          Możliwa także rejestracja pod nr tel.:<br/>
           <a
             className="row"
             rel="noopener noreferrer"
