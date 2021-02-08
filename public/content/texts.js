@@ -258,7 +258,7 @@ const texts = {
     types: [
       [
         {
-          name: "Usługa testowa - stworzona do testowania systemu płatności",
+          name: "Usługa testowa Skype - stworzona do testowania systemu płatności",
           price: 10,
           minutes: 15,
         },
