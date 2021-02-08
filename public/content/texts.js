@@ -259,7 +259,7 @@ const texts = {
       [
         {
           name: "Usługa testowa - stworzona do testowania systemu płatności",
-          price: 1,
+          price: 10,
           minutes: 15,
         },
         {
