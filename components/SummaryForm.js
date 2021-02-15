@@ -157,6 +157,11 @@ const SummaryForm = ({
         )
         .typeError("Rok musi być liczbą")
         .required("Pole wymagane");
+      initialValues.parent = false;
+      validationSchema.parent = Yup.boolean().oneOf(
+        [true],
+        "Wymagana zgoda rodzica/opiekuna"
+      );
       break;
 
     case 2:
@@ -423,6 +428,22 @@ const SummaryForm = ({
                 <ErrorMessage name="paymentMethod" component={ErrorHint} />
               </div>
             </>
+          )}
+
+          {selectedFieldIndex === 1 && (
+            <div className="form-field">
+              <label>
+                <Field type="checkbox" name="parent" />
+                <span>
+                  <span>
+                    Jestem rodzicem/opiekunem prawnym dziecka i wyrażam
+                    zgodę na wizytę{" "}
+                    {meetingName.includes(" Skype") ? "online" : "w gabinecie"}.
+                  </span>
+                </span>
+              </label>
+              <ErrorMessage name="parent" component={ErrorHint} />
+            </div>
           )}
 
           <div className="form-field">
