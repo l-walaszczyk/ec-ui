@@ -61,7 +61,9 @@ const Services1 = () => {
           {/* <div className="prices-wrap"> */}
           <div className="prices" ref={pricesRef}>
             <h2>Cennik</h2>
-            <PriceList types={texts.services.types[0].filter(({ name }) => name.indexOf("test") < 0)} />
+            <PriceList types={texts.services.types[0]
+              // .filter(({ name }) => name.indexOf("test") < 0)
+              } />
             <Button
               to={{
                 pathname: "/umow-spotkanie",

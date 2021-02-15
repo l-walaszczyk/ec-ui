@@ -257,11 +257,11 @@ const texts = {
     ],
     types: [
       [
-        {
-          name: "Usługa testowa Skype - stworzona do testowania systemu płatności",
-          price: 10,
-          minutes: 15,
-        },
+        // {
+        //   name: "Usługa testowa Skype - stworzona do testowania systemu płatności",
+        //   price: 10,
+        //   minutes: 15,
+        // },
         {
           name: "Konsultacja psychologiczna",
           price: 150,
@@ -294,11 +294,11 @@ const texts = {
         },
       ],
       [
-        {
-          name: "Usługa testowa, Skype, dziecko - stworzona do testowania systemu płatności",
-          price: 1,
-          minutes: 15,
-        },
+        // {
+        //   name: "Usługa testowa, Skype, dziecko - stworzona do testowania systemu płatności",
+        //   price: 1,
+        //   minutes: 15,
+        // },
         {
           name: "Konsultacja psychologiczna dziecka/nastolatka",
           price: 150,
