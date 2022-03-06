@@ -232,9 +232,7 @@ const texts = {
                   kierujący pojazdami kat. B w ramach obowiązków służbowych
                 </li>
                 <li>
-                  <strong>operatorzy maszyn</strong> budowlanych i
-                  konstrukcyjnych (np. wózków widłowych, koparek, ładowarek,
-                  osoby wykonujące prace na wysokościach i in.)
+                  operatorzy maszyn budowlanych i konstrukcyjnych (np. wózków widłowych, koparek, ładowarek, osoby wykonujące prace na wysokościach i in.)
                 </li>
               </ul>
             </>
