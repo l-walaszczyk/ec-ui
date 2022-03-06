@@ -328,6 +328,11 @@ const texts = {
           minutes: 110,
         },
         {
+          name: "Badanie widzenia zmierzchowego oraz reakcja na zjawisko olśnienia",
+          price: 30,
+          minutes: 50,
+        },
+        {
           name: "Badanie psychologiczne operatorów wózków widłowych",
           price: 100,
           minutes: 110,
